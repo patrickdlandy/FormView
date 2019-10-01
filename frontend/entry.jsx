@@ -6,5 +6,5 @@ import ReactDOM from 'react-dom';
 // import configureStore from './store/store';
 
 document.addEventListener("DOMContentLoaded", function() {
-  ReactDOM.render(<h1>FORMVIEW</h1>);
+  ReactDOM.render(<h1>FORMVIEW</h1>, document.getElementById('root'));
 });
