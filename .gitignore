@@ -50,3 +50,9 @@ node_modules/
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+
+# Additional Items included on fullstack setup guide:
+bundle.js
+bundle.js.map
+.DS_Store
+npm-debug.log
