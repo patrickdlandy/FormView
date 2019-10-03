@@ -1,7 +1,7 @@
-import { RECEIVE_CURRENT_USER } from "..actions/session";
-import { RECEIVE_SESSION_ERRORS } from "..actions/session";
+import { RECEIVE_CURRENT_USER } from "../actions/session_actions";
+import { RECEIVE_SESSION_ERRORS } from "../actions/session_actions";
 
-export const sessionErrorsReducer = function(state, action) {
+const sessionErrorsReducer = function(state = {}, action) {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_SESSION_ERRORS:
@@ -12,3 +12,5 @@ export const sessionErrorsReducer = function(state, action) {
       break;
   }
 }
+
+export default sessionErrorsReducer;
