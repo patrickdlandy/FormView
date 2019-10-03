@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
   window.logout = logout;
   window.signup = signup;
 
-  let store = configureStore;
+  let store = configureStore();
 
   window.getState = store.getState;
   window.dispatch = store.dispatch;
