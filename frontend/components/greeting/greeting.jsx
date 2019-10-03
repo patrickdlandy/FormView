@@ -15,14 +15,16 @@ const Greeting = function(props) {
     const personalGreeting = function() {
         return(
         <hgroup>
-            <h2>Hi, {currentUser.username}!</h2>
-            <button onClick={logout}>Log Out</button>
+            <h2>Hi, {props.currentUser.username}!</h2>
+            <button onClick={props.logout}>Log Out</button>
         </hgroup>
         )
     };
     if (props.currentUser) {
+        // debugger
         return personalGreeting();
     } else {
+        // console.log(props);
         return sessionLinks();
     }
 }
