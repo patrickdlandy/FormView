@@ -15,14 +15,6 @@
           "email": "<%= current_user.email %>"
         };
       </script>
-    <% else %>
-      <script>
-        window.currentUser = {
-            "id": "<%= "Test User" %>",
-            "username": "<%= "Test Username" %>",
-            "email": "<%= "test@test.net" %>"
-          };
-      </script>
     <% end %>
   </head>
 

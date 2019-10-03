@@ -3,6 +3,8 @@ import Greeting from './greeting';
 import { logout } from '../../actions/session_actions'
 
 export const mapStateToProps = function(state) {
+  console.log(state);
+  // console.log(state.entities);
   return ({
     currentUser: state.entities.users[state.session.id]
   })
@@ -14,4 +16,4 @@ export const mapDispatchToProps = function(dispatch) {
   })
 }
 
-export default connect(mapDispatchToProps, mapStateToProps)(Greeting);
+export default connect(mapStateToProps, mapDispatchToProps)(Greeting);
