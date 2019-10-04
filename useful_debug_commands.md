@@ -17,3 +17,9 @@ $.ajax({method: "DELETE", url: "api/session"})
         };
       </script>
 <% end %>
+
+Notes on html:
+
+jsx errors:
+
+from component inputs can have 'required' and type='email' to handle input errors.  Will work for blank inputs and incorrectly formatted emails.

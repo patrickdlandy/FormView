@@ -13,3 +13,38 @@
  *= require_tree .
  *= require_self
  */
+
+
+ * {
+    font-style: times;
+ }
+
+ .main-nav-container {
+     background-color: rgb(221, 99, 92);
+     font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+    text-align: center;
+ }
+
+ .main-container {
+    background-color: #E66760;
+    font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+    text-align: center;
+    height: 544px;
+}
+
+ .bottom-container {
+    background-color: #fff;
+    font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+    text-align: center;
+}
+
+ .general-main-header {
+    color: #fff;
+    font-size: 52px;
+    
+ }
+
+ .general-sub-header {
+    color: #3A3A3A;
+    text-align: center;
+ }
