@@ -27,9 +27,11 @@ class SignupForm extends React.Component {
         return (
             <ul>
                 {this.props.errors.map(function (error, i) {
+                    return(
                     <li key={`error-${i}`}>
                         {error}
                     </li>
+                    )
                 })}
             </ul>
         );
@@ -45,6 +47,7 @@ class SignupForm extends React.Component {
                         <br />
                         <label>Username:
                             <input type="text"
+                                required 
                                 value={this.state.username}
                                 onChange={this.update('username')}
                             />
@@ -52,6 +55,8 @@ class SignupForm extends React.Component {
                         <br/>
                         <label>Email Address:
                             <input type="text"
+                                required
+                                type='email' 
                                 value={this.state.email}
                                 onChange={this.update('email')}
                             />
@@ -59,6 +64,7 @@ class SignupForm extends React.Component {
                         <br />
                         <label>Password:
                             <input type="password"
+                                required
                                 value={this.state.password}
                                 onChange={this.update('password')}
                             />

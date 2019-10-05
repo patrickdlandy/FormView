@@ -30,7 +30,10 @@ export const login = function(user) {
   return function(dispatch) {
     return SessionApiUtil.login(user).then(
       function(payload) {
-        dispatch(receiveCurrentUser(payload));
+        dispatch(receiveCurrentUser(payload))
+      },
+      function(err) {
+        dispatch(receiveErrors(err.responseJSON))
       }
     );
   }
@@ -49,9 +52,12 @@ export const logout = function() {
 export const signup = function(user) {
   return function(dispatch) {
     return SessionApiUtil.signup(user).then(
-      function(payload) {
-        dispatch(receiveCurrentUser(payload));
-      }
+        function(payload) {
+          dispatch(receiveCurrentUser(payload))
+        },
+        function(err) {
+          dispatch(receiveErrors(err.responseJSON))
+        }
     );
   }
 }

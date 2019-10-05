@@ -23,3 +23,20 @@ Notes on html:
 jsx errors:
 
 from component inputs can have 'required' and type='email' to handle input errors.  Will work for blank inputs and incorrectly formatted emails.
+
+Bugs:
+
+My errors were not showing up as part of a login form react component. I had 
+written a simple session action creator to receive errors, an ansychronous 
+action creator to login a user and dispatch any errors, an errors reducer to 
+update the state, and a container for the login form component that maps the 
+errors in the state to the form props.  I used debuggers and console logs in all
+of the above components and the api controller to ensure that errors were 
+propely being handled.  I narrowed the issue down to two issues: my action creator and my login form itself. In the asynchronous action creator, I made an error in 
+writing the nested callback functions when dispatching actions on login (and the action to receive errors was never being dispatched). After this fix, the 
+state reflected signin errors, but my render method in the component simply
+did not display them. I determined that I left out a return statement, and the 
+errors appeared on my form.
+
+
+
