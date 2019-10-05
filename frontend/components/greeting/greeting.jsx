@@ -2,14 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const Greeting = function(props) {
-    const sessionLinks = function() {
-        return(
-        <nav className="main-nav-container">
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up!</Link>
-        </nav>
-        )
-    };
+    // const sessionLinks = function() {
+    //     return(
+    //     <nav className="main-nav-container">
+    //         <Link to="/login">Login</Link>
+    //         <Link to="/signup">Sign Up!</Link>
+    //     </nav>
+    //     )
+    // };
     const personalGreeting = function() {
         return(
         <hgroup>
@@ -23,7 +23,7 @@ const Greeting = function(props) {
         return personalGreeting();
     } else {
         // console.log(props);
-        return sessionLinks();
+        return null;
     }
 }
 

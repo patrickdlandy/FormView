@@ -20,9 +20,10 @@
  }
 
  .main-nav-container {
-     background-color: rgb(221, 99, 92);
-     font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
-    text-align: center;
+   background-color: rgb(221, 99, 92);
+   font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   text-align: center;
+   color: #fff;
  }
 
  .main-container {

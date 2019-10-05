@@ -14,7 +14,6 @@ import SplashContainer from "./splash/splash_container"
 const App = () => (
   <div>
     <header>
-    <h1>FormView!</h1>
     <GreetingContainer />
     </header>
     <Route exact path="/" component={SplashContainer} />
