@@ -10,14 +10,14 @@ const Splash = function(props) {
                 <h2>by Patrick Landy</h2>
                 <ul>
                     <li>
-                    <a href="https://github.com/patrickdlandy" class="">GITHUB</a>
+                        <a href="https://github.com/patrickdlandy" class="nav-link">GITHUB</a>
                     </li>
                     <li>
-                    <a href="https://github.com/patrickdlandy" class="">LINKEDIN</a>
+                        <a href="https://github.com/patrickdlandy" class="nav-link">LINKEDIN</a>
                     </li>
                 </ul>
-                <Link to="/login">LOGIN</Link>
                 <Link to="/signup">SIGN UP</Link>
+                <Link to="/login">LOGIN</Link>
             </nav>
             <main className="main-container">
                 <div>

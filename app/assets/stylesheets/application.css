@@ -42,10 +42,19 @@
  .general-main-header {
     color: #fff;
     font-size: 52px;
-    
  }
 
  .general-sub-header {
     color: #3A3A3A;
     text-align: center;
+ }
+
+ .nav-link {
+   color: #fff;
+   text-decoration: none;
+ }
+
+ .nav-link:hover {
+   color: #F6BB43;
+   text-decoration: none;
  }
