@@ -6,18 +6,23 @@ const Splash = function(props) {
         return(
             <div>
             <nav className="main-nav-container">
-                <h1>FormView</h1>
-                <h2>by Patrick Landy</h2>
+                <h1 className="nav-element">FormView by Patrick Landy</h1>
                 <ul>
-                    <li>
+                    <li className="nav-element">
                         <a href="https://github.com/patrickdlandy" class="nav-link">GITHUB</a>
                     </li>
-                    <li>
+                    <li className="nav-element">
                         <a href="https://github.com/patrickdlandy" class="nav-link">LINKEDIN</a>
                     </li>
                 </ul>
-                <Link to="/signup">SIGN UP</Link>
-                <Link to="/login">LOGIN</Link>
+                <ul>
+                    <li>   
+                        <Link to="/signup" className="signup-btn">SIGN UP</Link>
+                    </li>
+                    <li className="nav-element-right">
+                        <Link to="/login">LOGIN</Link>
+                    </li> 
+                </ul>
             </nav>
             <main className="main-container">
                 <div>

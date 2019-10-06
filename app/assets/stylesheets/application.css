@@ -16,14 +16,25 @@
 
 
  * {
-    font-style: times;
+    box-sizing: inherit;
+ }
+
+ div {
+    display: block;
  }
 
  .main-nav-container {
    background-color: rgb(221, 99, 92);
    font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
-   text-align: center;
+   text-align: left;
    color: #fff;
+   height: 5rem;
+   width: 100%;
+   position: relative;
+   display: block;
+   max-width: 77rem;
+   margin: auto;
+   padding: 0 1rem;
  }
 
  .main-container {
@@ -52,9 +63,61 @@
  .nav-link {
    color: #fff;
    text-decoration: none;
+   font-size: 1.0625rem;
+   font-weight: 400;
+   padding: 1.875rem 0;
+   margin-right: 1.875rem;
  }
 
  .nav-link:hover {
    color: #F6BB43;
    text-decoration: none;
  }
+
+.signup-btn {
+    /* vertical-align: middle; */
+    /* height: 2.625rem;
+    line-height: 2.47; */
+    font-size: 1.0625rem;
+   
+    top: 2px;
+    text-decoration: none;
+    color: #fff;
+    background-color: #2685C6;
+}
+
+.signup-btn:hover {
+   background-color: #99caec;
+}
+
+.nav-element {
+   display: inline-block;
+   vertical-align: top;
+   position: relative;
+   text-decoration: none;
+   margin-top: 1.0rem;
+   margin-right: 4.375rem;
+}
+
+.nav-element-right {
+   display: inline-block;
+   vertical-align: top;
+   position: relative;
+   right: 0;
+   text-decoration: none;
+   margin-top: 1.25rem;
+   margin-right: 4.375rem;
+}
+
+.logo-element {
+   margin-right: 4.375rem;
+   display: inline-block;
+}
+
+ul {
+   list-style-type: none;
+    padding: 0;
+    display: inline-block;
+}
+
+}
