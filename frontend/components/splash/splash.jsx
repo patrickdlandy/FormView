@@ -7,7 +7,7 @@ const Splash = function(props) {
             <div>
             <nav className="main-nav-container">
                 <h1 className="nav-element">FormView by Patrick Landy</h1>
-                <ul>
+                <ul className="nav-ul">
                     <li className="nav-element">
                         <a href="https://github.com/patrickdlandy" class="nav-link">GITHUB</a>
                     </li>
@@ -15,18 +15,18 @@ const Splash = function(props) {
                             <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" class="nav-link">LINKEDIN</a>
                     </li>
                 </ul>
-                <ul>
-                    <li>   
+                <ul className="nav-ul">
+                    <li className="nav-element">   
                         <Link to="/signup" className="signup-btn">SIGN UP</Link>
                     </li>
-                    <li className="nav-element-right">
-                        <Link to="/login">LOGIN</Link>
+                    <li className="nav-element">
+                        <Link to="/login" className="nav-link">LOGIN</Link>
                     </li> 
                 </ul>
             </nav>
             <main className="main-container">
                 <div>
-                    <h1 className="general-main-header">Build and Share Online Forms</h1>
+                    <h1 className="general-main-header">Build and share online forms</h1>
                     <div>
                         <Link to="/login">Login</Link>
                         <br/>

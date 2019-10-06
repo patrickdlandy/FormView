@@ -18,19 +18,10 @@
  * {
     box-sizing: inherit;
  }
-
- /* selectors */
-
- div {
-    display: block;
- }
-
+ 
  ul {
-   list-style-type: none;
-    padding: 0;
-    display: inline-block;
-}
-
+    margin: 0;
+ }
  /* large containers */
 
  .main-nav-container {
@@ -39,9 +30,10 @@
    text-align: left;
    color: #fff;
    height: 80px;
+   /* line-height: 8;  */
+   /* text-align: center; */
    width: 100%;
    position: relative;
-   display: block;
    margin: auto;
  }
 
@@ -72,6 +64,12 @@
 
  /* nav bar classes */
 
+ /* nav  list  */
+
+ .nav-ul {
+   display: inline-block;
+ }
+
  /*logo on left */
 
  .logo-element {
@@ -84,10 +82,11 @@
  .nav-link {
    color: #fff;
    text-decoration: none;
-   font-size: 1.0625rem;
-   font-weight: 400;
-   padding: 1.875rem 0;
+   font-size: 17px;
+   /* font-weight: 100; */
+   padding: 32px 0;
    margin-right: 1.875rem;
+   margin-left: 1.875rem;
  }
 
  .nav-link:hover {
@@ -112,23 +111,33 @@
    background-color: #99caec;
 }
 
+.login-link {
+   position: absolute;
+   right: 0;
+   top: 0;
+}
+
 
 .nav-element {
    display: inline-block;
    /* vertical-align: top; */
    position: relative;
+   vertical-align: middle;
    text-decoration: none;
-   margin-top: 1.0rem;
+   /* margin-top: 8px;
+   margin-bottom: 8px; */
    margin-right: 4.375rem;
 }
 
 .nav-element-right {
    display: inline-block;
    /* vertical-align: top; */
-   position: absolute;
-   right: 0;
+   /* position: absolute;
+   right: 0; */
+   position: relative;
+   vertical-align: middle;
    text-decoration: none;
-   margin-top: 1.25rem;
+   /* margin-top: 1.25rem; */
    margin-right: 4.375rem;
 }
 
