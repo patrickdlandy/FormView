@@ -19,22 +19,30 @@
     box-sizing: inherit;
  }
 
+ /* selectors */
+
  div {
     display: block;
  }
+
+ ul {
+   list-style-type: none;
+    padding: 0;
+    display: inline-block;
+}
+
+ /* large containers */
 
  .main-nav-container {
    background-color: rgb(221, 99, 92);
    font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
    text-align: left;
    color: #fff;
-   height: 5rem;
+   height: 80px;
    width: 100%;
    position: relative;
    display: block;
-   max-width: 77rem;
    margin: auto;
-   padding: 0 1rem;
  }
 
  .main-container {
@@ -50,6 +58,8 @@
     text-align: center;
 }
 
+/* headers */
+
  .general-main-header {
     color: #fff;
     font-size: 52px;
@@ -59,6 +69,17 @@
     color: #3A3A3A;
     text-align: center;
  }
+
+ /* nav bar classes */
+
+ /*logo on left */
+
+ .logo-element {
+   margin-right: 4.375rem;
+   display: inline-block;
+}
+
+ /* linkedin and github links in center */
 
  .nav-link {
    color: #fff;
@@ -74,12 +95,13 @@
    text-decoration: none;
  }
 
+ /* buttons on right side  */
+
 .signup-btn {
     /* vertical-align: middle; */
     /* height: 2.625rem;
     line-height: 2.47; */
     font-size: 1.0625rem;
-   
     top: 2px;
     text-decoration: none;
     color: #fff;
@@ -90,9 +112,10 @@
    background-color: #99caec;
 }
 
+
 .nav-element {
    display: inline-block;
-   vertical-align: top;
+   /* vertical-align: top; */
    position: relative;
    text-decoration: none;
    margin-top: 1.0rem;
@@ -101,22 +124,14 @@
 
 .nav-element-right {
    display: inline-block;
-   vertical-align: top;
-   position: relative;
+   /* vertical-align: top; */
+   position: absolute;
    right: 0;
    text-decoration: none;
    margin-top: 1.25rem;
    margin-right: 4.375rem;
 }
 
-.logo-element {
-   margin-right: 4.375rem;
-   display: inline-block;
-}
 
-ul {
-   list-style-type: none;
-    padding: 0;
-    display: inline-block;
-}
+
 
