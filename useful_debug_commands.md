@@ -38,5 +38,16 @@ state reflected signin errors, but my render method in the component simply
 did not display them. I determined that I left out a return statement, and the 
 errors appeared on my form.
 
+Add minimum width to left nav container to handle window size.
+
+new tab links.  Handle errors and style unti 4 pm.
+
+Next: 3 tables for form creation (no responses yet).
+
+2 components:
+
+1. form builder form
+2. form show
+
 
 

@@ -18,7 +18,11 @@ const Splash = function(props) {
                 <nav className="signup-btn-container">
                     <Link to="/signup" className="signup-btn">SIGN UP</Link>
                 </nav>
-                <Link to="/login" className="login-link">LOGIN</Link>
+                <Link to="/login" 
+                className="login-link" 
+                data-hover-replace="GRONK!"
+                data-original-text="LOGIN"
+                >LOGIN</Link>
             </nav>
             <main className="main-container">
                 <div>
