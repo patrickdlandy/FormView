@@ -7,3 +7,4 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 User.create(username: 'marvin', email: 'm@endofworld', password: '123456')
+Form.create(name: 'Tree Survey', user_id: '1', description: "This survey collects information about favorite trees.")
