@@ -30,7 +30,7 @@ class SignupForm extends React.Component {
             <ul>
                 {this.props.errors.map(function (error, i) {
                     return(
-                    <li key={`error-${i}`}>
+                    <li className="error" key={`error-${i}`}>
                         {error}
                     </li>
                     )
@@ -54,15 +54,12 @@ class SignupForm extends React.Component {
                             <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link">LINKEDIN</a>
                         </li>
                     </ul>
-                    <ul className="nav-ul">
-                        <li className="nav-element">
-                            <Link to="/login" className="nav-link">LOGIN</Link>
-                        </li>
-                    </ul>
+                    <Link to="/login"
+                        className="login-link"
+                    >LOGIN</Link>
                 </nav>
                 <form className="bottom-container" onSubmit={this.handleSubmit}>
                     <h2>Create powerful forms today.</h2>
-                    {this.renderErrors()}
                     <div>
                         <br />
                         <label>Username:
@@ -73,6 +70,8 @@ class SignupForm extends React.Component {
                             />
                         </label>
                         <br/>
+                        {this.renderErrors()}
+                        <br/>
                         <label>Email Address:
                             <input type="text"
                                 required
@@ -82,6 +81,7 @@ class SignupForm extends React.Component {
                             />
                         </label>
                         <br />
+                        <br/>
                         <label>Password:
                             <input type="password"
                                 required
