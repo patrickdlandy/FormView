@@ -30,7 +30,7 @@
    text-align: left;
    color: #fff;
    height: 80px;
-   /* line-height: 8;  */
+   line-height: 3.5; 
    /* text-align: center; */
    width: 100%;
    position: relative;
@@ -96,15 +96,31 @@
 
  /* buttons on right side  */
 
+.signup-btn-container {
+   position: absolute;
+   right: 4rem;
+   top: 0;
+   padding: 0 1rem;
+   text-align: left;
+   min-width: 5rem;
+   line-height: 5rem;
+   height: 5rem;
+ }
+
 .signup-btn {
-    /* vertical-align: middle; */
-    /* height: 2.625rem;
-    line-height: 2.47; */
+    vertical-align: middle;
+    position: relative;
+    height: 2.625rem;
+    line-height: 2.47;
+    padding: 0 0.75rem;
     font-size: 1.0625rem;
-    top: 2px;
+    /* top: 2px; */
     text-decoration: none;
     color: #fff;
     background-color: #2685C6;
+    margin: 0.5rem 0.75rem 1rem 0.75rem;
+    border: 1px solid #b1dcea;
+    display: inline-block;
 }
 
 .signup-btn:hover {
@@ -113,34 +129,35 @@
 
 .login-link {
    position: absolute;
-   right: 0;
-   top: 0;
+   /* vertical-align: middle; */
+   text-decoration: none;
+   top: 8px;
+   right: 8px;
+   color: #fff;
+   font-size: 17px;
+   /* padding: 32px 0; */
 }
 
 
 .nav-element {
    display: inline-block;
-   /* vertical-align: top; */
    position: relative;
    vertical-align: middle;
    text-decoration: none;
-   /* margin-top: 8px;
-   margin-bottom: 8px; */
    margin-left: 8px;
    margin-right: 4.375rem;
 }
 
-.nav-element-right {
+/* .nav-element-login {
    display: inline-block;
-   /* vertical-align: top; */
-   /* position: absolute;
-   right: 0; */
    position: relative;
+   right: 0;
    vertical-align: middle;
    text-decoration: none;
-   /* margin-top: 1.25rem; */
-   margin-right: 4.375rem;
-}
+   margin-right: 8px;
+   font-size: 17px;
+   padding: 32px 0;
+} */
 
 .nav-element-logo-link {
    text-decoration: none;
