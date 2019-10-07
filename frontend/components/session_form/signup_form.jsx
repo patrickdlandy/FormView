@@ -1,4 +1,6 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+
 
 class SignupForm extends React.Component {
     constructor(props) {
@@ -40,8 +42,26 @@ class SignupForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                   Sign Up for FormView:
+                <nav className="main-nav-container">
+                    <ul className="nav-element">
+                        <Link to="/" className="nav-element-logo-link">FormView by Patrick Landy</Link>
+                    </ul>
+                    <ul className="nav-ul">
+                        <li className="nav-element">
+                            <a href="https://github.com/patrickdlandy" class="nav-link">GITHUB</a>
+                        </li>
+                        <li className="nav-element">
+                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" class="nav-link">LINKEDIN</a>
+                        </li>
+                    </ul>
+                    <ul className="nav-ul">
+                        <li className="nav-element">
+                            <Link to="/login" className="nav-link">LOGIN</Link>
+                        </li>
+                    </ul>
+                </nav>
+                <form className="bottom-container" onSubmit={this.handleSubmit}>
+                    <h2>Create powerful forms today.</h2>
                     {this.renderErrors()}
                     <div>
                         <br />

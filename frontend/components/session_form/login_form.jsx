@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class LoginForm extends React.Component {
     constructor(props) {
@@ -40,8 +41,13 @@ class LoginForm extends React.Component {
     render() {
         return (
             <div>
-                <form onSubmit={this.handleSubmit}>
-                   Log In to FormView:
+                <div className="main-nav-container">
+                    <ul className="nav-element">
+                        <Link to="/" className="nav-element-logo-link">FormView by Patrick Landy</Link>
+                    </ul>
+                </div>
+                <form className="bottom-container" onSubmit={this.handleSubmit}>
+                    <h2 className="general-sub-header">Welcome to FormView</h2>
                     {this.renderErrors()}
                     <div>
                         <br />

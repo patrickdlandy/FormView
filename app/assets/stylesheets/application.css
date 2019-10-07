@@ -126,6 +126,7 @@
    text-decoration: none;
    /* margin-top: 8px;
    margin-bottom: 8px; */
+   margin-left: 8px;
    margin-right: 4.375rem;
 }
 
@@ -139,6 +140,11 @@
    text-decoration: none;
    /* margin-top: 1.25rem; */
    margin-right: 4.375rem;
+}
+
+.nav-element-logo-link {
+   text-decoration: none;
+   color: #fff;
 }
 
 
