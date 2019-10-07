@@ -9,10 +9,10 @@ const Splash = function(props) {
                 <h1 className="nav-element">FormView by Patrick Landy</h1>
                 <ul className="nav-ul">
                     <li className="nav-element">
-                        <a href="https://github.com/patrickdlandy" class="nav-link">GITHUB</a>
+                        <a href="https://github.com/patrickdlandy" className="nav-link">GITHUB</a>
                     </li>
                     <li className="nav-element">
-                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" class="nav-link">LINKEDIN</a>
+                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link">LINKEDIN</a>
                     </li>
                 </ul> 
                 <nav className="signup-btn-container">

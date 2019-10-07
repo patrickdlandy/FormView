@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+
 class LoginForm extends React.Component {
     constructor(props) {
         super(props);
@@ -21,6 +22,11 @@ class LoginForm extends React.Component {
         e.preventDefault();
         const user = Object.assign({}, this.state);
         this.props.processForm(user);
+    }
+
+    componentWillUnmount() {
+        // debugger
+        this.props.clearErrors();
     }
 
     renderErrors() {
