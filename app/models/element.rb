@@ -27,4 +27,11 @@ class Element < ApplicationRecord
         class_name: :Form
     )
 
+    has_many(
+        :options,
+        primary_key: :id,
+        foreign_key: :element_id,
+        class_name: :Option
+    )
+
 end

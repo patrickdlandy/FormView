@@ -9,3 +9,5 @@
 User.create(username: 'marvin', email: 'm@endofworld', password: '123456')
 Form.create(name: 'Tree Survey', user_id: 1, description: "This survey collects information about favorite trees.")
 Element.create(title: 'Question 1', form_id: 1, body: "What is your favorite tree?", order: 1, element_type: "Multiple Choice")
+Option.create(title: 'A', element_id: 1, body: "The Larch", order: 1, option_type: "Multiple Choice")
+Option.create(title: 'B', element_id: 1, body: "The Birch", order: 2, option_type: "Multiple Choice")
