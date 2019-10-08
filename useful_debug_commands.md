@@ -49,5 +49,20 @@ Next: 3 tables for form creation (no responses yet).
 1. form builder form
 2. form show
 
+Demo login:
+
+log in to seeded user's form index page with button to create new form.
+
+This is identical to normal log in except that it uses credentials in the seed for demo.
+
+To get all forms by a user, use helper method "current_user" and associations to display all forms.
+
+
+10/8 thoughts
+
+I am currently writing the jbuilder files for my Forms controller. These allow the controller methods to return json objects in a structure that I have control over. These json objects
+
+
+
 
 
