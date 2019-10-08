@@ -28,3 +28,13 @@ export const fetchForms = function() {
         );
     }
 }
+
+export const fetchForm = function(id) {
+    return function (dispatch) {
+        return FormApiUtil.fetchForm(id).then(
+            function (payload) {
+                dispatch(receiveForm(payload));
+            }
+        );
+    }
+}
