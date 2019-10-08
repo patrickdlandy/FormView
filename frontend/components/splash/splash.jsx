@@ -43,7 +43,26 @@ const Splash = function(props) {
             </div>
         )
     } else {
-        return null;
+        return(
+            <div>
+                <nav className="main-nav-container">
+                    <h1 className="nav-element">FormView by Patrick Landy</h1>
+                    <ul className="nav-ul">
+                        <li className="nav-element">
+                            <a href="https://github.com/patrickdlandy" className="nav-link" target="_blank">GITHUB</a>
+                        </li>
+                        <li className="nav-element">
+                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
+                        </li>
+                    </ul>
+                </nav>
+                <main className="bottom-container">
+                    <div>
+                        <h1 className="general-sub-header">Form Manager</h1>
+                    </div>
+                </main>
+            </div>
+        );
     }
 }
 

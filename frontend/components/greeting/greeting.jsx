@@ -12,10 +12,12 @@ const Greeting = function(props) {
     // };
     const personalGreeting = function() {
         return(
-        <hgroup>
-            <h2>Hi, {props.currentUser.username}!</h2>
-            <button onClick={props.logout}>Log Out</button>
-        </hgroup>
+            <div>
+                <hgroup>
+                    <h2>Hi, {props.currentUser.username}!</h2>
+                    <button onClick={props.logout}>Log Out</button>
+                </hgroup>
+            </div>
         )
     };
     if (props.currentUser) {
