@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_220030) do
+ActiveRecord::Schema.define(version: 2019_10_07_234916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,9 +20,9 @@ ActiveRecord::Schema.define(version: 2019_10_07_220030) do
     t.integer "form_id", null: false
     t.string "body", null: false
     t.integer "order", null: false
-    t.string "type", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "element_type", null: false
     t.index ["form_id"], name: "index_elements_on_form_id"
   end
 

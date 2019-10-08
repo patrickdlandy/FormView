@@ -23,5 +23,12 @@ class Form < ApplicationRecord
         class_name: :User
     )
 
+    has_many(
+        :elements,
+        primary_key: :id,
+        foreign_key: :form_id,
+        class_name: :Element
+    )
+
 
 end
