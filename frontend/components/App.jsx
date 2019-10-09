@@ -13,9 +13,6 @@ import SignupFormContainer from "./session_form/signup_form_container";
 import SplashContainer from "./splash/splash_container"
 const App = () => (
   <div>
-    <header>
-    <GreetingContainer />
-    </header>
     <Switch>
       <Route exact path="/" component={SplashContainer} />
       <AuthRoute exact path="/login" component={LoginFormContainer} />

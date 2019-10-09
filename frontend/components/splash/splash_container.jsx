@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import Splash from './splash';
 import  { fetchForms } from '../../actions/form_actions'
+import { logout } from '../../actions/session_actions';
 
 export const mapStateToProps = function(state) {
     return ({
@@ -11,7 +12,8 @@ export const mapStateToProps = function(state) {
 
 export const mapDispatchToProps = function(dispatch) {
     return ({
-        fetchForms: () => dispatch(fetchForms())
+        fetchForms: () => dispatch(fetchForms()),
+        logout: () => dispatch(logout())
     })
 }
 

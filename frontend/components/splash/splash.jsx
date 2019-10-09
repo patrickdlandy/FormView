@@ -15,7 +15,7 @@ class Splash extends React.Component {
 
     renderFormList() {
         if (this.props.forms.length > 0) {
-            console.log(this.props.forms);
+            // console.log(this.props.forms);
             return(
                 <div>
                     {this.props.forms.map(function(form, i) {
@@ -86,6 +86,12 @@ class Splash extends React.Component {
                                 <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
                             </li>
                         </ul>
+                        <ul className="username-link">
+                            <li>
+                                <h2>{this.props.currentUser.username}</h2>
+                                <button onClick={this.props.logout}>Log Out</button>
+                            </li>
+                        </ul>
                     </nav>
                     <main className="bottom-container">
                         <div>
@@ -98,6 +104,8 @@ class Splash extends React.Component {
         }
     }
 }
+
+//Old splash (pre-react component)
 
 // const renderForms = function(props) {
     //props.fetchForms();
