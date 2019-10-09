@@ -13,6 +13,10 @@ class Splash extends React.Component {
         }
     }
 
+    componentWillUnmount() {
+        this.props.clearForms();
+    }
+
     renderFormList() {
         if (this.props.forms.length > 0) {
             // console.log(this.props.forms);
@@ -22,6 +26,9 @@ class Splash extends React.Component {
                         return (
                             <li className="" key={`form-${i}`}>
                                 {form.name}
+                                <div>
+                                    {form.description}
+                                </div>
                             </li>
                         )
                     })}

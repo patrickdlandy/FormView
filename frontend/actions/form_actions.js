@@ -2,6 +2,7 @@ import * as FormApiUtil from '../util/form_api_util';
 
 export const RECEIVE_FORMS = "RECEIVE_FORMS";
 export const RECEIVE_FORM = "RECEIVE_FORM";
+export const CLEAR_FORMS = "CLEAR_FORMS";
 
 export const receiveForm = function(form) {
     return({
@@ -14,6 +15,12 @@ export const receiveForms = function(forms) {
     return({
         type: RECEIVE_FORMS,
         forms: forms
+    })
+}
+
+export const clearForms = function() {
+    return({
+        type: CLEAR_FORMS,
     })
 }
 
@@ -38,3 +45,11 @@ export const fetchForm = function(id) {
         );
     }
 }
+
+// export const clearForms = function() {
+//     return function(dispatch) {
+//         return function() {
+//             dispatch(clearForms());
+//         }
+//     }
+// }
