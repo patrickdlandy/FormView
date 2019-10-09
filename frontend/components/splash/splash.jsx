@@ -29,6 +29,9 @@ class Splash extends React.Component {
                                 <div>
                                     {form.description}
                                 </div>
+                                <div>
+                                    <Link to={`/forms/${form.id}`}>View Form</Link>
+                                </div>
                             </li>
                         )
                     })}
@@ -95,7 +98,7 @@ class Splash extends React.Component {
                         </ul>
                         <ul className="username-link">
                             <li>
-                                <h2>{this.props.currentUser.username + " "}&#x25BC;</h2>
+                                <h2>{this.props.currentUser.username + " ⌄"}</h2>
                             </li>
                             <ul className="dropdown">
                                 <li>

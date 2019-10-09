@@ -2,9 +2,11 @@ import { connect } from 'react-redux';
 import FormShow from './form_show';
 
 export const mapStateToProps = function(state, ownProps) {
+    const formId = parseInt(ownProps.match.params.formId);
     return({
         currentUser: state.entities.users[state.session.id],
-        forms: state.entities.forms
+        formId: formId,
+        form: state.entities.forms[formId]
     })
 }
 

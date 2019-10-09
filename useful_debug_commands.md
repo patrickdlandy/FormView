@@ -61,7 +61,9 @@ To get all forms by a user, use helper method "current_user" and associations to
 10/8 thoughts
 
 I am currently writing the jbuilder files for my Forms controller. These allow the controller methods to return json objects in a structure that I have control over. These json objects
+ SOLID TRIANGLE UNICODE
 
+ &#x25BC;
 
 
 
