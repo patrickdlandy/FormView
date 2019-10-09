@@ -45,11 +45,3 @@ export const fetchForm = function(id) {
         );
     }
 }
-
-// export const clearForms = function() {
-//     return function(dispatch) {
-//         return function() {
-//             dispatch(clearForms());
-//         }
-//     }
-// }
