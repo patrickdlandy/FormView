@@ -8,17 +8,36 @@ const Auth = function({ component: Component, path, loggedIn, exact }) {
             path={path}
             exact={exact}
             render={function(props) {
-                    if (!loggedIn) {
-                        return(
-                            <Component {...props} />
-                        )
-                    } else {
-                        return(
-                            <Redirect to="/" />
-                        )
-                    }
+                if (!loggedIn) {
+                    return(
+                        <Component {...props} />
+                    )
+                } else {
+                    return(
+                        <Redirect to="/" />
+                    )
                 }
-            }
+            }}
+        />
+    );
+}
+
+const Protected = function({ component: Component, path, loggedIn, exact }) {
+    return(
+        <Route 
+            path={path}
+            exact={exact}
+            render={function (props) {
+                if (loggedIn) {
+                    return (
+                        <Component {...props} />
+                    )
+                } else {
+                    return (
+                        <Redirect to="/login" />
+                    )
+                }
+            }}
         />
     );
 }
@@ -32,4 +51,11 @@ export const AuthRoute = withRouter(
         mapStateToProps,
         null
     )(Auth)
+);
+
+export const ProtectedRoute = withRouter(
+    connect(
+        mapStateToProps,
+        null
+    )(Protected)
 );

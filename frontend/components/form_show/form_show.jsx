@@ -15,7 +15,7 @@ class FormShow extends React.Component {
 
     render() {
         // console.log(this.props);
-        if (this.props.currentUser) {
+        // if (this.props.currentUser) {
             return(
                 <div>
                     <nav className="main-nav-container">
@@ -52,11 +52,9 @@ class FormShow extends React.Component {
                     </main>
                 </div>
             );
-        } else {
-            return (
-                <Redirect to="/" />
-            )
-        }
+        // } else {
+        //     return null;
+        // }
     }
 
 }
