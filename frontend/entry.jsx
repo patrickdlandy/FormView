@@ -16,10 +16,7 @@ document.addEventListener("DOMContentLoaded", function() {
   window.fetchForms = fetchForms;
   window.fetchForm = fetchForm;
 
-  let store = configureStore();
-
-  window.getState = store.getState;
-  window.dispatch = store.dispatch;
+  let store;
 
   //handle user defined on window
   if (window.currentUser) {
@@ -34,6 +31,9 @@ document.addEventListener("DOMContentLoaded", function() {
   } else {
     store = configureStore();
   }
+
+  window.getState = store.getState;
+  window.dispatch = store.dispatch;
 
   ReactDOM.render(<Root store={store} />, document.getElementById('root'));
 });

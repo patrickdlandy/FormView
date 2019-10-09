@@ -5,7 +5,7 @@ import  { fetchForms } from '../../actions/form_actions'
 export const mapStateToProps = function(state) {
     return ({
         currentUser: state.entities.users[state.session.id],
-        forms: state.entities.forms
+        forms: Object.values(state.entities.forms)
     })
 }
 
