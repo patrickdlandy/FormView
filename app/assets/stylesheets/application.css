@@ -185,6 +185,27 @@
    font-size: 17px;
 }
 
+.dropdown {
+   display: none;
+   position: absolute;
+   background: white;
+   cursor: pointer;
+   width: 100px;
+   top: 50px;
+}
+
+.dropdown-link-item {
+   text-decoration: none;
+   color: #3A3A3A;
+}
+
+.username-link:hover .dropdown {
+   display: flex;
+   flex-direction: column;
+   text-decoration: none;
+   color: #3A3A3A;
+}
+
 
 
 

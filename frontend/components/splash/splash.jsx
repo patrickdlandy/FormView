@@ -88,9 +88,19 @@ class Splash extends React.Component {
                         </ul>
                         <ul className="username-link">
                             <li>
-                                <h2>{this.props.currentUser.username}</h2>
-                                <button onClick={this.props.logout}>Log Out</button>
+                                <h2>{this.props.currentUser.username + " "}&#x25BC;</h2>
                             </li>
+                            <ul className="dropdown">
+                                <li>
+                                    <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
+                                </li>
+                                <li>
+                                    <a href="https://github.com/patrickdlandy" className="dropdown-link-item" target="_blank">Github</a>
+                                </li>
+                                <li>
+                                    <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="dropdown-link-tem" target="_blank">LinkedIn</a>
+                                </li>
+                            </ul>
                         </ul>
                     </nav>
                     <main className="bottom-container">
