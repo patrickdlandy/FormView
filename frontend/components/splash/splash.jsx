@@ -1,6 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+const renderForms = function(props) {
+    //props.fetchForms();
+    // return(
+    //     <div>
+    //         {props.forms.map( function(form, i){
+    //             return (
+    //                 <li className="" key={`form-${i}`}>
+    //                     {form.name}
+    //                 </li>
+    //             )
+    //         })}
+    //     </div>
+    // );
+}
+
 const Splash = function(props) {
     if (!props.currentUser) {
         return(
@@ -59,6 +74,7 @@ const Splash = function(props) {
                 <main className="bottom-container">
                     <div>
                         <h1 className="general-sub-header">Form Manager</h1>
+                        {renderForms(props)}
                     </div>
                 </main>
             </div>
