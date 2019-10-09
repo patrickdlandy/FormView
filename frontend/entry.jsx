@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom';
 import Root from './components/root';
 import configureStore from './store/store';
 import  { login, logout, signup } from './actions/session_actions';
-import { fetchForms, fetchForm } from './actions/form_actions';
+import { fetchForms, fetchForm, createForm } from './actions/form_actions';
 
 document.addEventListener("DOMContentLoaded", function() {
 
@@ -15,6 +15,7 @@ document.addEventListener("DOMContentLoaded", function() {
   window.signup = signup;
   window.fetchForms = fetchForms;
   window.fetchForm = fetchForm;
+  window.createForm = createForm;
 
   let store;
 

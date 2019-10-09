@@ -115,6 +115,9 @@ class Splash extends React.Component {
                     </nav>
                     <main className="bottom-container">
                         <div>
+                            <Link to="/new">Form Builder</Link>
+                        </div>
+                        <div>
                             <h1 className="general-sub-header">Form Manager</h1>
                         </div>
                         {this.renderFormList()}

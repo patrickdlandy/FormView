@@ -65,6 +65,10 @@ I am currently writing the jbuilder files for my Forms controller. These allow t
 
  &#x25BC;
 
+ this successfully created a form in the terminal:
+
+ dispatch(createForm({form: { name: "Test Survey 2", user_id: 1, description: "Testing testing 1 2 3" }}))
+
 
 
 

@@ -12,6 +12,7 @@ import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import SplashContainer from "./splash/splash_container";
 import FormShowContainer from "./form_show/form_show_container";
+import FormCreateContainer from "./form_create/form_create_container";
 const App = () => (
   <div>
     <Switch>
@@ -19,6 +20,7 @@ const App = () => (
       <AuthRoute exact path="/login" component={LoginFormContainer} />
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/forms/:formId" component={FormShowContainer} />
+      <ProtectedRoute path="/new" component={FormCreateContainer} />
     </Switch>
   </div>
 );

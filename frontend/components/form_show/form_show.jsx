@@ -32,7 +32,7 @@ class FormShow extends React.Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         return(
             <div>
                 <nav className="main-nav-container">
