@@ -85,11 +85,9 @@ class Splash extends React.Component {
                     <div className="glyptodon-image-container">
                         <img src={window.glyptodon} alt="Hi there! I'm a friendly form-building glyptodon!" />
                     </div>
-                    <div>
-                        <Link to="/login">Login</Link>
-                        <br/>
-                        <Link to="/signup">Sign Up!</Link>
-                        <br/>
+                    <div className="center-button-container">
+                        <Link to="/login" className="center-left-button">LOGIN</Link>
+                        <Link to="/signup" className="center-right-button">SIGN UP</Link>
                     </div>
                 </main>
                 <div className="bottom-container">

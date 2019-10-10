@@ -65,6 +65,44 @@
     text-align: center;
  }
 
+ /* splash buttons */
+
+ .center-button-container {
+    margin-top: 2.5rem;
+    max-width: 80%;
+    margin: 1.5rem auto 0;
+ }
+
+ .center-left-button {
+    background-color: #69C5E4;
+    border-color: #B7E3F2;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    margin: 0.5rem 0.75rem 1rem 0.75rem;
+    border: 1px solid #b1dcea;
+ }
+
+ .center-left-button:hover {
+    -webkit-filter: brightness(110%);
+    cursor: pointer;
+ }
+
+ .center-right-button {
+    background-color: #25D670;
+    border-color: #6AF26E;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    margin: 0.5rem 0.75rem 1rem 0.75rem;
+    border: 1px solid #6AF26E;
+ }
+
+ .center-right-button:hover {
+    -webkit-filter: brightness(110%);
+    cursor: pointer;
+ }
+
  /* nav bar classes */
 
  /* nav  list  */
@@ -155,16 +193,6 @@
    margin-right: 4.375rem;
 }
 
-/* .nav-element-login {
-   display: inline-block;
-   position: relative;
-   right: 0;
-   vertical-align: middle;
-   text-decoration: none;
-   margin-right: 8px;
-   font-size: 17px;
-   padding: 32px 0;
-} */
 
 .nav-element-logo-link {
    text-decoration: none;
