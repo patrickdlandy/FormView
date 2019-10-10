@@ -1,12 +1,13 @@
 import { connect } from 'react-redux';
 import Splash from './splash';
 import  { fetchForms, clearForms } from '../../actions/form_actions'
-import { logout } from '../../actions/session_actions';
+import { login, logout } from '../../actions/session_actions';
 
 export const mapStateToProps = function(state) {
     return ({
         currentUser: state.entities.users[state.session.id],
-        forms: Object.values(state.entities.forms)
+        forms: Object.values(state.entities.forms),
+        demoUser: { username: "marvin", password: "123456" }
     })
 }
 
@@ -14,7 +15,8 @@ export const mapDispatchToProps = function(dispatch) {
     return ({
         fetchForms: () => dispatch(fetchForms()),
         logout: () => dispatch(logout()),
-        clearForms: () => dispatch(clearForms())
+        clearForms: () => dispatch(clearForms()),
+        login: (user) => dispatch(login(user))
     })
 }
 

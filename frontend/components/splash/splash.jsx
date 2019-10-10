@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class Splash extends React.Component {
     constructor(props) {
         super(props);
         this.renderFormList = this.renderFormList.bind(this);
+        this.loginDemoUser = this.loginDemoUser.bind(this);
     }
 
     componentDidMount() {
@@ -15,6 +16,12 @@ class Splash extends React.Component {
 
     componentWillUnmount() {
         this.props.clearForms();
+    }
+
+    loginDemoUser() {
+        let demoUser = this.props.demoUser;
+        this.props.login(demoUser);
+        this.props.history.push("/");
     }
 
     renderFormList() {
@@ -86,7 +93,7 @@ class Splash extends React.Component {
                         <img src={window.glyptodon} alt="Hi there! I'm a friendly form-building glyptodon!" />
                     </div>
                     <div className="center-button-container">
-                        <Link to="/login" className="center-left-button">LOGIN</Link>
+                        <Link to="/" className="center-left-button" onClick={this.loginDemoUser}>DEMO</Link>
                         <Link to="/signup" className="center-right-button">SIGN UP</Link>
                     </div>
                 </main>
@@ -226,4 +233,4 @@ class Splash extends React.Component {
 //     }
 // }
 
-export default Splash;
+export default withRouter(Splash);
