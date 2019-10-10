@@ -6,6 +6,11 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+User.destroy_all
+Form.destroy_all
+Element.destroy_all
+Option.destroy_all
+
 User.create(username: 'marvin', email: 'm@endofworld', password: '123456')
 Form.create(name: 'Tree Survey', user_id: 1, description: "This survey collects information about favorite trees.")
 Element.create(title: 'Question 1', form_id: 1, body: "What is your favorite tree?", order: 1, element_type: "Multiple Choice")
