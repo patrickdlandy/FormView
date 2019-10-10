@@ -60,10 +60,13 @@ class SignupForm extends React.Component {
                 </nav>
                 <form className="bottom-container" onSubmit={this.handleSubmit}>
                     <h2>Create powerful forms today.</h2>
-                    <div>
+                    <br/>
+                    <div className="login-form-container">
                         <br />
                         <label>Username:
+                            <br/>
                             <input type="text"
+                                className="login-text-box"
                                 required 
                                 value={this.state.username}
                                 onChange={this.update('username')}
@@ -73,7 +76,9 @@ class SignupForm extends React.Component {
                         {this.renderErrors()}
                         <br/>
                         <label>Email Address:
+                            <br/>
                             <input type="text"
+                                className="login-text-box"
                                 required
                                 type='email' 
                                 value={this.state.email}
@@ -83,14 +88,17 @@ class SignupForm extends React.Component {
                         <br />
                         <br/>
                         <label>Password:
+                            <br/>
                             <input type="password"
+                                className="login-text-box"
                                 required
                                 value={this.state.password}
                                 onChange={this.update('password')}
                             />
                         </label>
                         <br />
-                        <input type="submit" value={this.props.formType} />
+                        <br/>
+                        <input type="submit" className="login-page-button" value="SIGN UP" />
                     </div>
                 </form>
             </div>
