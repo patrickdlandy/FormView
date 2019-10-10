@@ -213,11 +213,12 @@
 .glyptodon-image-container {
    position: absolute;
    right: -20px;
-   bottom: 250px;
+   top: 355px;
 }
 
 .glyptodon-image-container img {
    width: 400px;
+   transform: rotate(15deg);
 }
 
 .cloud-img-container-upper-left {

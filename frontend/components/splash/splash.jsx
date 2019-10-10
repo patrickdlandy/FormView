@@ -66,32 +66,30 @@ class Splash extends React.Component {
                     >LOGIN</Link>
                 </nav>
                 <main className="main-container">
+                    <div className="cloud-img-container-upper-left">
+                        <img src={window.cloud} className="cloud-img" alt="" />
+                    </div>
+                    <div className="cloud-img-container-upper-right">
+                        <img src={window.cloud} className="cloud-img" alt="" />
+                    </div>
+                    <div className="cloud-img-container-lower-left">
+                        <img src={window.cloud} className="cloud-img" alt="" />
+                    </div>
+                    <div className="cloud-img-container-lower-right">
+                        <img src={window.cloud} className="cloud-img" alt="" />
+                    </div>
+                    <br/>
+                    <br/>
+                    <br/>
+                    <h1 className="general-main-header">Build online survey forms</h1>
+                    <div className="glyptodon-image-container">
+                        <img src={window.glyptodon} alt="Hi there! I'm a friendly form-building glyptodon!" />
+                    </div>
                     <div>
-                        <div className="cloud-img-container-upper-left">
-                            <img src={window.cloud} className="cloud-img" alt="" />
-                        </div>
-                        <div className="cloud-img-container-upper-right">
-                            <img src={window.cloud} className="cloud-img" alt="" />
-                        </div>
-                        <div className="cloud-img-container-lower-left">
-                            <img src={window.cloud} className="cloud-img" alt="" />
-                        </div>
-                        <div className="cloud-img-container-lower-right">
-                            <img src={window.cloud} className="cloud-img" alt="" />
-                        </div>
+                        <Link to="/login">Login</Link>
                         <br/>
+                        <Link to="/signup">Sign Up!</Link>
                         <br/>
-                        <br/>
-                        <h1 className="general-main-header">Build online survey forms</h1>
-                        <div className="glyptodon-image-container">
-                            <img src={window.glyptodon} alt="Hi there! I'm a friendly form-building glyptodon!" />
-                        </div>
-                        <div>
-                            <Link to="/login">Login</Link>
-                            <br/>
-                            <Link to="/signup">Sign Up!</Link>
-                            <br/>
-                        </div>
                     </div>
                 </main>
                 <div className="bottom-container">
