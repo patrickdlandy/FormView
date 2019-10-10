@@ -18,9 +18,30 @@ class FormCreate extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        // debugger
+        this.props.clearFormErrors();
+    }
+
     handleSubmit(e) {
         e.preventDefault();
         this.props.createForm({form: this.state});
+        //possibly .then redirect here?? url push??
+    }
+
+    renderErrors() {
+        //console.log(this.props.errors);
+        return (
+            <ul>
+                {this.props.errors.map(function (error, i) {
+                    return (
+                        <li className="error" key={`error-${i}`}>
+                            {error}
+                        </li>
+                    );
+                })}
+            </ul>
+        );
     }
     
     render() {
@@ -63,6 +84,7 @@ class FormCreate extends React.Component {
                 <label>Name:</label>
                 <input type="text" value={this.state.name} onChange={this.update("name")}/>
                 <br/>
+                {this.renderErrors()}
                 <label>Description:</label>
                 <input type="text" value={this.state.description} onChange={this.update("description")}/>
                 <br/>

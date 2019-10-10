@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FormCreate from './form_create';
-import { createForm }  from '../../actions/form_actions';
+import { createForm, clearFormErrors }  from '../../actions/form_actions';
 import { logout } from '../../actions/session_actions';
 
 
@@ -11,14 +11,16 @@ export const mapStateToProps = function (state, ownProps) {
             name: "",
             user_id: state.session.id,
             description: ""
-        }
+        },
+        errors: state.errors.forms
     })
 }
 
 export const mapDispatchToProps = function (dispatch) {
     return ({
        createForm: (form) => dispatch(createForm(form)),
-       logout: () => dispatch(logout())
+       logout: () => dispatch(logout()),
+       clearFormErrors: () => dispatch(clearFormErrors())
     })
 }
 
