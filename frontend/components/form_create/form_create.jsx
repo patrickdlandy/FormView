@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, withRouter } from 'react-router-dom';
 
 class FormCreate extends React.Component {
     constructor(props) {
@@ -23,10 +23,26 @@ class FormCreate extends React.Component {
         this.props.clearFormErrors();
     }
 
+    // redirectOnSave() {
+    //     return(
+    //         <Redirect to="/"/>
+    //     )
+    // }
+
+    navToShow() {
+        const url = '/';
+        this.props.history.push(url);
+    }
+
     handleSubmit(e) {
         e.preventDefault();
-        this.props.createForm({form: this.state});
-        //possibly .then redirect here?? url push??
+        // debugger
+        let myhistory = this.props.history;
+        this.props.createForm({form: this.state}).then(() => {
+            // debugger
+            myhistory.push("/")
+        });
+        //this.navToShow()
     }
 
     renderErrors() {
@@ -88,11 +104,11 @@ class FormCreate extends React.Component {
                 <label>Description:</label>
                 <input type="text" value={this.state.description} onChange={this.update("description")}/>
                 <br/>
-                <button onClick={this.handleSubmit}>Create!</button>
+                <input type="submit" value="Create!"/>
             </form>
         </div>
         );
     }
 }
 
-export default FormCreate;
+export default withRouter(FormCreate);
