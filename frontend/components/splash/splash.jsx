@@ -67,11 +67,30 @@ class Splash extends React.Component {
                 </nav>
                 <main className="main-container">
                     <div>
-                        <h1 className="general-main-header">Build and share online forms</h1>
+                        <div className="cloud-img-container-upper-left">
+                            <img src={window.cloud} className="cloud-img" alt="" />
+                        </div>
+                        <div className="cloud-img-container-upper-right">
+                            <img src={window.cloud} className="cloud-img" alt="" />
+                        </div>
+                        <div className="cloud-img-container-lower-left">
+                            <img src={window.cloud} className="cloud-img" alt="" />
+                        </div>
+                        <div className="cloud-img-container-lower-right">
+                            <img src={window.cloud} className="cloud-img" alt="" />
+                        </div>
+                        <br/>
+                        <br/>
+                        <br/>
+                        <h1 className="general-main-header">Build online survey forms</h1>
+                        <div className="glyptodon-image-container">
+                            <img src={window.glyptodon} alt="Hi there! I'm a friendly form-building glyptodon!" />
+                        </div>
                         <div>
                             <Link to="/login">Login</Link>
                             <br/>
                             <Link to="/signup">Sign Up!</Link>
+                            <br/>
                         </div>
                     </div>
                 </main>

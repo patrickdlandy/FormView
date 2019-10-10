@@ -42,7 +42,8 @@
     background-color: #E66760;
     font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
     text-align: center;
-    height: 544px;
+    height: 480px;
+    min-width: 750px;
 }
 
  .bottom-container {
@@ -56,6 +57,7 @@
  .general-main-header {
     color: #fff;
     font-size: 52px;
+    min-width: 750px;
  }
 
  .general-sub-header {
@@ -205,6 +207,55 @@
    text-decoration: none;
    color: #3A3A3A;
 }
+
+/* splash image */
+
+.glyptodon-image-container {
+   position: absolute;
+   right: -20px;
+   bottom: 250px;
+}
+
+.glyptodon-image-container img {
+   width: 400px;
+}
+
+.cloud-img-container-upper-left {
+   width: 110px;
+   position: absolute;
+   left: 80px;
+   top: 110px;
+}
+
+.cloud-img-container-upper-right {
+   width: 110px;
+   position: absolute;
+   right: 80px;
+   top: 110px;
+   transform: scale(-1, 1);
+}
+
+.cloud-img-container-lower-left {
+   width: 130px;
+   position: absolute;
+   left: 90px;
+   top: 400px;
+   transform: scale(-1, 1);
+
+}
+
+.cloud-img-container-lower-right {
+   width: 110px;
+   position: absolute;
+   right: 60px;
+   top: 330px;
+}
+
+.cloud-img {
+   color: white;
+   opacity: .25;
+}
+
 
 
 

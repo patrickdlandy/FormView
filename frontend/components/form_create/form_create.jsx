@@ -75,7 +75,7 @@ class FormCreate extends React.Component {
                 </ul>
                 <ul className="username-link">
                     <li>
-                        <h2>{this.props.currentUser.username + " "}&#x25BC;</h2>
+                        <h2>{this.props.currentUser.username + " ⌄"}</h2>
                     </li>
                     <ul className="dropdown">
                         <li>
