@@ -4,6 +4,23 @@ import { Link } from 'react-router-dom';
 class FormCreate extends React.Component {
     constructor(props) {
         super(props);
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.state = {
+            name: "",
+            user_id: this.props.currentUser.id,
+            description: ""
+        };
+    }
+
+    update(field) {
+        return (e) => this.setState({
+                [field]: e.target.value
+        });
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+        this.props.createForm({form: this.state});
     }
     
     render() {
@@ -40,6 +57,17 @@ class FormCreate extends React.Component {
                 </ul>
             </nav>
             <h1>Form Builder</h1>
+            <form onSubmit={this.handleSubmit}>
+                <h3>New Form</h3>
+                <br/>
+                <label>Name:</label>
+                <input type="text" value={this.state.name} onChange={this.update("name")}/>
+                <br/>
+                <label>Description:</label>
+                <input type="text" value={this.state.description} onChange={this.update("description")}/>
+                <br/>
+                <button onClick={this.handleSubmit}>Create!</button>
+            </form>
         </div>
         );
     }

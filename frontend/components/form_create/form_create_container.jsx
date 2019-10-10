@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 import FormCreate from './form_create';
-import createForm from '../../actions/form_actions';
+import { createForm }  from '../../actions/form_actions';
 import { logout } from '../../actions/session_actions';
 
 
