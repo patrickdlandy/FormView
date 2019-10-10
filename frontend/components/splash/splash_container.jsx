@@ -7,7 +7,7 @@ export const mapStateToProps = function(state) {
     return ({
         currentUser: state.entities.users[state.session.id],
         forms: Object.values(state.entities.forms),
-        demoUser: { username: "marvin", password: "123456" }
+        demoUser: { username: "demo-user", password: "123456" }
     })
 }
 

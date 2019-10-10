@@ -15,3 +15,11 @@ Form.create(name: 'Energy Survey', user_id: 1, description: "This survey collect
 Element.create(title: 'Question 1', form_id: 2, body: "What consumes more energy in your home?", order: 1, element_type: "Multiple Choice")
 Option.create(title: 'A', element_id: 2, body: "Lighting", order: 1, option_type: "Multiple Choice")
 Option.create(title: 'B', element_id: 2, body: "Heating", order: 2, option_type: "Multiple Choice")
+
+User.create(username: 'demo-user', email: 'demo@aa.net', password: '123456')
+Form.create(name: 'EV Driver Satisfaction Survey', user_id: 2, description: "This survey collects information about user experience and satisfaction with electric vehicles.")
+Element.create(title: 'Question 1', form_id: 3, body: "How do you feel about the range of your vehicle?", order: 1, element_type: "Multiple Choice")
+Option.create(title: 'A', element_id: 3, body: "Range is sufficient", order: 1, option_type: "Multiple Choice")
+Option.create(title: 'B', element_id: 3, body: "Range is insufficient", order: 2, option_type: "Multiple Choice")
+
+

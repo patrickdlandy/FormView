@@ -20,8 +20,12 @@ class Splash extends React.Component {
 
     loginDemoUser() {
         let demoUser = this.props.demoUser; 
-        this.props.login(demoUser);
-        this.props.history.push("/login");
+        let myHistory = this.props.history;
+        this.props.login(demoUser).then(
+            () =>  {
+                myHistory.push('/login')
+            }
+        );
     }
 
     renderFormList() {
