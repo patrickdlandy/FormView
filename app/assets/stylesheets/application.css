@@ -50,6 +50,12 @@
     background-color: #fff;
     font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
     text-align: center;
+    /* display: flex;
+    flex-direction: column;
+    justify-content: center; */
+    /* position: absolute;
+    left: 100px;
+    right: 100px; */
 }
 
 /* headers */
@@ -285,6 +291,37 @@
    opacity: .25;
 }
 
+/* login page */
+
+.login-form-container {
+   border: 1px solid #ede8e8;
+   background-color: #f8fafb;
+   border-radius: 5px;
+   width: 480px;
+   height: 450px;
+   margin: 0 auto;
+}
+
+.login-page-button {
+   background-color: #25D670;
+    border-color: #6AF26E;
+    color: #fff;
+    padding: 0.5rem 2.5rem;
+    text-decoration: none;
+    font-size: 17px;
+    margin: 0.5rem 0.5rem 1rem 0.75rem;
+    border: 1px solid #6AF26E;
+    width: 60%;
+    cursor: pointer;
+   /* font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif; */
+}
+
+.login-text-box {
+   width: 60%;
+   padding: 0.5rem;
+   font-size: 14px;
+   margin: 0.5rem 0.5rem 1rem 0.75rem;
+}
 
 
 

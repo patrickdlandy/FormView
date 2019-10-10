@@ -53,28 +53,33 @@ class LoginForm extends React.Component {
                     </ul>
                 </div>
                 <form className="bottom-container" onSubmit={this.handleSubmit}>
-                    <h2 className="general-sub-header">Welcome to FormView</h2>
-                    <div>
+                    <br/>
+                    <h1 className="general-sub-header">Welcome to FormView!</h1>
+                    <h3 className="general-sub-header">log in</h3>
+                    <div className="login-form-container">
                         <br />
-                        <label>Username:
-                            <input type="text"
-                                required 
-                                value={this.state.username}
-                                onChange={this.update('username')}
-                            />
-                        </label>
+                        <br/>
+                        <input type="text"
+                            className="login-text-box"
+                            required 
+                            placeholder="USERNAME"
+                            value={this.state.username}
+                            onChange={this.update('username')}
+                        />
                         <br />
+                        <br/>
                         {this.renderErrors()}
                         <br/>
-                        <label>Password:
-                            <input type="password"
-                                required 
-                                value={this.state.password}
-                                onChange={this.update('password')}
-                            />
-                        </label>
+                        <input type="password"
+                        className="login-text-box"
+                            required 
+                            value={this.state.password}
+                            placeholder="PASSWORD"
+                            onChange={this.update('password')}
+                        />
+                        <br/>
                         <br />
-                        <input type="submit" value={this.props.formType} />
+                        <input className="login-page-button" type="submit" value="LOGIN" />
                     </div>
                 </form>
             </div>

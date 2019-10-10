@@ -45,6 +45,12 @@ class FormCreate extends React.Component {
         //this.navToShow()
     }
 
+    //display or hide dropdown
+    //onClick
+
+    //find dropdown element by id
+    //toggle class back and forth on click
+
     renderErrors() {
         //console.log(this.props.errors);
         return (
