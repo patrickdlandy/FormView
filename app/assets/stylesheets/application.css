@@ -279,6 +279,7 @@
    background-color: #f6f7fb;
    padding: 2rem;
    font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   min-width: 800px;
    /* display: flex;
    justify-content: space-between;
    align-items: center; */
@@ -395,6 +396,33 @@
 .name-box {
    width: 80%;
 }
+
+/* form show page  */
+
+.form-show-container {
+   border: 1px solid black;
+   background-color: #f6f7fb;
+   padding: 2rem;
+   font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   min-width: 800px;
+   margin: 30px;
+}
+
+.question-container {
+   margin: 2rem;
+   align-items: left;
+   text-align: left;
+}
+
+.radio-container {
+   padding-bottom: 5px;
+}
+
+.radio-button {
+   padding-bottom: 30px;
+}
+
+
 
 
 

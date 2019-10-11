@@ -20,12 +20,34 @@ class FormShow extends React.Component {
     renderForm() {
         if (this.props.form) {
             return(
-                <div>
+                <div className="form-show-container">
                     {this.props.form.name}
                     <br/>
                     {this.props.form.description}
                     <br/>
-                    {this.props.form.updated_at}
+                    <br/>
+                    <h1>Sample Question:</h1>
+                    <br/>
+                    <div className="question-container">
+                        <h3>Select from the choices below:</h3>
+                        <div>
+                            <input id="optionB" type="radio" className="radio-button" value="A"/>
+                            <label htmlFor="optionB"> Option A</label>
+                        </div>
+                        <div>
+                            <input id="optionB" type="radio" className="radio-button" value="B" />
+                            <label htmlFor="optionB"> Option B</label>
+                        </div>
+                        <div>
+                            <input id="optionB" type="radio" className="radio-button" value="C" />
+                            <label htmlFor="optionB"> Option C</label>
+                        </div>
+                        <div>
+                            <input id="optionB" type="radio" className="radio-button" value="D" />
+                            <label htmlFor="optionB"> Option D</label>
+                        </div>
+
+                    </div>
                 </div>
             );
         }
@@ -67,9 +89,8 @@ class FormShow extends React.Component {
                 </nav>
                 <main className="bottom-container">
                     <div>
-                        <h1 className="general-sub-header">Form Page</h1>
+                        {this.renderForm()}
                     </div>
-                    {this.renderForm()}
                 </main>
             </div>
         );
