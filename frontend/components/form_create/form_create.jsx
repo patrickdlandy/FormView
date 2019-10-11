@@ -110,7 +110,7 @@ class FormCreate extends React.Component {
                     {this.renderErrors()}
                     <label>Description:</label>
                     <br/>
-                    <textArea class="description-box" type="text" value={this.state.description} onChange={this.update("description")}/>
+                    <textarea className="description-box" type="text" value={this.state.description} onChange={this.update("description")}/>
                     <br/>
                     <input type="submit" value="Create!"/>
                 </form>
