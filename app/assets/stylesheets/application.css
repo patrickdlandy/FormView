@@ -195,7 +195,7 @@
    position: relative;
    vertical-align: middle;
    text-decoration: none;
-   margin-left: 8px;
+   margin-left: 25px;
    margin-right: 4.375rem;
 }
 
@@ -215,8 +215,11 @@
 .username-link {
    position: absolute;
    text-decoration: none;
-   top: 8px;
-   right: 24px;
+   top: 0px;
+   right: 0px;
+   padding-top: 8px;
+   padding-right: 24px;
+   padding-bottom: 12px;
    color: #fff;
    font-size: 17px;
 }
@@ -226,14 +229,36 @@
    position: absolute;
    background: white;
    cursor: pointer;
-   width: 100px;
-   top: 50px;
+   width: 130px;
+   top: 80px;
+   left: 0px;
    z-index: 3;
+   text-align: center;
+}
+
+.dropdown li{
+   width: 100%;
 }
 
 .dropdown-link-item {
+   width: 130px;
+   /* padding: 10px 30px 10px 10px; */
    text-decoration: none;
    color: #3A3A3A;
+}
+
+.dropdown-link-item:hover {
+   background-color: rgb(230, 233, 238);
+}
+
+.dropdown-item-background:hover {
+   background-color: rgb(230, 233, 238);
+}
+
+.username-link:hover {
+   background-color: #e97c76;
+   cursor: pointer;
+   padding-left: 10px;
 }
 
 .username-link:hover .dropdown {
@@ -266,12 +291,14 @@
     font-family: National\ 2,Helvetica Neue,Helvetica,Arial,Hiragino Sans,Hiragino Kaku Gothic Pro,游ゴシック,游ゴシック体,YuGothic,Yu Gothic,ＭＳ ゴシック,MS Gothic,sans-serif;
     text-decoration: none;
     box-shadow: none;
-    -webkit-transition: color .4s,border-color .4s,background-color .4s;
-    transition: color .4s,border-color .4s,background-color .4s;
     color: #fff;
     border: 1px solid #2685c6;
     background-color: #2685c6;
     box-sizing: border-box;
+}
+.create-new-form-button:hover {
+   -webkit-filter: brightness(110%);
+   cursor: pointer;
 }
 
 .bottom-form-container {

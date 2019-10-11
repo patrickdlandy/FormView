@@ -84,17 +84,17 @@ class FormCreate extends React.Component {
                         <h2>{this.props.currentUser.username + " ⌄"}</h2>
                     </li>
                     <ul className="dropdown">
-                        <li>
+                        <li className="dropdown-item-background">
                             <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
                         </li>
-                        <li>
+                        <li className="dropdown-item-background">
                             <Link to="/" className="dropdown-link-item">Your Forms</Link>
                         </li>
-                        <li>
+                        <li className="dropdown-item-background">
                             <a href="https://github.com/patrickdlandy" className="dropdown-link-item" target="_blank">Github</a>
                         </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="dropdown-link-tem" target="_blank">LinkedIn</a>
+                        <li className="dropdown-item-background">
+                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="dropdown-link-item" target="_blank">LinkedIn</a>
                         </li>
                     </ul>
                 </ul>
