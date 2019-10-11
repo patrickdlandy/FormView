@@ -1,5 +1,5 @@
-## FormView
-# aA Fullstack Project
+# FormView
+## aA Fullstack Project
 Patrick Landy
 
 This ReadMe is current as of Friday, October 11th, 2019. 
@@ -8,11 +8,13 @@ This repository contains FormView, a web application created for my Full Stack p
 
 FormView is a single-page web application that uses PostgreSQL, Ruby on Rails, and React/Redux. It mimics the appearance and functionality of Wufoo by SurveyMonkey (https://www.wufoo.com/).
 
-The application currently allows users to sign up, log in and log out of the site with front-end user authentication. It also allows users to create new survey forms, view individual forms, and view a list of his or her previous forms.
+The application currently allows users to sign up, log in and log out of the site with user authentication and session management. It also allows users to create new survey forms, view individual forms, and view a list of his or her previous forms.
 
 Additional planned features for FormView include form editing, addition of form elements (multiple choice, dropdown questions, etc), form sharing,and form data display.
 
 FormView has been deployed to Heroku here: https://formview.herokuapp.com/
+
+Splash page glyptodon graphic credits: Rachel Margolis
 
  # Technologies used:
 
@@ -30,9 +32,9 @@ FormView has been deployed to Heroku here: https://formview.herokuapp.com/
         * HashRouter for front end routing
 * CSS Styling for JSX components
 
-## Key Feature Overview:
+# Key Feature Overview:
 
-# Splash Page (front end route: #/)
+## Splash Page (front end route: #/)
 
 The splash page functionality depends on a currentUser prop passed to the component from the frontend state.
 
@@ -47,12 +49,13 @@ The splash page functionality depends on a currentUser prop passed to the compon
         * Modified nav bar with username and dropdown
         * Index of current user's forms
 
-# Form Create Page (front end route: #/new)
+## Form Create Page (front end route: #/new)
 
 The form create page allows users to enter the required attributes of a new survey form and persist the form to the database. The functionality of this page depends on a form errors reducer. When a required attribute is not included by the user and the form is submitted, errors are added to the front-end state and rendered on the form create page.  
 
  * Rendering errors in the form create component:
 
+```
 renderErrors() {
         return (
             <ul>
@@ -66,8 +69,11 @@ renderErrors() {
             </ul>
         );
     }
+```
 
 * Errors reducer (managing the slice of state for form errors):
+
+```
 
 import { RECEIVE_FORM_ERRORS, CLEAR_FORM_ERRORS } from "../actions/form_actions"
 
@@ -85,7 +91,11 @@ const formErrorsReducer = function(state = [], action) {
 
 export default formErrorsReducer;
 
+```
+
 * Simple Action Creator for Form Errors
+
+```
 
 export const receiveFormErrors = function(errors) {
     return({
@@ -94,7 +104,11 @@ export const receiveFormErrors = function(errors) {
     })
 }
 
+```
+
 * Asynchronous action creator for form creation/errors
+
+```
 
 export const createForm = function(form) {
     return function(dispatch) {
@@ -108,6 +122,8 @@ export const createForm = function(form) {
         );
     }
 }
+
+```
 
 
 
