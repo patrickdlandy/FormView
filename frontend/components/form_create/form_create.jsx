@@ -99,19 +99,22 @@ class FormCreate extends React.Component {
                     </ul>
                 </ul>
             </nav>
-            <h1>Form Builder</h1>
-            <form onSubmit={this.handleSubmit}>
-                <h3>New Form</h3>
-                <br/>
-                <label>Name:</label>
-                <input type="text" value={this.state.name} onChange={this.update("name")}/>
-                <br/>
-                {this.renderErrors()}
-                <label>Description:</label>
-                <input type="text" value={this.state.description} onChange={this.update("description")}/>
-                <br/>
-                <input type="submit" value="Create!"/>
-            </form>
+            <div className="form-builder-container">
+                <form onSubmit={this.handleSubmit}>
+                    <h3>New Form</h3>
+                    <br/>
+                    <label>Name:</label>
+                    <br/>
+                    <input type="text" className="name-box" value={this.state.name} onChange={this.update("name")}/>
+                    <br/>
+                    {this.renderErrors()}
+                    <label>Description:</label>
+                    <br/>
+                    <textArea class="description-box" type="text" value={this.state.description} onChange={this.update("description")}/>
+                    <br/>
+                    <input type="submit" value="Create!"/>
+                </form>
+            </div>
         </div>
         );
     }

@@ -228,6 +228,7 @@
    cursor: pointer;
    width: 100px;
    top: 50px;
+   z-index: 3;
 }
 
 .dropdown-link-item {
@@ -242,6 +243,57 @@
    color: #3A3A3A;
 }
 
+/* new form button */
+
+.form-index-header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   box-sizing: border-box;
+   margin: 2rem 2rem;
+}
+
+.create-new-form-button {
+   padding: 5px 24px;
+   font-size: 15px;
+   /* height: 40px; */
+   justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    border-radius: 2px;
+    font-weight: 400;
+    font-family: National\ 2,Helvetica Neue,Helvetica,Arial,Hiragino Sans,Hiragino Kaku Gothic Pro,游ゴシック,游ゴシック体,YuGothic,Yu Gothic,ＭＳ ゴシック,MS Gothic,sans-serif;
+    text-decoration: none;
+    box-shadow: none;
+    -webkit-transition: color .4s,border-color .4s,background-color .4s;
+    transition: color .4s,border-color .4s,background-color .4s;
+    color: #fff;
+    border: 1px solid #2685c6;
+    background-color: #2685c6;
+    box-sizing: border-box;
+}
+
+.bottom-form-container {
+   border: 1px black;
+   background-color: #f6f7fb;
+   padding: 2rem;
+   font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   /* display: flex;
+   justify-content: space-between;
+   align-items: center; */
+}
+
+.bottom-form-container li {
+   list-style: none;
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.bottom-form-container div {
+   padding: 0 1rem;
+}
 /* splash image */
 
 .glyptodon-image-container {
@@ -322,6 +374,32 @@
    font-size: 14px;
    margin: 0.5rem 0.5rem 1rem 0.75rem;
 }
+
+/* form builder page  */
+
+.form-builder-container {
+   font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   margin-right: 50%;
+   padding-left: 1rem;
+   padding-top: 1rem;
+   padding-bottom: 1rem;
+   background-color: #fdfce9;
+   border: solid 1px #ffe79f;
+}
+
+.description-box {
+   width: 80%;
+   height: 3rem;
+}
+
+.name-box {
+   width: 80%;
+}
+
+
+
+
+
 
 
 

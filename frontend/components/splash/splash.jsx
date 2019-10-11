@@ -36,9 +36,8 @@ class Splash extends React.Component {
                     {this.props.forms.map(function(form, i) {
                         return (
                             <li className="" key={`form-${i}`}>
-                                {form.name}
                                 <div>
-                                    {form.description}
+                                    {form.name}
                                 </div>
                                 <div>
                                     <Link to={`/forms/${form.id}`}>View Form</Link>
@@ -140,14 +139,16 @@ class Splash extends React.Component {
                         </ul>
                     </nav>
                     <main className="bottom-container">
-                        <div>
-                            <Link to="/new">Form Builder</Link>
-                        </div>
-                        <div>
+                        <div className="form-index-header">
                             <h1 className="general-sub-header">Form Manager</h1>
+                            <Link className="create-new-form-button" to="/new"> +  CREATE A NEW FORM</Link>
                         </div>
-                        {this.renderFormList()}
                     </main>
+                    <div className="bottom-form-container">
+                        <div className="form-index-header">
+                            {this.renderFormList()}
+                        </div>
+                    </div>
                 </div>
             );
         }

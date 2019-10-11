@@ -27,4 +27,7 @@ third_element = Element.create(title: 'Question 1', form_id: third_form.id, body
 fifth_option = Option.create(title: 'A', element_id: third_element.id, body: "Range is sufficient", order: 1, option_type: "Multiple Choice")
 sixth_option = Option.create(title: 'B', element_id: third_element.id, body: "Range is insufficient", order: 2, option_type: "Multiple Choice")
 
-
+fourth_form = Form.create(name: 'Lightbulb Survey', user_id: third_user.id, description: "This survey asks the age-old questions about lighting that have been bothering energy professionals. Why did compact fluorescent lights so quickly become obsolete? How quickly are LEDs becoming mandated in cities like New York? This survey gathers answers from home-owners and lighting experts.")
+fifth_form = Form.create(name: 'Solar Panel Opinions', user_id: third_user.id, description: "This survey collects consumer opinions on residential solar panels.")
+sixth_form = Form.create(name: 'Sustainable Energy and Politics', user_id: third_user.id, description: "This form tracks the views of democratic, republican, and independent voters on renewable energy sources.")
+seventh_form = Form.create(name: 'Power Customer Survey', user_id: third_user.id, description: "This survey collects feedback and opinions from electric utility customers.")

@@ -62,7 +62,7 @@ class SignupForm extends React.Component {
                     <h2>Create powerful forms today.</h2>
                     <br/>
                     <div className="login-form-container">
-                        <br />
+                        <br/>
                         <label>Username:
                             <br/>
                             <input type="text"
