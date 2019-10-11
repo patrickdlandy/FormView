@@ -16,19 +16,19 @@ FormView has been deployed to Heroku here: https://formview.herokuapp.com/
 
  # Technologies used:
 
--PostgreSQL database
-    -Tables for Users, Forms, Elements, and Options
--MVC (Model/View/Controller) framework for back end
-    -Ruby on Rails: Active Record model layer, controllers, views, router
-    -JBuilder: conversion to JSON structures from back end views
--React/Redux framework for front end
-    -Single page application using store container for front-end state
-        -Store, Reducers, Actions, Asynchronous action creators
-        -AJAX requests to back end routes 
-    -React Components 
-        -Containers (mapping state and dispatch to component props)
-        -HashRouter for front end routing
-    -CSS Styling for JSX components
+* PostgreSQL database
+    * * Tables for Users, Forms, Elements, and Options
+* MVC (Model/View/Controller) framework for back end
+    * * Ruby on Rails: Active Record model layer, controllers, views, router
+    * * JBuilder: conversion to JSON structures from back end views
+* React/Redux framework for front end
+    * * Single page application using store container for front-end state
+        * * * Store, Reducers, Actions, Asynchronous action creators
+        * * * AJAX requests to back end routes 
+    * * React Components 
+        * * * Containers (mapping state and dispatch to component props)
+        * * * HashRouter for front end routing
+    * * CSS Styling for JSX components
 
 ## Key Feature Overview:
 
@@ -36,7 +36,7 @@ FormView has been deployed to Heroku here: https://formview.herokuapp.com/
 
 The splash page functionality depends on a currentUser prop passed to the component from the frontend state.
 
--Conditional rendering based on log in
+* Conditional rendering based on log in
 -Logged out:
     -Navigation bar with various CSS hover effects 
     -Styled links for demo login and sign up
