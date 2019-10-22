@@ -107,8 +107,42 @@ class Splash extends React.Component {
                         <br/>
                         <span>FormView</span>
                            {` makes it easy.`}</h2>
-                        <p> Build online survey forms, customize questions, share survey links, and view the results you need.</p>
+                        <p> Customize questions, share survey links, and view the results you need.</p>
                     </div>
+                    <div className="bottom-icons-container">
+                        <div className="bottom-icon-container">
+                            <div>
+                                <img src={window.two_forms} className="icon-img" alt="" />
+                            </div>
+                            <h1>CREATE A FORM!</h1>
+                            <div>Use the form builder to customize your form.</div>
+                        </div>
+                        <div className="bottom-icon-arrow-container">
+                            <div>
+                                <img src={window.arrow} className="arrow" alt="" />
+                            </div>
+                        </div>
+                        <div className="bottom-icon-container">
+                            <div>
+                                <img src={window.person} className="icon-img" alt="" />
+                            </div>
+                            <h1>SHARE IT!</h1>
+                            <div>Send links to survey recipients.</div>
+                        </div>
+                        <div className="bottom-icon-arrow-container">
+                            <div>
+                                <img src={window.arrow} className="arrow" alt="" />
+                            </div>
+                        </div>
+                        <div className="bottom-icon-container">
+                            <div>
+                                <img src={window.loop} className="icon-img" alt="" />
+                            </div>
+                            <h1>GET YOUR DATA!</h1>
+                            <div>Log in to view your survey results.</div>
+                        </div>
+                    </div>
+                    <div>Arrow icon made by <a href="https://www.flaticon.com/authors/lyolya" title="Lyolya">Lyolya</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
                 </div>
                 </div>
             )

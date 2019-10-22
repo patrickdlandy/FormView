@@ -51,6 +51,7 @@
     font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
     text-align: center;
     height: 376px;
+    min-width: 750px;
 }
 
 .bottom-container div {
@@ -464,6 +465,47 @@
 
 .radio-button {
    padding-bottom: 30px;
+}
+
+/* lower splash icons */
+
+.bottom-icons-container {
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+}
+
+.bottom-icons-container div {
+   margin: 0;
+   padding: 0;
+}
+
+.bottom-icon-container {
+   width: 190px;
+   height: 190px;
+   position: relative;
+}
+
+.bottom-icon-container h1 {
+   color: #61B7D4;
+   font-weight: 500;
+}
+
+.bottom-icon-arrow-container {
+   width: 40px;
+   height: 40px;
+   position: relative;
+}
+
+.icon-img {
+   width: 190px;
+   height: 190px;
+   color: white;
+}
+
+.arrow {
+   width: 40px;
+   height: 40px;
 }
 
 
