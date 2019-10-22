@@ -103,8 +103,11 @@ class Splash extends React.Component {
                 </main>
                 <div className="bottom-container">
                     <div>
-                        <h2 className="general-sub-header">Building online forms can be hard. </h2>
-                        <h3 className="general-sub-header">FormView makes it easy. </h3>
+                        <h2 className="general-sub-header">Building online forms can be hard.
+                        <br/>
+                        <span>FormView</span>
+                           {` makes it easy.`}</h2>
+                        <p> Build online survey forms, customize questions, share survey links, and view the results you need.</p>
                     </div>
                 </div>
                 </div>
