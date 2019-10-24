@@ -142,7 +142,9 @@ class Splash extends React.Component {
                             <div>Log in to view your survey results.</div>
                         </div>
                     </div>
-                    <div>Arrow icon made by <a href="https://www.flaticon.com/authors/lyolya" title="Lyolya">Lyolya</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
+                    <div className="credits-container">
+                        <p>Arrow icon made by <a href="https://www.flaticon.com/authors/lyolya" title="Lyolya">Lyolya</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+                    </div>
                 </div>
                 </div>
             )
