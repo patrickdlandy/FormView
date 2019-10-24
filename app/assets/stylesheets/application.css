@@ -515,13 +515,12 @@
    max-width: 77rem;
    margin: auto;
    padding: 0 1 rem;
+   border-top: 1px solid #D2D2D2;
 }
 
 .credits-container p {
    text-align: left;
-   border-top: 1px solid #D2D2D2;
-   padding-top: 2.25rem;
-   margin: 2.25rem 0 0;
+   
    color: #6E6C6C;
    font-size: 1rem;
 }
