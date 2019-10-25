@@ -142,6 +142,13 @@
    display: inline-block;
 }
 
+.logo {
+   height: 80px;
+   margin-right: 4.375rem;
+   display: inline-block;
+   color: white;
+}
+
  /* linkedin and github links in center */
 
  .nav-link {
