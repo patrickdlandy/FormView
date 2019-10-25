@@ -54,7 +54,7 @@
     min-width: 750px;
 }
 
-.bottom-container div {
+.bottom-container-div {
    padding: 82px 18px 112px 18px;
    margin: 0 auto;
    text-align: center;
@@ -473,6 +473,9 @@
    display: flex;
    justify-content: space-around;
    align-items: center;
+   margin: 90px auto;
+   max-width: 77rem;
+   padding: 10px;
 }
 
 .bottom-icons-container div {
@@ -522,6 +525,11 @@
    text-align: left;
    color: #6E6C6C;
    font-size: 1rem;
+}
+
+.div-reset {
+   margin: 0;
+   padding: 0;
 }
 
 

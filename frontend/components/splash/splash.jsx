@@ -102,7 +102,7 @@ class Splash extends React.Component {
                     </div>
                 </main>
                 <div className="bottom-container">
-                    <div>
+                    <div className="bottom-container-div">
                         <h2 className="general-sub-header">Building online forms can be hard.
                         <br/>
                         <span>FormView</span>
@@ -142,7 +142,7 @@ class Splash extends React.Component {
                             <div>Log in to view your survey results.</div>
                         </div>
                     </div>
-                    <div>
+                    <div className="bottom-container-div">
                         <div className="credits-container">
                             <p>FormView design and functionality inspired by <a href="https://www.wufoo.com/">Wufoo</a></p>
                                 <p>Wufoo legacy styling is archived <a href="https://web.archive.org/web/20191012012529/https://www.wufoo.com/">here</a></p>
