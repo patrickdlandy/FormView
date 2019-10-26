@@ -36,6 +36,7 @@
    width: 100%;
    position: relative;
    margin: auto;
+   /* align-items: center; */
  }
 
  .main-container {
@@ -133,6 +134,7 @@
 
  .nav-ul {
    display: inline-block;
+   position: absolute;
  }
 
  /*logo on left */
@@ -145,8 +147,11 @@
 .logo {
    height: 80px;
    margin-right: 4.375rem;
+   margin-left: 25px;
    display: inline-block;
    color: white;
+   filter: invert(100%);
+   display: inline-block;
 }
 
  /* linkedin and github links in center */
@@ -351,12 +356,12 @@
 
 .glyptodon-image-container {
    position: absolute;
-   right: -20px;
-   top: 355px;
+   right: 60px;
+   top: 395px;
 }
 
 .glyptodon-image-container img {
-   width: 400px;
+   width: 300px;
    transform: rotate(15deg);
 }
 
@@ -480,7 +485,7 @@
    display: flex;
    justify-content: space-around;
    align-items: center;
-   margin: 90px auto;
+   margin: 90px auto 200px;
    max-width: 77rem;
    padding: 10px;
 }
