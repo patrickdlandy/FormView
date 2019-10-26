@@ -145,10 +145,10 @@ class Splash extends React.Component {
                     </div>
                     <div className="bottom-container-div">
                         <div className="credits-container">
-                            <p>FormView design and functionality inspired by <a href="https://www.wufoo.com/">Wufoo</a></p>
-                                <p>Wufoo legacy styling is archived <a href="https://web.archive.org/web/20191012012529/https://www.wufoo.com/">here</a></p>
+                            <p>FormView design and functionality inspired by <a target="_blank" href="https://www.wufoo.com/">Wufoo</a></p>
+                            <p>Wufoo legacy styling is archived <a target="_blank" href="https://web.archive.org/web/20191012012529/https://www.wufoo.com/">here</a></p>
                             <p>Glyptodon artwork by Rachel Margolis</p>
-                            <p>Arrow icon made by <a href="https://www.flaticon.com/authors/lyolya" title="Lyolya">Lyolya</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
+                            <p>Arrow icon made by <a target="_blank" href="https://www.flaticon.com/authors/lyolya" title="Lyolya">Lyolya</a> from <a target="_blank" href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></p>
                         </div>
                     </div>
                 </div>
