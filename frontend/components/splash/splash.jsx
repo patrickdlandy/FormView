@@ -3,9 +3,11 @@ import { Link, withRouter } from 'react-router-dom';
 
 class Splash extends React.Component {
     constructor(props) {
+        let menuDisplayed;
         super(props);
         this.renderFormList = this.renderFormList.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
+        this.menuDisplayed = menuDisplayed;
     }
 
     componentDidMount() {
@@ -27,6 +29,18 @@ class Splash extends React.Component {
                 myHistory.push('/login')
             }
         );
+    }
+
+    toggleMenuDisplayed() {
+        switch (this.menuDisplayed) {
+            case true:
+            this.menuDisplayed = false;
+            case false:
+            this.menuDisplayed = true;
+            default:
+            this.menuDisplayed = false;
+        }
+        console.log(this.menuDisplayed);
     }
 
     renderFormList() {
@@ -167,10 +181,11 @@ class Splash extends React.Component {
                                 <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
                             </li>
                         </ul>
-                        <ul className="username-link">
+                        <ul className="username-link" onClick={this.toggleMenuDisplayed()}>
                             <li>
                                 <h2>{this.props.currentUser.username + " ⌄"}</h2>
                             </li>
+
                             <ul className="dropdown">
                                 <li className="dropdown-item-background">
                                     <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
