@@ -53,8 +53,6 @@ class Splash extends React.Component {
                 menuDisplayed: !state.menuDisplayed
             });
         });
-        console.log('click');
-        console.log(this.state);
     }
 
     renderFormList() {
@@ -195,12 +193,12 @@ class Splash extends React.Component {
                                 <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
                             </li>
                         </ul>
-                        <ul className="username-link" onClick={this.handleClick}>
-                            <li>
-                                <h2>{this.props.currentUser.username + " ⌄"}</h2>
+                        <ul className="username-link" >
+                            <li onClick={this.handleClick}>
+                                <h2>{this.props.currentUser.username + " ⌄"}</h2> 
                             </li>
 
-                            <ul className="dropdown">
+                            <ul className={this.state.menuDisplayed ? "dropdown" : "dropdown-hidden"}>
                                 <li className="dropdown-item-background">
                                     <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
                                 </li>
