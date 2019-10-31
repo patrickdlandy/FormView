@@ -3,11 +3,13 @@ import { Link, withRouter } from 'react-router-dom';
 
 class Splash extends React.Component {
     constructor(props) {
-        let menuDisplayed;
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.renderFormList = this.renderFormList.bind(this);
         this.loginDemoUser = this.loginDemoUser.bind(this);
-        this.menuDisplayed = menuDisplayed;
+        this.state = {
+            menuDisplayed: false
+        }
     }
 
     componentDidMount() {
@@ -31,16 +33,28 @@ class Splash extends React.Component {
         );
     }
 
-    toggleMenuDisplayed() {
-        switch (this.menuDisplayed) {
-            case true:
-            this.menuDisplayed = false;
-            case false:
-            this.menuDisplayed = true;
-            default:
-            this.menuDisplayed = false;
-        }
-        console.log(this.menuDisplayed);
+    // toggleMenuDisplayed() {
+    //     this.handleClick();
+    //     switch (this.state.menuDisplayed) {
+    //         case true:
+    //         this.state.menuDisplayed = false;
+    //         case false:
+    //         this.state.menuDisplayed = true;
+    //         default:
+    //         this.state.menuDisplayed = false;
+    //     }
+    //     console.log(this.state.menuDisplayed);
+    // }
+
+    handleClick(e) {
+        e.preventDefault();
+        this.setState(function(state) {
+            return ({
+                menuDisplayed: !state.menuDisplayed
+            });
+        });
+        console.log('click');
+        console.log(this.state);
     }
 
     renderFormList() {
@@ -181,7 +195,7 @@ class Splash extends React.Component {
                                 <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
                             </li>
                         </ul>
-                        <ul className="username-link" onClick={this.toggleMenuDisplayed()}>
+                        <ul className="username-link" onClick={this.handleClick}>
                             <li>
                                 <h2>{this.props.currentUser.username + " ⌄"}</h2>
                             </li>
