@@ -4,11 +4,13 @@ import { Link, Redirect, withRouter } from 'react-router-dom';
 class FormCreate extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             name: "",
             user_id: this.props.currentUser.id,
-            description: ""
+            description: "",
+            menuDisplayed: false
         };
     }
 
@@ -23,11 +25,14 @@ class FormCreate extends React.Component {
         this.props.clearFormErrors();
     }
 
-    // redirectOnSave() {
-    //     return(
-    //         <Redirect to="/"/>
-    //     )
-    // }
+    handleClick(e) {
+        e.preventDefault();
+        this.setState(function (state) {
+            return ({
+                menuDisplayed: !state.menuDisplayed
+            });
+        });
+    }
 
     navToShow() {
         const url = '/';
@@ -80,10 +85,10 @@ class FormCreate extends React.Component {
                     </li>
                 </ul>
                 <ul className="username-link">
-                    <li>
+                        <li onClick={this.handleClick}>
                         <h2>{this.props.currentUser.username + " ⌄"}</h2>
                     </li>
-                    <ul className="dropdown">
+                        <ul className={this.state.menuDisplayed ? "dropdown" : "dropdown-hidden"}>
                         <li className="dropdown-item-background">
                             <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
                         </li>
