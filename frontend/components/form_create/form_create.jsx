@@ -70,7 +70,7 @@ class FormCreate extends React.Component {
         return(
         <div>
             <nav className="main-nav-container">
-                <h1 className="nav-element">FormView by Patrick Landy</h1>
+                <img className="logo" src={window.logo} alt="" />
                 <ul className="nav-ul">
                     <li className="nav-element">
                         <a href="https://github.com/patrickdlandy" className="nav-link" target="_blank">GITHUB</a>

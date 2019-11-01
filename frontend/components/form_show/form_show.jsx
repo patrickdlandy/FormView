@@ -11,6 +11,10 @@ import { Link, Redirect } from 'react-router-dom';
 class FormShow extends React.Component {
     constructor(props) {
         super(props);
+        this.handleClick = this.handleClick.bind(this);
+        this.state = {
+            menuDisplayed: false
+        }
     }
 
     componentDidMount() {
@@ -53,12 +57,20 @@ class FormShow extends React.Component {
         }
     }
 
+    handleClick(e) {
+        e.preventDefault();
+        this.setState(function (state) {
+            return ({
+                menuDisplayed: !state.menuDisplayed
+            });
+        });
+    }
+
     render() {
-        // console.log(this.props);
         return(
             <div>
                 <nav className="main-nav-container">
-                    <h1 className="nav-element">FormView by Patrick Landy</h1>
+                    <img className="logo" src={window.logo} alt="" />
                     <ul className="nav-ul">
                         <li className="nav-element">
                             <a href="https://github.com/patrickdlandy" className="nav-link" target="_blank">GITHUB</a>
@@ -68,10 +80,10 @@ class FormShow extends React.Component {
                         </li>
                     </ul>
                     <ul className="username-link">
-                        <li>
+                        <li onClick={this.handleClick}>
                             <h2>{this.props.currentUser.username + " ⌄"}</h2>
                         </li>
-                        <ul className="dropdown">
+                        <ul className={this.state.menuDisplayed ? "dropdown" : "dropdown-hidden"}>
                             <li className="dropdown-item-background">
                                 <Link to="/" className="dropdown-link-item" onClick={this.props.logout}>Log Out</Link>
                             </li>

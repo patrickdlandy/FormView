@@ -33,19 +33,6 @@ class Splash extends React.Component {
         );
     }
 
-    // toggleMenuDisplayed() {
-    //     this.handleClick();
-    //     switch (this.state.menuDisplayed) {
-    //         case true:
-    //         this.state.menuDisplayed = false;
-    //         case false:
-    //         this.state.menuDisplayed = true;
-    //         default:
-    //         this.state.menuDisplayed = false;
-    //     }
-    //     console.log(this.state.menuDisplayed);
-    // }
-
     handleClick(e) {
         e.preventDefault();
         this.setState(function(state) {
@@ -84,7 +71,6 @@ class Splash extends React.Component {
             return(
                 <div>
                 <nav className="main-nav-container">
-                    {/* <h1 className="nav-element">FormView</h1> */}
                     <img className="logo" src={window.logo} alt=""/>
                     <ul className="nav-ul">
                         <li className="nav-element">
@@ -184,7 +170,7 @@ class Splash extends React.Component {
             return(
                 <div>
                     <nav className="main-nav-container">
-                        <h1 className="nav-element">FormView by Patrick Landy</h1>
+                        <img className="logo" src={window.logo} alt="" />
                         <ul className="nav-ul">
                             <li className="nav-element">
                                 <a href="https://github.com/patrickdlandy" className="nav-link" target="_blank">GITHUB</a>
@@ -211,7 +197,7 @@ class Splash extends React.Component {
                             </ul>
                         </ul>
                     </nav>
-                    <main className="bottom-container">
+                    <main className="bottom-container-short">
                         <div className="form-index-header">
                             <h1 className="general-sub-header">Form Manager</h1>
                             <Link className="create-new-form-button" to="/new"> +  CREATE A NEW FORM</Link>

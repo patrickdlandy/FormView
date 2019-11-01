@@ -55,6 +55,14 @@
     min-width: 750px;
 }
 
+.bottom-container-short {
+   background-color: #fff;
+   font: 300 118.5%/1.65 "National","Helvetica","Arial",sans-serif;
+   text-align: center;
+   height: 100px;
+   min-width: 750px;
+}
+
 .bottom-container-div {
    padding: 82px 18px 112px 18px;
    margin: 0 auto;
