@@ -20,6 +20,13 @@ class Api::FormsController < ApplicationController
         end
     end
 
+    def edit
+        @form = Form.find(params[:id])
+        #I need to update the form with the edited form params and render errors to json
+        #if it is not successful. Maybe use .update!? and form params.  Might need jbuiler.
+        #Definitely need to update rails routes.
+    end
+
     private
 
     def form_params
