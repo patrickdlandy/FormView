@@ -7,12 +7,12 @@ import {
   HashRouter
 } from 'react-router-dom';
 import { AuthRoute, ProtectedRoute } from '../util/route_util';
-import GreetingContainer from "./greeting/greeting_container";
 import LoginFormContainer from "./session_form/login_form_container";
 import SignupFormContainer from "./session_form/signup_form_container";
 import SplashContainer from "./splash/splash_container";
 import FormShowContainer from "./form_show/form_show_container";
 import FormCreateContainer from "./form_create/form_create_container";
+import FormEditContainer from "./form_edit/form_edit_container";
 const App = () => (
   <div>
     <Switch>
@@ -21,6 +21,7 @@ const App = () => (
       <AuthRoute path="/signup" component={SignupFormContainer} />
       <ProtectedRoute path="/forms/:formId" component={FormShowContainer} />
       <ProtectedRoute path="/new" component={FormCreateContainer} />
+      <ProtectedRoute path="/edit/:formId" component={FormEditContainer} />
     </Switch>
   </div>
 );

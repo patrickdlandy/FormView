@@ -80,3 +80,16 @@ export const createForm = function(form) {
         );
     }
 }
+
+export const updateForm = function(form) {
+    return function(dispatch) {
+        return FormApiUtil.updateForm(form).then(
+            function (payload) {
+                dispatch(receiveForm(payload));
+            },
+            function (err) {
+                dispatch(receiveFormErrors(err.responseJSON))
+            }
+        );
+    }
+}

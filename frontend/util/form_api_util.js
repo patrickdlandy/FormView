@@ -19,3 +19,11 @@ export const createForm = function(form) {
         data: form
     })
 }
+
+export const updateForm = function(form) {
+    return $.ajax({
+        method: 'PATCH',
+        url: `api/forms/${form.id}`,
+        data: form
+    })
+}

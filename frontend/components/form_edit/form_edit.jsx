@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class FormCreate extends React.Component {
+class FormEdit extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            name: "",
+            name: this.props.form.name,
             user_id: this.props.currentUser.id,
-            description: "",
+            description: this.props.form.description,
             menuDisplayed: false
         };
     }
 
     update(field) {
         return (e) => this.setState({
-                [field]: e.target.value
+            [field]: e.target.value
         });
     }
 
@@ -36,7 +36,7 @@ class FormCreate extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let myhistory = this.props.history;
-        this.props.createForm({form: this.state}).then(() => {
+        this.props.updateForm({form: this.state}).then(() => {
             myhistory.push("/")
         });
     }
@@ -109,4 +109,4 @@ class FormCreate extends React.Component {
     }
 }
 
-export default withRouter(FormCreate);
+export default withRouter(FormEdit);
