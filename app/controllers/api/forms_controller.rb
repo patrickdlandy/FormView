@@ -27,7 +27,8 @@ class Api::FormsController < ApplicationController
 
     def update
         #This will happen on submit of the edit form.
-        @form = Form.find(params[:id])
+        @form = Form.find_by(name: params[:form][:name], description: params[:form][:description])
+        p @form
         @form.update!(form_params)
         #may want to render errors here
     end

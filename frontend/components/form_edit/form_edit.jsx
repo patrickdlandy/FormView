@@ -7,17 +7,25 @@ class FormEdit extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
-            name: this.props.form.name,
-            user_id: this.props.currentUser.id,
-            description: this.props.form.description,
+            form: {
+                name: this.props.form.name,
+                user_id: this.props.currentUser.id,
+                description: this.props.form.description
+            },
             menuDisplayed: false
         };
     }
 
     update(field) {
-        return (e) => this.setState({
-            [field]: e.target.value
-        });
+        //The problem here is that I need to change the component state,
+        //which includes a nested form object...
+        let prevState = this.state;
+        let currentComponent = this;
+        let form = Object.assign({}, prevState.form);
+        return function(e) {
+            form[field] = e.target.value;
+            currentComponent.setState({ form });
+        }
     }
 
     componentWillUnmount() {
@@ -36,7 +44,10 @@ class FormEdit extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let myhistory = this.props.history;
-        this.props.updateForm({form: this.state}).then(() => {
+        // let myForm = this.state;
+        // console.log(myForm);
+        // delete myForm.menuDisplayed;
+        this.props.updateForm({form: this.state.form}).then(() => {
             myhistory.push("/")
         });
     }
@@ -94,12 +105,12 @@ class FormEdit extends React.Component {
                     <br/>
                     <label>Name:</label>
                     <br/>
-                    <input type="text" className="name-box" value={this.state.name} onChange={this.update("name")}/>
+                    <input type="text" className="name-box" value={this.state.form.name} onChange={this.update("name")}/>
                     <br/>
                     {this.renderErrors()}
                     <label>Description:</label>
                     <br/>
-                    <textarea className="description-box" type="text" value={this.state.description} onChange={this.update("description")}/>
+                    <textarea className="description-box" type="text" value={this.state.form.description} onChange={this.update("description")}/>
                     <br/>
                     <input type="submit" value="Create!"/>
                 </form>
