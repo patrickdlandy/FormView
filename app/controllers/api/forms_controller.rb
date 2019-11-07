@@ -33,6 +33,15 @@ class Api::FormsController < ApplicationController
         end
     end
 
+    def destroy
+        @form = Form.find(params[:id])
+        if @form.destroy
+            render :show
+        else
+            render json: @form.errors.full_messages, status: 406
+        end
+    end
+
     private
 
     def form_params

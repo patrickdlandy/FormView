@@ -27,3 +27,10 @@ export const updateForm = function(form) {
         data: form
     })
 }
+
+export const deleteForm = function(id) {
+    return $.ajax({
+        method: 'DELETE',
+        url: `api/forms/${id}`
+    })
+}

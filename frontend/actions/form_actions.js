@@ -93,3 +93,16 @@ export const updateForm = function(form) {
         );
     }
 }
+
+export const deleteForm = function (id) {
+    return function (dispatch) {
+        return FormApiUtil.deleteForm(id).then(
+            function () {
+                dispatch(clearForms());
+            },
+            function (err) {
+                dispatch(receiveFormErrors(err.responseJSON))
+            }
+        );
+    }
+}

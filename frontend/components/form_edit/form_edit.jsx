@@ -6,6 +6,7 @@ class FormEdit extends React.Component {
         super(props);
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleDelete = this.handleDelete.bind(this);
         this.state = {
             form: {
                 id: this.props.formId,
@@ -41,6 +42,14 @@ class FormEdit extends React.Component {
             return ({
                 menuDisplayed: !state.menuDisplayed
             });
+        });
+    }
+
+    handleDelete(e) {
+        e.preventDefault();
+        let myhistory = this.props.history;
+        this.props.deleteForm(this.props.form.id).then(() => {
+            myhistory.push("/")
         });
     }
 
@@ -114,6 +123,7 @@ class FormEdit extends React.Component {
                     <br/>
                     <input type="submit" value="Update!"/>
                 </form>
+                <button onClick={this.handleDelete}>Delete Form</button>
             </div>
         </div>
         );
