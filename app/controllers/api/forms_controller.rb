@@ -22,21 +22,32 @@ class Api::FormsController < ApplicationController
 
     def edit
         @form = Form.find(params[:id])
-        #edit will return an html form to edit with pre-filled fields
     end
 
     def update
         #This will happen on submit of the edit form.
-        @form = Form.find_by(name: params[:form][:name], description: params[:form][:description])
+
+        #Why can I not access the form id from params here??
+        #The error is ActiveRecord::RecordNotFound - Couldn't find Form with 'id'=undefined:
+            #app/controllers/api/forms_controller.rb:33:in `update'
+
+        #how do I get the current form object?
+
+        p params
+        @form = Form.find(params[:form][:id])
         p @form
+        
         @form.update!(form_params)
+
+        #param is missing or the value is empty: form:
+
         #may want to render errors here
     end
 
     private
 
     def form_params
-        params.require(:form).permit(:name, :user_id, :description)
+        params.require(:form).permit(:id, :name, :user_id, :description)
     end
 
 end

@@ -8,6 +8,7 @@ class FormEdit extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             form: {
+                id: this.props.formId,
                 name: this.props.form.name,
                 user_id: this.props.currentUser.id,
                 description: this.props.form.description
@@ -17,8 +18,6 @@ class FormEdit extends React.Component {
     }
 
     update(field) {
-        //The problem here is that I need to change the component state,
-        //which includes a nested form object...
         let prevState = this.state;
         let currentComponent = this;
         let form = Object.assign({}, prevState.form);
@@ -26,6 +25,10 @@ class FormEdit extends React.Component {
             form[field] = e.target.value;
             currentComponent.setState({ form });
         }
+    }
+
+    componentDidMount() {
+        this.props.fetchForm(this.props.formId);
     }
 
     componentWillUnmount() {
@@ -47,6 +50,11 @@ class FormEdit extends React.Component {
         // let myForm = this.state;
         // console.log(myForm);
         // delete myForm.menuDisplayed;
+
+        //the form id is not accessible in the argument passed in to the updateForm action.
+        //I need to fix this. The AJAX request needs the id.
+        console.log(this.state.form);
+
         this.props.updateForm({form: this.state.form}).then(() => {
             myhistory.push("/")
         });
