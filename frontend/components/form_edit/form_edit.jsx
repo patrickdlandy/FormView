@@ -47,14 +47,6 @@ class FormEdit extends React.Component {
     handleSubmit(e) {
         e.preventDefault();
         let myhistory = this.props.history;
-        // let myForm = this.state;
-        // console.log(myForm);
-        // delete myForm.menuDisplayed;
-
-        //the form id is not accessible in the argument passed in to the updateForm action.
-        //I need to fix this. The AJAX request needs the id.
-        console.log(this.state.form);
-
         this.props.updateForm({form: this.state.form}).then(() => {
             myhistory.push("/")
         });

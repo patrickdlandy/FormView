@@ -21,10 +21,6 @@ export const createForm = function(form) {
 }
 
 export const updateForm = function(form) {
-    console.log("AJAX REQUEST");
-    console.log(form);
-    //We are getting up to this point without a problem. Apparently form.id is undefined when the request hits the back end.
-    //The form argument does not have an id!!!!!!!
     return $.ajax({
         method: 'PATCH',
         url: `api/forms/${form.id}`,
