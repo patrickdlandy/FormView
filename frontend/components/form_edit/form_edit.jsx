@@ -80,8 +80,8 @@ class FormEdit extends React.Component {
                     </li>
                 </ul>
                 <ul className="username-link">
-                        <li onClick={this.handleClick}>
-                        <h2>{this.props.currentUser.username + " ⌄"}</h2>
+                    <li onClick={this.handleClick}>
+                    <h2>{this.props.currentUser.username + " ⌄"}</h2>
                     </li>
                         <ul className={this.state.menuDisplayed ? "dropdown" : "dropdown-hidden"}>
                         <li className="dropdown-item-background">
@@ -101,7 +101,7 @@ class FormEdit extends React.Component {
             </nav>
             <div className="form-builder-container">
                 <form onSubmit={this.handleSubmit}>
-                    <h3>New Form</h3>
+                    <h3>Edit Form</h3>
                     <br/>
                     <label>Name:</label>
                     <br/>
@@ -112,7 +112,7 @@ class FormEdit extends React.Component {
                     <br/>
                     <textarea className="description-box" type="text" value={this.state.form.description} onChange={this.update("description")}/>
                     <br/>
-                    <input type="submit" value="Create!"/>
+                    <input type="submit" value="Update!"/>
                 </form>
             </div>
         </div>
