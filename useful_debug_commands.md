@@ -69,6 +69,8 @@ I am currently writing the jbuilder files for my Forms controller. These allow t
 
  dispatch(createForm({form: { name: "Test Survey 2", user_id: 1, description: "Testing testing 1 2 3" }}))
 
+Some notes on my steps for creating form elements:
 
+The form show component is not fetching a single form in the front-end state... it is fetching all the forms.  I need to fix this. 
 
-
+How can I use associations to render option components?
