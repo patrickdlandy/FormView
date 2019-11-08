@@ -98,3 +98,10 @@ I am going to assume that I will need to make my own actions for elements of eac
 OK.  
 
 I need a branch. Committing now.
+
+
+Trying to figure out what this company is talking about in Luna Coffee:
+
+Meeting about some sort of app with users, passwords, advocates??, sensors in buildings, humidity, temperature, violations, heroku databases, columbia makerspace, admin vs user accounts for each sensor, trend data, github, open source, founders at meeting!
+Hardware, data, scaling...
+
