@@ -81,3 +81,19 @@ NO.  Bug is fixed.  I looked at the server log and found that a GET request for 
 What needs to happen in order to display survey elements when I view a form?
 
 1. I need to get the elements associated with the form into the front end state. I am already plucking the element ids and putting them into an array that is being shown in the front-end state. Should I use JBuilder to make another entity using form associations? I will give this a try.
+
+show jbuilder attempt to make an entity for form elements: 
+
+@form.elements.each do |element|
+    json.set! element.id do
+        json.extract! element, :id, :title, :body, :order
+        json.form_id element.pluck(:form_id)
+    end
+end
+
+This did not work.
+
+I am going to assume that I will need to make my own actions for elements of each form and build my own elements reducer within entities reducer.
+
+OK.  
+
