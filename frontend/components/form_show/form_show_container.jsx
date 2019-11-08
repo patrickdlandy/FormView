@@ -12,7 +12,7 @@ export const mapStateToProps = function(state, ownProps) {
 
 export const mapDispatchToProps = function(dispatch) {
     return ({
-        fetchForm: (id) => dispatch(fetchForms(id)),
+        fetchForm: (id) => dispatch(fetchForm(id)),
         logout: () => dispatch(logout()),
         clearForms: () => dispatch(clearForms())
     })

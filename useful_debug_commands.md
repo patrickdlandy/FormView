@@ -73,4 +73,11 @@ Some notes on my steps for creating form elements:
 
 The form show component is not fetching a single form in the front-end state... it is fetching all the forms.  I need to fix this. 
 
-How can I use associations to render option components?
+Is this a JBuilder issue?
+
+NO.  Bug is fixed.  I looked at the server log and found that a GET request for /api/forms was being made.  This originated with a "fetch forms" action; I examined my mapDispatchToProps in the form show container and found that I was dispatching the fetch forms action, not the fetch form action.
+
+
+What needs to happen in order to display survey elements when I view a form?
+
+1. I need to get the elements associated with the form into the front end state. I am already plucking the element ids and putting them into an array that is being shown in the front-end state. Should I use JBuilder to make another entity using form associations? I will give this a try.

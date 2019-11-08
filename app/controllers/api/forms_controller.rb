@@ -10,6 +10,7 @@ class Api::FormsController < ApplicationController
 
     def show
         @form = Form.find(params[:id])
+        puts 'SHOW'
     end
 
     def index
