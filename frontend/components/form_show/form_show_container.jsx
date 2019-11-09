@@ -1,4 +1,6 @@
 import { connect } from 'react-redux';
+import { fetchForm, clearForms } from '../../actions/form_actions';
+import { fetchElements, clearElements } from '../../actions/element_actions';
 import FormShow from './form_show';
 
 export const mapStateToProps = function(state, ownProps) {
@@ -14,7 +16,9 @@ export const mapDispatchToProps = function(dispatch) {
     return ({
         fetchForm: (id) => dispatch(fetchForm(id)),
         logout: () => dispatch(logout()),
-        clearForms: () => dispatch(clearForms())
+        clearForms: () => dispatch(clearForms()),
+        fetchElements: () => dispatch(fetchElements()),
+        clearElements: () => dispatch(clearElements())
     })
 }
 

@@ -1,12 +1,5 @@
 import React from 'react';
-import { Link, Redirect } from 'react-router-dom';
-// import {
-//     Route,
-//     Redirect,
-//     Switch,
-//     Link,
-//     HashRouter
-// } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class FormShow extends React.Component {
     constructor(props) {
@@ -19,6 +12,11 @@ class FormShow extends React.Component {
 
     componentDidMount() {
         this.props.fetchForm(this.props.formId);
+        this.props.fetchElements();
+    }
+
+    componentWillUnmount() {
+        this.props.clearElements();
     }
 
     renderForm() {

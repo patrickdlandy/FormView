@@ -14,7 +14,7 @@ export const receiveElement = function(element) {
     })
 }
 
-export const receiveElements = function() {
+export const receiveElements = function(elements) {
     return({
         type: RECEIVE_ELEMENTS,
         elements: elements
