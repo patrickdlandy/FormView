@@ -108,4 +108,10 @@ Hardware, data, scaling...
 Found it. Heat Seek.
 
 
-
+this.props.form.form_element_ids.forEach(function(id) {
+                 return (
+                     <div className="question-container">
+                         <h3>{local_elements[id]}</h3>
+                     </div>
+                 )
+             }) 

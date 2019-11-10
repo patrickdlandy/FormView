@@ -44,7 +44,6 @@ class Splash extends React.Component {
 
     renderFormList() {
         if (this.props.forms.length > 0) {
-            // console.log(this.props.forms);
             return(
                 <div>
                     {this.props.forms.map(function(form, i) {

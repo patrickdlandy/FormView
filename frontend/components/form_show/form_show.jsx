@@ -17,6 +17,7 @@ class FormShow extends React.Component {
 
     componentWillUnmount() {
         this.props.clearElements();
+        console.log(this.props.elements);
     }
 
     renderForm() {
@@ -53,6 +54,22 @@ class FormShow extends React.Component {
                 </div>
             );
         }
+    }
+
+    renderElements() {
+        const local_elements = this.props.elements;
+         if (Object.keys(local_elements).length > 0 && this.props.form) {
+             console.log(this.props.form.element_ids);
+             return (this.props.form.element_ids.map(function (id, i) {
+                 let body = local_elements[id].body;
+                 console.log(body);
+                 return (
+                     <div key={i} className="question-container">
+                         <h3>{body}</h3>
+                     </div>
+                 );
+             })); 
+         }
     }
 
     handleClick(e) {
@@ -100,6 +117,7 @@ class FormShow extends React.Component {
                 <main className="bottom-container">
                     <div>
                         {this.renderForm()}
+                        {this.renderElements()}
                     </div>
                 </main>
             </div>
