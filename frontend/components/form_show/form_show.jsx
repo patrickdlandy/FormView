@@ -22,35 +22,15 @@ class FormShow extends React.Component {
 
     renderForm() {
         if (this.props.form) {
+            console.log(this.props.form);
             return(
                 <div className="form-show-container">
                     {this.props.form.name}
                     <br/>
                     {this.props.form.description}
                     <br/>
+                    {this.renderElements()}
                     <br/>
-                    <h1>Sample Question:</h1>
-                    <br/>
-                    <div className="question-container">
-                        <h3>Select from the choices below:</h3>
-                        <div>
-                            <input id="optionB" type="radio" className="radio-button" value="A"/>
-                            <label htmlFor="optionB"> Option A</label>
-                        </div>
-                        <div>
-                            <input id="optionB" type="radio" className="radio-button" value="B" />
-                            <label htmlFor="optionB"> Option B</label>
-                        </div>
-                        <div>
-                            <input id="optionB" type="radio" className="radio-button" value="C" />
-                            <label htmlFor="optionB"> Option C</label>
-                        </div>
-                        <div>
-                            <input id="optionB" type="radio" className="radio-button" value="D" />
-                            <label htmlFor="optionB"> Option D</label>
-                        </div>
-
-                    </div>
                 </div>
             );
         }
@@ -58,14 +38,41 @@ class FormShow extends React.Component {
 
     renderElements() {
         const local_elements = this.props.elements;
-         if (Object.keys(local_elements).length > 0 && this.props.form) {
-             console.log(this.props.form.element_ids);
+        if (this.props.form) {
+            debugger
+            if (this.props.form.element_ids.length === 0) {
+                return (
+                    <div>
+                        <h1>Sample Question:</h1>
+                        <br />
+                        <div className="question-container">
+                            <h3>Select from the choices below:</h3>
+                            <div>
+                                <input id="optionB" type="radio" className="radio-button" value="A" />
+                                <label htmlFor="optionB"> Option A</label>
+                            </div>
+                            <div>
+                                <input id="optionB" type="radio" className="radio-button" value="B" />
+                                <label htmlFor="optionB"> Option B</label>
+                            </div>
+                            <div>
+                                <input id="optionB" type="radio" className="radio-button" value="C" />
+                                <label htmlFor="optionB"> Option C</label>
+                            </div>
+                            <div>
+                                <input id="optionB" type="radio" className="radio-button" value="D" />
+                                <label htmlFor="optionB"> Option D</label>
+                            </div>
+                        </div>
+                    </div>
+                );
+            }
+        }
+        if (Object.keys(local_elements).length > 0 && this.props.form) {
              return (this.props.form.element_ids.map(function (id, i) {
-                 let body = local_elements[id].body;
-                 console.log(body);
                  return (
                      <div key={i} className="question-container">
-                         <h3>{body}</h3>
+                         <h3>{local_elements[id].body}</h3>
                      </div>
                  );
              })); 

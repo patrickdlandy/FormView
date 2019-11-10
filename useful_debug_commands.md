@@ -115,3 +115,9 @@ this.props.form.form_element_ids.forEach(function(id) {
                      </div>
                  )
              }) 
+
+VERY WEIRD BUG
+
+There is an inconsistency in the format of my front end state form objects: some of them have a key of 'form_element_ids' and some have a key of 'element_ids.' Mysterious! I found this by inserting a debugger in my renderElements function in the react component and checking the form object's keys when loading different forms. 
+
+Looks like a jbuilder issue! Index and Show had different keys names.
