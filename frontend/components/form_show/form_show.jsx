@@ -22,12 +22,12 @@ class FormShow extends React.Component {
 
     renderForm() {
         if (this.props.form) {
-            console.log(this.props.form);
             return(
                 <div className="form-show-container">
-                    {this.props.form.name}
+                    <h2>{this.props.form.name}</h2>
                     <br/>
                     {this.props.form.description}
+                    <br/>
                     <br/>
                     {this.renderElements()}
                     <br/>
@@ -39,7 +39,6 @@ class FormShow extends React.Component {
     renderElements() {
         const local_elements = this.props.elements;
         if (this.props.form) {
-            debugger
             if (this.props.form.element_ids.length === 0) {
                 return (
                     <div>
@@ -67,16 +66,19 @@ class FormShow extends React.Component {
                     </div>
                 );
             }
+            if (Object.keys(local_elements).length > 0) {
+                return (this.props.form.element_ids.map(function (id, i) {
+                    return (
+                        <div key={i} className="question-container">
+                            <h3>{local_elements[id].title}:</h3>
+                            <h3>{local_elements[id].body}</h3>
+                            <br/>
+                        </div>
+                    );
+                }));
+            }
         }
-        if (Object.keys(local_elements).length > 0 && this.props.form) {
-             return (this.props.form.element_ids.map(function (id, i) {
-                 return (
-                     <div key={i} className="question-container">
-                         <h3>{local_elements[id].body}</h3>
-                     </div>
-                 );
-             })); 
-         }
+        
     }
 
     handleClick(e) {
@@ -124,7 +126,6 @@ class FormShow extends React.Component {
                 <main className="bottom-container">
                     <div>
                         {this.renderForm()}
-                        {this.renderElements()}
                     </div>
                 </main>
             </div>

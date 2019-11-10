@@ -26,6 +26,7 @@ third_form = Form.create(name: 'EV Driver Satisfaction Survey', user_id: third_u
 third_element = Element.create(title: 'Question 1', form_id: third_form.id, body: "How do you feel about the range of your vehicle?", order: 1, element_type: "Multiple Choice")
 fifth_option = Option.create(title: 'A', element_id: third_element.id, body: "Range is sufficient", order: 1, option_type: "Multiple Choice")
 sixth_option = Option.create(title: 'B', element_id: third_element.id, body: "Range is insufficient", order: 2, option_type: "Multiple Choice")
+fourth_element = Element.create(title: 'Question 2', form_id: third_form.id, body: "Is it convenient for you to charge your electric vehicle?", order: 2, element_type: "Multiple Choice")
 
 fourth_form = Form.create(name: 'Lightbulb Survey', user_id: third_user.id, description: "This survey asks the age-old questions about lighting that have been bothering energy professionals. Why did compact fluorescent lights so quickly become obsolete? How quickly are LEDs becoming mandated in cities like New York? This survey gathers answers from home-owners and lighting experts.")
 fifth_form = Form.create(name: 'Solar Panel Opinions', user_id: third_user.id, description: "This survey collects consumer opinions on residential solar panels.")
