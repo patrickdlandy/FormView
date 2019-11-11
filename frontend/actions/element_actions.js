@@ -6,7 +6,6 @@ export const CLEAR_ELEMENTS = "CLEAR_ELEMENTS";
 export const RECEIVE_ELEMENT_ERRORS = "RECEIVE_ELEMENT_ERRORS";
 export const CLEAR_ELEMENT_ERRORS = "CLEAR_ELEMENT_ERRORS";
 
-
 export const receiveElement = function(element) {
     return({
         type: RECEIVE_ELEMENT,

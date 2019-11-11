@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     resource :session, only: [:create, :destroy]
     resources :forms, only: [:create, :show, :index, :edit, :update, :destroy]
     resources :elements, only: [:create, :show, :index]
-    resources :options, only: [:create, :show]
+    resources :options, only: [:create, :show, :index]
   end
 end
 

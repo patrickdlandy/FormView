@@ -121,3 +121,43 @@ VERY WEIRD BUG
 There is an inconsistency in the format of my front end state form objects: some of them have a key of 'form_element_ids' and some have a key of 'element_ids.' Mysterious! I found this by inserting a debugger in my renderElements function in the react component and checking the form object's keys when loading different forms. 
 
 Looks like a jbuilder issue! Index and Show had different keys names.
+
+Ok, so what is the plan for getting form elements all the way from seeds to form_show?
+
+1. Add route (index) x
+2. Add controller x
+3. Add jbuilder + api util and test x
+4. Add actions and action creators x
+5. Add reducers for options and option errors
+6. Add to MDP for form show container
+7. Add to element render function in form_show
+
+
+Feedback on MVPs:
+
+Check for uniqueness of email on form response (form show page without login).
+
+Possible /share 
+
+Part A: of "Share Forms": user can see with shared link
+Part B: User can answer and responses will persist (related to display results MVP).
+
+Going to need a joins table for question/response.
+
+DO response aggregation with JBuilder.
+
+Last MVP is various question types.
+
+Responses: polymorphic????
+
+For general personal pitch:
+Add name drop.
+more personal info to "stand out" or make them smile (based on specific company).
+more tech details on project I choose to focus on (languages).
+
+For Thursday:
+
+30 seconds
+Name, Engineering at Cornell, software engineer, here are projects.
+Focus role rather than company
+Practice talking about specific tech based on what they are hiring for.
