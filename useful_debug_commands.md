@@ -128,7 +128,7 @@ Ok, so what is the plan for getting form elements all the way from seeds to form
 2. Add controller x
 3. Add jbuilder + api util and test x
 4. Add actions and action creators x
-5. Add reducers for options and option errors
+5. Add reducers for options and option errors x
 6. Add to MDP for form show container
 7. Add to element render function in form_show
 

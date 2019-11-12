@@ -5,6 +5,9 @@ class FormShow extends React.Component {
     constructor(props) {
         super(props);
         this.handleClick = this.handleClick.bind(this);
+        this.renderForm = this.renderForm.bind(this);
+        this.renderElements = this.renderElements.bind(this);
+        this.renderOptions = this.renderOptions.bind(this);
         this.state = {
             menuDisplayed: false
         }
@@ -13,14 +16,16 @@ class FormShow extends React.Component {
     componentDidMount() {
         this.props.fetchForm(this.props.formId);
         this.props.fetchElements();
+        this.props.fetchOptions();
     }
 
     componentWillUnmount() {
         this.props.clearElements();
-        console.log(this.props.elements);
+        this.props.clearOptions();
     }
 
     renderForm() {
+        //Getting the elements and options might make sense here instead of in nested functions.
         if (this.props.form) {
             return(
                 <div className="form-show-container">
@@ -34,6 +39,17 @@ class FormShow extends React.Component {
                 </div>
             );
         }
+    }
+
+    renderOptions(element_id) {
+        const local_options = this.props.options;
+        return (this.props.elements[element_id].option_ids.map(function (id, i) {
+            return (
+                <div key={i} >
+                    <h3>{local_options[id].title}</h3>
+                </div>
+            );
+        }));
     }
 
     renderElements() {
@@ -67,19 +83,25 @@ class FormShow extends React.Component {
                 );
             }
             if (Object.keys(local_elements).length > 0) {
-                return (this.props.form.element_ids.map(function (id, i) {
+                // const local_options = this.props.options;
+                let element_arr = this.props.form.element_ids.map(function (id) {
+                    let options_arr = this.renderOptions(id);
+                    console.log(options_arr);
                     return (
-                        <div key={i} className="question-container">
+                        <div key={id} className="question-container">
                             <h3>{local_elements[id].title}:</h3>
                             <h3>{local_elements[id].body}</h3>
                             <br/>
                         </div>
                     );
-                }));
+                });
+                console.log(element_arr);
+                return element_arr;
             }
         }
-        
     }
+
+   
 
     handleClick(e) {
         e.preventDefault();

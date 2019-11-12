@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { fetchForm, clearForms } from '../../actions/form_actions';
 import { fetchElements, clearElements } from '../../actions/element_actions';
+import { fetchOptions, clearOptions } from '../../actions/option_actions';
 import FormShow from './form_show';
 
 export const mapStateToProps = function(state, ownProps) {
@@ -9,7 +10,8 @@ export const mapStateToProps = function(state, ownProps) {
         currentUser: state.entities.users[state.session.id],
         formId: formId,
         form: state.entities.forms[formId],
-        elements: state.entities.elements
+        elements: state.entities.elements,
+        options: state.entities.options
     })
 }
 
@@ -19,7 +21,9 @@ export const mapDispatchToProps = function(dispatch) {
         logout: () => dispatch(logout()),
         clearForms: () => dispatch(clearForms()),
         fetchElements: () => dispatch(fetchElements()),
-        clearElements: () => dispatch(clearElements())
+        clearElements: () => dispatch(clearElements()),
+        fetchOptions: () => dispatch(fetchOptions()),
+        clearOptions: () => dispatch(clearOptions())
     })
 }
 

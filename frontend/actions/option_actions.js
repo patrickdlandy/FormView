@@ -1,4 +1,4 @@
-import * as OptionApiUtil from '../util/element_api_util';
+import * as OptionApiUtil from '../util/option_api_util';
 
 export const RECEIVE_OPTION = "RECEIVE_OPTION";
 export const RECEIVE_OPTIONS = "RECEIVE_OPTIONS";
@@ -13,16 +13,34 @@ export const receiveOptions = function(options) {
   })
 }
 
+export const clearOptions = function() {
+  return({
+    type: CLEAR_OPTIONS
+  })
+}
+
+export const receiveOptionErrors = function(errors) {
+  return({
+    type: RECEIVE_OPTION_ERRORS,
+    errors: errors
+  })
+}
+
+export const clearOptionErrors = function(errors) {
+  return({
+    type: CLEAR_OPTION_ERRORS
+  })
+}
 //THUNKS
 
 export const fetchOptions = function() {
   return function(dispatch) {
-    return ElementApiUtil.fetchOptions().then(
+    return OptionApiUtil.fetchOptions().then(
       function(payload) {
         dispatch(receiveOptions(payload));
       },
       function(err) {
-        dispatch(receiveOptions(err.responseJSON));
+        dispatch(receiveOptionErrors(err.responseJSON));
       }
     );
   }
