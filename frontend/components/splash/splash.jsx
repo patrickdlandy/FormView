@@ -75,10 +75,13 @@ class Splash extends React.Component {
                     <img className="logo" src={window.logo} alt=""/>
                     <ul className="nav-ul">
                         <li className="nav-element">
-                            <a href="https://github.com/patrickdlandy" className="nav-link" target="_blank">GITHUB</a>
+                            <a href="https://github.com/patrickdlandy/FormView" className="nav-link" target="_blank">GITHUB</a>
                         </li>
                         <li className="nav-element">
-                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link" target="_blank">LINKEDIN</a>
+                            <a href="https://www.linkedin.com/in/patrick-d-landy-pe-178a279a//" className="nav-link" target="_blank">LINKEDIN</a>
+                        </li>
+                        <li className="nav-element">
+                            <a href="https://angel.co/patrick-d-landy" className="nav-link" target="_blank">ANGELLIST</a>
                         </li>
                     </ul> 
                     <nav className="signup-btn-container">

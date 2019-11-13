@@ -30,7 +30,7 @@
    text-align: left;
    color: #fff;
    height: 80px;
-   min-width: 800px;
+   min-width: 900px;
    line-height: 3.5; 
    /* text-align: center; */
    width: 100%;
@@ -234,7 +234,7 @@
    vertical-align: middle;
    text-decoration: none;
    margin-left: 25px;
-   margin-right: 4.375rem;
+   margin-right: 2rem;
 }
 
 
