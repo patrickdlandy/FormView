@@ -48,9 +48,9 @@ class LoginForm extends React.Component {
         return (
             <div>
                 <div className="main-nav-container">
-                    <ul className="nav-element">
-                        <Link to="/" className="nav-element-logo-link">FormView by Patrick Landy</Link>
-                    </ul>
+                    <Link to="/" className="nav-element-logo-link">
+                        <img className="logo" src={window.logo} alt="" />
+                    </Link>
                 </div>
                 <form className="bottom-container" onSubmit={this.handleSubmit}>
                     <br/>

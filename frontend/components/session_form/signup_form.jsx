@@ -43,15 +43,18 @@ class SignupForm extends React.Component {
         return (
             <div>
                 <nav className="main-nav-container">
-                    <ul className="nav-element">
-                        <Link to="/" className="nav-element-logo-link">FormView by Patrick Landy</Link>
-                    </ul>
+                    <Link to="/" className="nav-element-logo-link">
+                        <img className="logo" src={window.logo} alt="" />
+                    </Link>
                     <ul className="nav-ul">
                         <li className="nav-element">
-                            <a href="https://github.com/patrickdlandy" className="nav-link">GITHUB</a>
+                            <a href="https://github.com/patrickdlandy/FormView" className="nav-link" target="_blank">GITHUB</a>
                         </li>
                         <li className="nav-element">
-                            <a href="https://www.linkedin.com/in/patrick-landy-pe-cphc-178a279a/" className="nav-link">LINKEDIN</a>
+                            <a href="https://www.linkedin.com/in/patrick-d-landy-pe-178a279a//" className="nav-link" target="_blank">LINKEDIN</a>
+                        </li>
+                        <li className="nav-element">
+                            <a href="https://angel.co/patrick-d-landy" className="nav-link" target="_blank">ANGELLIST</a>
                         </li>
                     </ul>
                     <Link to="/login"
