@@ -54,6 +54,7 @@ class FormShow extends React.Component {
 
     renderElements() {
         const local_elements = this.props.elements;
+        const local_options = this.props.options;
         if (this.props.form) {
             if (this.props.form.element_ids.length === 0) {
                 return (
@@ -82,15 +83,23 @@ class FormShow extends React.Component {
                     </div>
                 );
             }
-            if (Object.keys(local_elements).length > 0) {
-                // const local_options = this.props.options;
-                let element_arr = this.props.form.element_ids.map(function (id) {
-                    let options_arr = this.renderOptions(id);
-                    console.log(options_arr);
+            if (Object.keys(local_elements).length > 0 && Object.keys(local_options).length > 0) {
+                let element_arr = this.props.form.element_ids.map(function (id1) {
+                    let local_option_arr = local_elements[id1].option_ids.map(function(id) {
+                        // debugger
+                        return(
+                            <div key={id}>
+                                <span>
+                                    {local_options[id].title + ": " + local_options[id].body}
+                                </span>
+                            </div>
+                        );
+                    });
                     return (
-                        <div key={id} className="question-container">
-                            <h3>{local_elements[id].title}:</h3>
-                            <h3>{local_elements[id].body}</h3>
+                        <div key={id1} className="question-container">
+                            <h3>{local_elements[id1].title}:</h3>
+                            <h3>{local_elements[id1].body}</h3>
+                            {local_option_arr}
                             <br/>
                         </div>
                     );
