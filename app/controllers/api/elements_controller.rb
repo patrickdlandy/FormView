@@ -14,16 +14,20 @@ class Api::ElementsController < ApplicationController
       end
   end
 
-  # def show
-  #   puts "params:"
-  #   puts params
-  #   @elements = Form.find(params[:id]).elements
-  #   if @elements
-  #     puts @elements
-  #   else
-  #     render json: @form.errors.full_messages, status: 406
-  #   end
-  # end
+ def create
+    @element = Element.new(element_params)
+    if @element.save
+      render :show
+    else
+      render json: @element.errors.full_messages, status: 406
+    end
+ end
+
+ private
+
+ def element_params
+    params.require(:element).permit(:id, :title, :body, :form_id, :order)
+ end
 
 
 end

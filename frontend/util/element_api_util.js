@@ -12,3 +12,11 @@ export const fetchElements = function() {
     })
 }
 
+export const createElement = function(element) {
+    return $.ajax({
+        method: 'POST',
+        url: `api/elements`,
+        data: element
+    })
+}
+

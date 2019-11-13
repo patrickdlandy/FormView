@@ -67,3 +67,16 @@ export const fetchElement = function(id) {
     }
 }
 
+export const createElement = function (element) {
+    return function (dispatch) {
+        return ElementApiUtil.createElement(element).then(
+            function (payload) {
+                dispatch(receiveElement(payload));
+            },
+            function (err) {
+                dispatch(receiveElementErrors(err.responseJSON))
+            }
+        );
+    }
+}
+
