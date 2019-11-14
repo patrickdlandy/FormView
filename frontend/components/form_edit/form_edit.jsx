@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import ElementCreate from '../element_create/element_create';
 
 class FormEdit extends React.Component {
     constructor(props) {
@@ -120,17 +121,25 @@ class FormEdit extends React.Component {
                     <input type="text" className="name-box" value={this.state.form.name} onChange={this.update("name")}/>
                     <br/>
                     {this.renderErrors()}
-                    <label>Description:</label>
+                    <label>Description!</label>
                     <br/>
                     <textarea className="description-box" type="text" value={this.state.form.description} onChange={this.update("description")}/>
                     <br/>
                     <input type="submit" value="Update!"/>
                 </form>
                 <button onClick={this.handleDelete}>Delete Form</button>
+                <div>
+                    <h3>element create goes here</h3>
+                </div>
             </div>
         </div>
         );
     }
 }
+
+//Can pass props directly in to ElementCreate
+//example <ElementCreate logout={this.props.logout} /> and then inside I can do this.props.logout
+
+//I don't need a container for small components within a page.  Can pass in state, etc.
 
 export default withRouter(FormEdit);

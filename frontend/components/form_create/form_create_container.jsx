@@ -22,6 +22,6 @@ export const mapDispatchToProps = function (dispatch) {
        logout: () => dispatch(logout()),
        clearFormErrors: () => dispatch(clearFormErrors())
     })
-}
+} 
 
 export default connect(mapStateToProps, mapDispatchToProps)(FormCreate);
