@@ -1,16 +1,12 @@
 # FormView
-## aA Fullstack Project
+## Full Stack Web Application
 Patrick Landy
-
-This ReadMe is current as of Friday, October 11th, 2019. 
-
-This repository contains FormView, a web application created for my Full Stack project at App Academy NY (August 2019 cohort).
 
 FormView is a single-page web application that uses PostgreSQL, Ruby on Rails, and React/Redux. It mimics the appearance and functionality of Wufoo by SurveyMonkey (https://www.wufoo.com/).
 
-The application currently allows users to sign up, log in and log out of the site with user authentication and session management. It also allows users to create new survey forms, view individual forms, and view a list of his or her previous forms.
+The application allows users to sign up, log in and log out of the site with user authentication and password digest/session management. Password digests generated using BCrypt and session tokens are stored in the database. It also demonstrates full CRUD (Create, Read, Update, Destroy) functionality for survey forms and subcomponents.
 
-Additional planned features for FormView include form editing, addition of form elements (multiple choice, dropdown questions, etc), form sharing,and form data display.
+Additional planned features for FormView include form sharing, form data display, and different question types.
 
 FormView has been deployed to Heroku here: https://formview.herokuapp.com/
 
@@ -26,7 +22,8 @@ Splash page glyptodon graphic credits: Rachel Margolis
 * React/Redux framework for front end
     * Single page application using store container for front-end state
         * Store, Reducers, Actions, Asynchronous action creators
-        * AJAX requests to back end routes 
+        * AJAX requests to back end routes
+        * Customized error reducers for specific form inputs
     * React Components 
         * Containers (mapping state and dispatch to component props)
         * HashRouter for front end routing
