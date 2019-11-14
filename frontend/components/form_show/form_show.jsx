@@ -8,15 +8,30 @@ class FormShow extends React.Component {
         this.renderForm = this.renderForm.bind(this);
         this.renderElements = this.renderElements.bind(this);
         this.renderOptions = this.renderOptions.bind(this);
+        this.contentChange = this.contentChange.bind(this);
         this.state = {
-            menuDisplayed: false
+            menuDisplayed: false,
+            elementsLoaded: false,
+            optionsLoaded: false
         }
     }
 
+    contentChange(key) {
+        this.setState({
+               [key]: true
+            });
+    }
+
     componentDidMount() {
+        const contentChange = this.contentChange;
         this.props.fetchForm(this.props.formId);
-        this.props.fetchElements();
-        this.props.fetchOptions();
+        this.props.fetchElements().then(function () {
+            contentChange("elementsLoaded")
+        });
+        // console.log(this.state.elementsLoaded);
+        this.props.fetchOptions().then(function() {
+            contentChange("optionsLoaded")
+        });
     }
 
     componentWillUnmount() {
@@ -26,7 +41,7 @@ class FormShow extends React.Component {
 
     renderForm() {
         //Getting the elements and options might make sense here instead of in nested functions.
-        if (this.props.form) {
+        if (this.props.form && this.state.optionsLoaded === true && this.state.elementsLoaded === true ) {
             return(
                 <div className="form-show-container">
                     <h2>{this.props.form.name}</h2>
@@ -34,7 +49,7 @@ class FormShow extends React.Component {
                     {this.props.form.description}
                     <br/>
                     <br/>
-                    {this.renderElements()}
+                    {this.renderElements(this.props.elements, this.props.options)}
                     <br/>
                 </div>
             );
@@ -52,9 +67,10 @@ class FormShow extends React.Component {
         }));
     }
 
-    renderElements() {
-        const local_elements = this.props.elements;
-        const local_options = this.props.options;
+    renderElements(elements, options) {
+        const local_elements = elements;
+        const local_options = options;
+        const local_form = this.props.form;
         if (this.props.form) {
             if (this.props.form.element_ids.length === 0) {
                 return (
@@ -84,13 +100,15 @@ class FormShow extends React.Component {
                 );
             }
             if (Object.keys(local_elements).length > 0 && Object.keys(local_options).length > 0) {
-                let element_arr = this.props.form.element_ids.map(function (id1) {
+                let element_arr = local_form.element_ids.map(function (id1) {
                     let local_option_arr = local_elements[id1].option_ids.map(function(id) {
-                        // debugger
                         return(
                             <div key={id}>
                                 <span>
-                                    {local_options[id].title + ": " + local_options[id].body}
+                                    <input id="optionB" type="radio" className="radio-button" value="A" />
+                                    <label htmlFor="optionB"> 
+                                        {" " + local_options[id].title + ": " + local_options[id].body}
+                                    </label>
                                 </span>
                             </div>
                         );
@@ -104,7 +122,7 @@ class FormShow extends React.Component {
                         </div>
                     );
                 });
-                console.log(element_arr);
+                // console.log(element_arr);
                 return element_arr;
             }
         }

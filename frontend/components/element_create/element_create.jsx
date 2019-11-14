@@ -9,9 +9,9 @@ class ElementCreate extends React.Component {
       title: "",
       body: "",
       order: 1,
-      form_id: this.props.formId
+      form_id: this.props.formId,
+      element_type: "Multiple Choice"
     };
-    debugger
   }
 
   update(field) {
@@ -27,7 +27,6 @@ class ElementCreate extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let myhistory = this.props.history;
-    debugger
     this.props.createElement({ element: this.state }).then(() => {
       myhistory.push("/")
     });

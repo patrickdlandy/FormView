@@ -26,7 +26,7 @@ class Api::ElementsController < ApplicationController
  private
 
  def element_params
-    params.require(:element).permit(:id, :title, :body, :form_id, :order)
+    params.require(:element).permit(:title, :body, :form_id, :order, :element_type)
  end
 
 

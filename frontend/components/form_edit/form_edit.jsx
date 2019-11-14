@@ -129,7 +129,7 @@ class FormEdit extends React.Component {
                 </form>
                 <button onClick={this.handleDelete}>Delete Form</button>
                 <div>
-                    <h3>element create goes here</h3>
+                    <ElementCreate formId={this.props.formId} clearElementErrors={this.props.clearElementErrors} createElement={this.props.createElement} history={this.props.history}/>
                 </div>
             </div>
         </div>
