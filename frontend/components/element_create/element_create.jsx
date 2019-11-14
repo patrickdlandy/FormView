@@ -50,13 +50,13 @@ class ElementCreate extends React.Component {
     return (
       <div className="form-builder-container">
         <form onSubmit={this.handleSubmit}>
-          <h3>New Element</h3>
+          <h3>New Question</h3>
           <br />
-          <label>Option (A, B, C, etc):</label>
+          <label>Question Label:</label>
           <br />
           <input type="text" className="name-box" value={this.state.title} onChange={this.update("title")} />
           <br />
-          <label>Description:</label>
+          <label>Question Body:</label>
           <br />
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />
           <br />

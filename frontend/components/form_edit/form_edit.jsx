@@ -128,10 +128,8 @@ class FormEdit extends React.Component {
                     <input type="submit" value="Update!"/>
                 </form>
                 <button onClick={this.handleDelete}>Delete Form</button>
-                <div>
-                    <ElementCreate formId={this.props.formId} clearElementErrors={this.props.clearElementErrors} createElement={this.props.createElement} history={this.props.history}/>
-                </div>
             </div>
+            <ElementCreate formId={this.props.formId} clearElementErrors={this.props.clearElementErrors} createElement={this.props.createElement} history={this.props.history} />
         </div>
         );
     }
