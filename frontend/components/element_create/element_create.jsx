@@ -56,6 +56,7 @@ class ElementCreate extends React.Component {
           <br />
           <input type="text" className="name-box" value={this.state.title} onChange={this.update("title")} />
           <br />
+          {this.renderErrors()}
           <label>Question Body:</label>
           <br />
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />

@@ -11,6 +11,7 @@ export const mapStateToProps = function (state, ownProps) {
         currentUser: state.entities.users[state.session.id],
         form: state.entities.forms[formId],
         errors: state.errors.forms,
+        elementErrors: state.errors.elements,
         formId: formId
     })
 }
