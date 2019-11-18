@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ElementCreate from '../element_create/element_create';
+import ElementEdit from '../element_edit/element_edit';
 
 class FormEdit extends React.Component {
     constructor(props) {
@@ -31,6 +32,7 @@ class FormEdit extends React.Component {
 
     componentDidMount() {
         this.props.fetchForm(this.props.formId);
+        this.props.fetchElements();
     }
 
     componentWillUnmount() {
@@ -74,6 +76,33 @@ class FormEdit extends React.Component {
                 })}
             </ul>
         );
+    }
+
+    renderElementEdits() {
+        let localFormId = this.props.formId;
+        let localElements = this.props.elements;
+        let localClearElementErrors = this.props.clearElementErrors;
+        let localUpdateElement = this.props.UpdateElement;
+        let localHistory = this.props.history;
+        let localErrors = this.props.elementErrors;
+        debugger
+        return (
+            <div>
+                {this.props.form.element_ids.map( function(id) {
+                    return (
+                        <ElementEdit 
+                            formId={localFormId}
+                            title={localElements[id].title}
+                            body={Elements[id].body}
+                            clearElementErrors={localClearElementErrors} 
+                            updateElement={localUpdateElement} 
+                            history={localHistory} 
+                            errors={localErrors}
+                            />
+                    )
+                })}
+            </div>
+        )
     }
     
     render() {
@@ -129,6 +158,7 @@ class FormEdit extends React.Component {
                 </form>
                 <button onClick={this.handleDelete}>Delete Form</button>
             </div>
+            {this.renderElementEdits()}
             <ElementCreate formId={this.props.formId} clearElementErrors={this.props.clearElementErrors} createElement={this.props.createElement} history={this.props.history} errors={this.props.elementErrors}/>
         </div>
         );
