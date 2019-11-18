@@ -161,3 +161,30 @@ For Thursday:
 Name, Engineering at Cornell, software engineer, here are projects.
 Focus role rather than company
 Practice talking about specific tech based on what they are hiring for.
+
+https://boards.greenhouse.io/aclu/jobs/4491475002#application
+
+Personal Pitch updated:
+
+Hi, I'm Patrick.  (Personal Pitch)
+
+-I graduated from Cornell Engineering and I'm a licensed Professional Engineer. 
+
+-After working in the construction industry for a few years, I'm now satisfying my long-standing interest in computers and software. 
+
+-Middle school
+
+-Freshman at Cornell, Java
+
+-Recently, working on a Full Stack project (talk tech)
+
+-What I learned will allow me to hit the ground running at Ribbon.
+
+-I'm excited about the potential of information technology in the real estate space, and I think it's a fitting transition for me after working directly on buildings for four years.
+
+Comments on GFI application:
+
+-Rephrase "less than ideal"
+-Don't mention App Academy Project
+-"I will refer to my current experience as an App Academy TA for the Jump Start Program"
+-Don't say "I have not had opportunities."
