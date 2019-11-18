@@ -80,3 +80,16 @@ export const createElement = function (element) {
     }
 }
 
+export const updateElement = function (element) {
+    return function (dispatch) {
+        return ElementApiUtil.updateElement(element).then(
+            function (payload) {
+                dispatch(receiveElement(payload));
+            },
+            function (err) {
+                dispatch(receiveElementErrors(err.responseJSON))
+            }
+        );
+    }
+}
+

@@ -20,3 +20,11 @@ export const createElement = function(element) {
     })
 }
 
+export const updateElement = function (element) {
+    return $.ajax({
+        method: 'PATCH',
+        url: `api/elements/${element.id}`,
+        data: element
+    })
+}
+
