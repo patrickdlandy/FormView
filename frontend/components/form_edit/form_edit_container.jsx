@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FormEdit from './form_edit';
 import { fetchForm, updateForm, clearFormErrors, deleteForm }  from '../../actions/form_actions';
-import { fetchElements, createElement, clearElementErrors } from'../../actions/element_actions';
+import { fetchElements, createElement, clearElementErrors, updateElement } from'../../actions/element_actions';
 import { logout } from '../../actions/session_actions';
 
 

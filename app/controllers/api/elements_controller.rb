@@ -23,6 +23,15 @@ class Api::ElementsController < ApplicationController
     end
  end
 
+ def update
+    @element = Element.find(params[:element][:id])
+    if @element.update(element_params)
+        render :show
+    else
+        render json: @element.errors.full_messages, status: 406
+    end
+ end
+
  private
 
  def element_params

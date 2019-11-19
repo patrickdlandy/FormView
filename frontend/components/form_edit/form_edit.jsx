@@ -9,6 +9,7 @@ class FormEdit extends React.Component {
         this.handleClick = this.handleClick.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
+        this.contentChange = this.contentChange.bind(this);
         this.state = {
             form: {
                 id: this.props.formId,
@@ -16,7 +17,8 @@ class FormEdit extends React.Component {
                 user_id: this.props.currentUser.id,
                 description: this.props.form.description
             },
-            menuDisplayed: false
+            menuDisplayed: false,
+            elementsLoaded: false
         };
     }
 
@@ -30,9 +32,18 @@ class FormEdit extends React.Component {
         }
     }
 
+    contentChange(key) {
+        this.setState({
+            [key]: true
+        });
+    }
+
     componentDidMount() {
+        let contentChange = this.contentChange;
         this.props.fetchForm(this.props.formId);
-        this.props.fetchElements();
+        this.props.fetchElements().then(function () {
+            contentChange("elementsLoaded")
+        });
     }
 
     componentWillUnmount() {
@@ -82,27 +93,31 @@ class FormEdit extends React.Component {
         let localFormId = this.props.formId;
         let localElements = this.props.elements;
         let localClearElementErrors = this.props.clearElementErrors;
-        let localUpdateElement = this.props.UpdateElement;
+        let localUpdateElement = this.props.updateElement;
         let localHistory = this.props.history;
         let localErrors = this.props.elementErrors;
-        debugger
-        return (
-            <div>
-                {this.props.form.element_ids.map( function(id) {
-                    return (
-                        <ElementEdit 
-                            formId={localFormId}
-                            title={localElements[id].title}
-                            body={Elements[id].body}
-                            clearElementErrors={localClearElementErrors} 
-                            updateElement={localUpdateElement} 
-                            history={localHistory} 
-                            errors={localErrors}
-                            />
-                    )
-                })}
-            </div>
-        )
+        if (this.state.elementsLoaded) {
+            debugger
+            return (
+                <div>
+                    {this.props.form.element_ids.map( function(id) {
+                        return (
+                            <ElementEdit
+                                key = {id}
+                                id = {id} 
+                                formId={localFormId}
+                                title={localElements[id].title}
+                                body={localElements[id].body}
+                                clearElementErrors={localClearElementErrors} 
+                                updateElement={localUpdateElement} 
+                                history={localHistory} 
+                                errors={localErrors}
+                                />
+                        )
+                    })}
+                </div>
+            )
+        }
     }
     
     render() {

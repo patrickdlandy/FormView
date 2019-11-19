@@ -6,6 +6,7 @@ class ElementEdit extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
+      id: this.props.id,
       title: this.props.title,
       body: this.props.body,
       order: 1,
