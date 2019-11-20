@@ -4,3 +4,11 @@ export const fetchOptions = function() {
     url: `api/options`
   })
 }
+
+export const createOption = function(option) {
+  return $.ajax({
+    method: 'POST',
+    url: `api/options`,
+    data: option
+  })
+}

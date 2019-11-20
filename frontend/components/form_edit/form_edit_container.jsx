@@ -1,7 +1,8 @@
 import { connect } from 'react-redux';
 import FormEdit from './form_edit';
 import { fetchForm, updateForm, clearFormErrors, deleteForm }  from '../../actions/form_actions';
-import { fetchElements, createElement, clearElementErrors, updateElement } from'../../actions/element_actions';
+import { fetchElements, createElement, clearElementErrors, updateElement } from '../../actions/element_actions';
+import { createOption, clearOptionErrors } from '../../actions/option_actions';
 import { logout } from '../../actions/session_actions';
 
 
@@ -13,11 +14,14 @@ export const mapStateToProps = function (state, ownProps) {
         errors: state.errors.forms,
         elements: state.entities.elements,
         elementErrors: state.errors.elements,
+        optionErrors: state.errors.options,
         formId: formId
     })
 }
 
 export const mapDispatchToProps = function (dispatch) {
+    //need createOption
+    //need clearOptionErrors
     return ({
         fetchForm: (id) => dispatch(fetchForm(id)),
         fetchElements: () => dispatch(fetchElements()),
@@ -27,7 +31,9 @@ export const mapDispatchToProps = function (dispatch) {
         clearFormErrors: () => dispatch(clearFormErrors()),
         createElement: (element) => dispatch(createElement(element)),
         clearElementErrors: () => dispatch(clearElementErrors()),
-        updateElement: (element) => dispatch(updateElement(element))
+        updateElement: (element) => dispatch(updateElement(element)),
+        createOption: (option) => dispatch(createOption(option)),
+        clearOptionErrors: () => dispatch(clearOptionErrors())
     })
 }
 

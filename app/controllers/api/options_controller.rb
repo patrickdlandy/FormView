@@ -14,5 +14,20 @@ class Api::OptionsController < ApplicationController
     end
   end
 
+  def create
+    @option = Option.new(option_params)
+    if @option.save
+      render :show
+    else
+      redner json: @option.errors.full_messages, status: 406
+    end
+  end
+
+ private
+
+    def option_params
+        params.require(:option).permit(:id, :title, :element_id, :body, :order, :option_type)
+    end
+
 
 end

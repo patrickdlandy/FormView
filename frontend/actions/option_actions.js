@@ -13,6 +13,13 @@ export const receiveOptions = function(options) {
   })
 }
 
+export const receiveOption = function (option) {
+  return ({
+    type: RECEIVE_OPTION,
+    options: option
+  })
+}
+
 export const clearOptions = function() {
   return({
     type: CLEAR_OPTIONS
@@ -38,6 +45,19 @@ export const fetchOptions = function() {
     return OptionApiUtil.fetchOptions().then(
       function(payload) {
         dispatch(receiveOptions(payload));
+      },
+      function(err) {
+        dispatch(receiveOptionErrors(err.responseJSON));
+      }
+    );
+  }
+}
+
+export const createOption = function(option) {
+  return function(dispatch) {
+    return OptionApiUtil.createOption(option).then(
+      function(payload) {
+        dispatch(receiveOption(payload));
       },
       function(err) {
         dispatch(receiveOptionErrors(err.responseJSON));

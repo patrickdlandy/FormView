@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import ElementCreate from '../element_create/element_create';
+import OptionCreate from '../option_create/option_create';
 import ElementEdit from '../element_edit/element_edit';
 
 class FormEdit extends React.Component {
@@ -95,24 +96,45 @@ class FormEdit extends React.Component {
         let localClearElementErrors = this.props.clearElementErrors;
         let localUpdateElement = this.props.updateElement;
         let localHistory = this.props.history;
-        let localErrors = this.props.elementErrors;
+        let localElementErrors = this.props.elementErrors;
+        let localClearOptionErrors = this.props.clearOptionErrors;
+        let localCreateOption = this.props.createOption;
+        let localOptionErrors = this.props.optionErrors;
+        let localKey = 0;
         if (this.state.elementsLoaded) {
-            debugger
+            // debugger
             return (
                 <div>
                     {this.props.form.element_ids.map( function(id) {
+                        // id: bigint           
+                        // title: string           
+                        // element_id: integer          
+                        // body: string           
+                        // order: integer          
+                        // option_type: string
+                        localKey = localKey + 1;    
                         return (
-                            <ElementEdit
-                                key = {id}
-                                id = {id} 
-                                formId={localFormId}
-                                title={localElements[id].title}
-                                body={localElements[id].body}
-                                clearElementErrors={localClearElementErrors} 
-                                updateElement={localUpdateElement} 
-                                history={localHistory} 
-                                errors={localErrors}
-                                />
+                            <div>
+                                <ElementEdit
+                                    key = {id}
+                                    id = {id} 
+                                    formId={localFormId}
+                                    title={localElements[id].title}
+                                    body={localElements[id].body}
+                                    clearElementErrors={localClearElementErrors} 
+                                    updateElement={localUpdateElement} 
+                                    history={localHistory} 
+                                    errors={localElementErrors}
+                                    />
+                                <OptionCreate
+                                    key = {localKey}
+                                    elementId = {id}
+                                    clearOptionErrors={localClearOptionErrors}
+                                    createOption={localCreateOption}
+                                    history={localHistory}
+                                    errors={localOptionErrors}
+                                    />
+                            </div>
                         )
                     })}
                 </div>
@@ -174,7 +196,12 @@ class FormEdit extends React.Component {
                 <button onClick={this.handleDelete}>Delete Form</button>
             </div>
             {this.renderElementEdits()}
-            <ElementCreate formId={this.props.formId} clearElementErrors={this.props.clearElementErrors} createElement={this.props.createElement} history={this.props.history} errors={this.props.elementErrors}/>
+            <ElementCreate 
+                formId={this.props.formId} 
+                clearElementErrors={this.props.clearElementErrors} 
+                createElement={this.props.createElement} 
+                history={this.props.history} 
+                errors={this.props.elementErrors}/>
         </div>
         );
     }
