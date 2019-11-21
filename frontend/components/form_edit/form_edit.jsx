@@ -92,27 +92,28 @@ class FormEdit extends React.Component {
 
     renderElementEdits() {
         let localFormId = this.props.formId;
+        let localForm = this.props.form;
         let localElements = this.props.elements;
         let localClearElementErrors = this.props.clearElementErrors;
         let localUpdateElement = this.props.updateElement;
+        let localDeleteElement = this.props.deleteElement;
         let localHistory = this.props.history;
         let localElementErrors = this.props.elementErrors;
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localCreateOption = this.props.createOption;
         let localOptionErrors = this.props.optionErrors;
         let localKey = 0;
-        if (this.state.elementsLoaded) {
-            // debugger
+        if (this.state.elementsLoaded && Object.keys(localElements).length > 0) {
             return (
                 <div>
-                    {this.props.form.element_ids.map( function(id) {
+                    {localForm.element_ids.map( function(id) {
                         // id: bigint           
                         // title: string           
                         // element_id: integer          
                         // body: string           
                         // order: integer          
                         // option_type: string
-                        localKey = localKey + 1;    
+                        localKey = localKey + 1;  
                         return (
                             <div>
                                 <ElementEdit
@@ -121,7 +122,8 @@ class FormEdit extends React.Component {
                                     formId={localFormId}
                                     title={localElements[id].title}
                                     body={localElements[id].body}
-                                    clearElementErrors={localClearElementErrors} 
+                                    clearElementErrors={localClearElementErrors}
+                                    deleteElement={localDeleteElement} 
                                     updateElement={localUpdateElement} 
                                     history={localHistory} 
                                     errors={localElementErrors}

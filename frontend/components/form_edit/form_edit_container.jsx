@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import FormEdit from './form_edit';
 import { fetchForm, updateForm, clearFormErrors, deleteForm }  from '../../actions/form_actions';
-import { fetchElements, createElement, clearElementErrors, updateElement } from '../../actions/element_actions';
+import { fetchElements, createElement, clearElementErrors, updateElement, deleteElement } from '../../actions/element_actions';
 import { createOption, clearOptionErrors } from '../../actions/option_actions';
 import { logout } from '../../actions/session_actions';
 
@@ -32,6 +32,7 @@ export const mapDispatchToProps = function (dispatch) {
         createElement: (element) => dispatch(createElement(element)),
         clearElementErrors: () => dispatch(clearElementErrors()),
         updateElement: (element) => dispatch(updateElement(element)),
+        deleteElement: (id) => dispatch(deleteElement(id)),
         createOption: (option) => dispatch(createOption(option)),
         clearOptionErrors: () => dispatch(clearOptionErrors())
     })

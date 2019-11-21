@@ -5,6 +5,7 @@ class ElementEdit extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       id: this.props.id,
       title: this.props.title,
@@ -29,6 +30,14 @@ class ElementEdit extends React.Component {
     e.preventDefault();
     let myhistory = this.props.history;
     this.props.updateElement({ element: this.state }).then(() => {
+      myhistory.push("/")
+    });
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    let myhistory = this.props.history;
+    this.props.deleteElement(this.props.id).then(() => {
       myhistory.push("/")
     });
   }
@@ -64,6 +73,7 @@ class ElementEdit extends React.Component {
           <br />
           <input type="submit" value="Update!" />
         </form>
+        <button onClick={this.handleDelete}>Delete Element</button>
       </div>
     )
   }

@@ -32,6 +32,15 @@ class Api::ElementsController < ApplicationController
     end
  end
 
+ def destroy
+      @element = Element.find(params[:id])
+      if @element.destroy
+          render :show
+      else
+          render json: @element.errors.full_messages, status: 406
+      end
+  end
+
  private
 
  def element_params

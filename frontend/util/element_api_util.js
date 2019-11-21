@@ -28,3 +28,10 @@ export const updateElement = function (element) {
     })
 }
 
+export const deleteElement = function (id) {
+    return $.ajax({
+        method: 'DELETE',
+        url: `api/elements/${id}`
+    })
+}
+

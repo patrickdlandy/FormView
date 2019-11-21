@@ -93,3 +93,16 @@ export const updateElement = function (element) {
     }
 }
 
+export const deleteElement = function (id) {
+    return function (dispatch) {
+        return ElementApiUtil.deleteElement(id).then(
+            function() {
+                dispatch(clearElements());
+            },
+            function(err) {
+                dispatch(receiveElementErrors(err.responseJSON));
+            }
+        );
+    }
+}
+
