@@ -103,7 +103,7 @@ class FormEdit extends React.Component {
         let localCreateOption = this.props.createOption;
         let localOptionErrors = this.props.optionErrors;
         let localKey = 0;
-        if (this.state.elementsLoaded && Object.keys(localElements).length > 0) {
+        if (localForm && this.state.elementsLoaded && Object.keys(localElements).length > 0) {
             return (
                 <div>
                     {localForm.element_ids.map( function(id) {
