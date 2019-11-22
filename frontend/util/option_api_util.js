@@ -12,3 +12,11 @@ export const createOption = function(option) {
     data: option
   })
 }
+
+export const updateOption = function(option) {
+  return $.ajax({
+    method: 'PATCH',
+    url: `api/options/${option.id}`,
+    data: option
+  })
+}

@@ -23,7 +23,7 @@ class ElementEdit extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearElementErrors();
+    // this.props.clearElementErrors();
   }
 
   handleSubmit(e) {

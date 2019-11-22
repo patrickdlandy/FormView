@@ -30,7 +30,7 @@ class OptionCreate extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearOptionErrors();
+    // this.props.clearOptionErrors();
   }
 
   handleSubmit(e) {

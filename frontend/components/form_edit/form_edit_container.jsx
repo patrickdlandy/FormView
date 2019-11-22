@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 import FormEdit from './form_edit';
 import { fetchForm, updateForm, clearFormErrors, deleteForm }  from '../../actions/form_actions';
 import { fetchElements, createElement, clearElementErrors, updateElement, deleteElement } from '../../actions/element_actions';
-import { createOption, clearOptionErrors } from '../../actions/option_actions';
+import { fetchOptions, createOption, clearOptionErrors } from '../../actions/option_actions';
 import { logout } from '../../actions/session_actions';
 
 
@@ -13,6 +13,7 @@ export const mapStateToProps = function (state, ownProps) {
         form: state.entities.forms[formId],
         errors: state.errors.forms,
         elements: state.entities.elements,
+        options: state.entities.options,
         elementErrors: state.errors.elements,
         optionErrors: state.errors.options,
         formId: formId
@@ -20,11 +21,11 @@ export const mapStateToProps = function (state, ownProps) {
 }
 
 export const mapDispatchToProps = function (dispatch) {
-    //need createOption
-    //need clearOptionErrors
+    //need fetchOptions
     return ({
         fetchForm: (id) => dispatch(fetchForm(id)),
         fetchElements: () => dispatch(fetchElements()),
+        fetchOptions: () => dispatch(fetchOptions()),
         updateForm: (form) => dispatch(updateForm(form)),
         deleteForm: (id) => dispatch(deleteForm(id)),
         logout: () => dispatch(logout()),

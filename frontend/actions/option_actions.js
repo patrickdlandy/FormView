@@ -4,7 +4,7 @@ export const RECEIVE_OPTION = "RECEIVE_OPTION";
 export const RECEIVE_OPTIONS = "RECEIVE_OPTIONS";
 export const CLEAR_OPTIONS = "CLEAR_OPTIONS";
 export const RECEIVE_OPTION_ERRORS = "RECEIVE_OPTION_ERRORS";
-export const CLEAR_OPTION_ERRORS = "CLEAR_ELEMENT_ERRORS";
+export const CLEAR_OPTION_ERRORS = "CLEAR_OPTION_ERRORS";
 
 export const receiveOptions = function(options) {
   return({
@@ -63,5 +63,18 @@ export const createOption = function(option) {
         dispatch(receiveOptionErrors(err.responseJSON));
       }
     );
+  }
+}
+
+export const updateOption = function(option) {
+  return function(dispatch) {
+    return OptionApiUtil.updateOption(option).then(
+      function(payload) {
+        dispatch(receiveOption(payload));
+      },
+      function(err) {
+        dispatch(receiveOptionErrors(err.responseJSON));
+      }
+    )
   }
 }

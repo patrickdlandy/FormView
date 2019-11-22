@@ -19,6 +19,7 @@ class Splash extends React.Component {
     }
 
     componentWillUnmount() {
+        // debugger
         this.props.clearForms();
         this.props.clearFormErrors();
     }

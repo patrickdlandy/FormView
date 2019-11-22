@@ -188,3 +188,21 @@ Comments on GFI application:
 -Don't mention App Academy Project
 -"I will refer to my current experience as an App Academy TA for the Jump Start Program"
 -Don't say "I have not had opportunities."
+
+What are my issues? Thoughts on Friday, 11/22
+
+I have a problem when I refresh the FormEdit page:
+
+'cannot read property name of undefined' 
+
+I believe that this means that a form (with the name key) is not loaded when the method attempts to key into a form object.  How can I fix this?
+
+Maybe try a .then() for loading the form.
+
+I am also having a phantom repeated clearElementErrors issue.
+
+Violation: Maximum update depth exceeded. This can happen when a component repeatedly calls setState inside componentWillUpdate or componentDidUpdate. React limits the number of nested updates to prevent infinite loops.
+
+This is happening after a massive number of CLEAR_ELEMENT_ERRORS actions being dispatched.
+
+There is a console log that appears each time with each CLEAR_ELEMENT_ERRORS... The problem appears to be in renderElementEdits.

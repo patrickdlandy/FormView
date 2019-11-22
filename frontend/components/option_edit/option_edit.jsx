@@ -1,7 +1,14 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-class ElementCreate extends React.Component {
+// id: bigint           
+// title: string           
+// element_id: integer          
+// body: string           
+// order: integer          
+// option_type: string           
+
+class OptionEdit extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -9,8 +16,8 @@ class ElementCreate extends React.Component {
       title: "",
       body: "",
       order: 1,
-      form_id: this.props.formId,
-      element_type: "Multiple Choice"
+      element_id: this.props.elementId,
+      option_type: "Multiple Choice"
     };
   }
 
@@ -21,13 +28,13 @@ class ElementCreate extends React.Component {
   }
 
   componentWillUnmount() {
-    // this.props.clearElementErrors();
+    this.props.clearOptionErrors();
   }
 
   handleSubmit(e) {
     e.preventDefault();
     let myhistory = this.props.history;
-    this.props.createElement({ element: this.state }).then(() => {
+    this.props.updateOption({ option: this.state }).then(() => {
       myhistory.push("/")
     });
   }
@@ -50,14 +57,14 @@ class ElementCreate extends React.Component {
     return (
       <div className="form-builder-container">
         <form onSubmit={this.handleSubmit}>
-          <h3>New Question</h3>
+          <h3>Edit Option</h3>
           <br />
-          <label>Question Label:</label>
+          <label>Option Label:</label>
           <br />
           <input type="text" className="name-box" value={this.state.title} onChange={this.update("title")} />
           <br />
           {this.renderErrors()}
-          <label>Question Body:</label>
+          <label>Option Body:</label>
           <br />
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />
           <br />
@@ -69,4 +76,4 @@ class ElementCreate extends React.Component {
 
 }
 
-export default ElementCreate;
+export default OptionEdit;

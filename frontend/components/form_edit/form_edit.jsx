@@ -11,15 +11,20 @@ class FormEdit extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleDelete = this.handleDelete.bind(this);
         this.contentChange = this.contentChange.bind(this);
+        this.formReceived = this.formReceived.bind(this);
+        this.renderOptionEdits = this.renderOptionEdits.bind(this);
+        // debugger
         this.state = {
             form: {
                 id: this.props.formId,
-                name: this.props.form.name,
+                name: this.props.form ? this.props.form.name : "",
                 user_id: this.props.currentUser.id,
-                description: this.props.form.description
+                description: this.props.form? this.props.form.description : ""
             },
             menuDisplayed: false,
-            elementsLoaded: false
+            formLoaded: false,
+            elementsLoaded: false,
+            optionsLoaded: false
         };
     }
 
@@ -39,16 +44,44 @@ class FormEdit extends React.Component {
         });
     }
 
+    formReceived() {
+        let form = this.props.form;
+        this.setState({
+            form: {
+                name: form.name,
+                description: form.description
+            }
+        })
+    }
+
+    //create a method to get the form data into component state that will be called 
+    //after the form is loaded (to fix the refresh bug).
+
+    //I think I fixed the refresh bug
+
+    //Where am I clearing forms?????? I need to search my code to understand how 
+    //the front end state is getting cleared.
+
     componentDidMount() {
+        // debugger
         let contentChange = this.contentChange;
-        this.props.fetchForm(this.props.formId);
+        let formReceived = this.formReceived;
+        this.props.fetchForm(this.props.formId).then(function () {
+            contentChange("formLoaded");
+            formReceived();
+        });
         this.props.fetchElements().then(function () {
             contentChange("elementsLoaded")
+        });
+        this.props.fetchOptions().then(function () {
+            contentChange("optionsLoaded")
         });
     }
 
     componentWillUnmount() {
         this.props.clearFormErrors();
+        // this.props.clearOptionErrors();
+        this.props.clearElementErrors();
     }
 
     handleClick(e) {
@@ -72,7 +105,7 @@ class FormEdit extends React.Component {
         e.preventDefault();
         let myhistory = this.props.history;
         this.props.updateForm({form: this.state.form}).then(() => {
-            myhistory.push("/")
+            myhistory.push(`/`)
         });
     }
 
@@ -90,6 +123,34 @@ class FormEdit extends React.Component {
         );
     }
 
+    renderOptionEdits(elementId) {
+        let localOptions = this.props.options;
+        // debugger
+
+        //Need to actually insert the optionEdit component in this method tomorrow.
+        let localElement = this.props.elements[elementId];
+        
+        let localClearOptionErrors = this.props.clearOptionErrors;
+        let localUpdateOption = this.props.updateOption;
+        let localHistory = this.props.history;
+        let localOptionErrors = this.props.optionErrors;
+        let localKey = 0;
+        if (localElement && this.state.optionsLoaded && Object.keys(localOptions).length > 0) {
+            return (
+                <div>
+                    {localElement.option_ids.map(function(id) {
+                        return (
+                            <div>
+                            {localOptions[id].title}
+                            </div>
+                        )
+                    })}
+                </div>
+            )
+        }
+
+    }
+
     renderElementEdits() {
         let localFormId = this.props.formId;
         let localForm = this.props.form;
@@ -102,8 +163,11 @@ class FormEdit extends React.Component {
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localCreateOption = this.props.createOption;
         let localOptionErrors = this.props.optionErrors;
-        let localKey = 0;
-        if (localForm && this.state.elementsLoaded && Object.keys(localElements).length > 0) {
+        let localKey = localFormId;
+
+        let localRenderOptionEdits = this.renderOptionEdits;
+
+        if (this.state.formLoaded && localForm && this.state.elementsLoaded && Object.keys(localElements).length > 0) {
             return (
                 <div>
                     {localForm.element_ids.map( function(id) {
@@ -114,10 +178,14 @@ class FormEdit extends React.Component {
                         // order: integer          
                         // option_type: string
                         localKey = localKey + 1;  
+                        console.log(localKey);
+                        //need a render method for the option edit components
+                        //need local options.
+
                         return (
                             <div>
                                 <ElementEdit
-                                    key = {id}
+                                    key={id + Math.floor(Math.random() * 1000)}
                                     id = {id} 
                                     formId={localFormId}
                                     title={localElements[id].title}
@@ -128,8 +196,9 @@ class FormEdit extends React.Component {
                                     history={localHistory} 
                                     errors={localElementErrors}
                                     />
+                                {localRenderOptionEdits(id)}
                                 <OptionCreate
-                                    key = {localKey}
+                                    key = {localKey + Math.floor(Math.random() * 1000)}
                                     elementId = {id}
                                     clearOptionErrors={localClearOptionErrors}
                                     createOption={localCreateOption}
@@ -145,6 +214,11 @@ class FormEdit extends React.Component {
     }
     
     render() {
+        if (!this.props.form) {
+            return(
+                <div></div> 
+            );
+        }
         return(
         <div>
             <nav className="main-nav-container">
@@ -198,7 +272,8 @@ class FormEdit extends React.Component {
                 <button onClick={this.handleDelete}>Delete Form</button>
             </div>
             {this.renderElementEdits()}
-            <ElementCreate 
+            <ElementCreate
+                key={this.props.formId + Math.floor(Math.random() * 1000)} 
                 formId={this.props.formId} 
                 clearElementErrors={this.props.clearElementErrors} 
                 createElement={this.props.createElement} 
