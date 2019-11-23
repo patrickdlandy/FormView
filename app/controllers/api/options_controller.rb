@@ -19,7 +19,16 @@ class Api::OptionsController < ApplicationController
     if @option.save
       render :show
     else
-      redner json: @option.errors.full_messages, status: 406
+      render json: @option.errors.full_messages, status: 406
+    end
+  end
+
+  def update
+    @option = Option.find(params[:option][:id])
+    if @option.update(option_params)
+      render :show
+    else
+      render json: @option.errors.full_messages, status: 406
     end
   end
 

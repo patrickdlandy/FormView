@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import ElementCreate from '../element_create/element_create';
 import OptionCreate from '../option_create/option_create';
 import ElementEdit from '../element_edit/element_edit';
+import OptionEdit from '../option_edit/option_edit';
 
 class FormEdit extends React.Component {
     constructor(props) {
@@ -13,7 +14,6 @@ class FormEdit extends React.Component {
         this.contentChange = this.contentChange.bind(this);
         this.formReceived = this.formReceived.bind(this);
         this.renderOptionEdits = this.renderOptionEdits.bind(this);
-        // debugger
         this.state = {
             form: {
                 id: this.props.formId,
@@ -54,16 +54,11 @@ class FormEdit extends React.Component {
         })
     }
 
-    //create a method to get the form data into component state that will be called 
-    //after the form is loaded (to fix the refresh bug).
-
-    //I think I fixed the refresh bug
 
     //Where am I clearing forms?????? I need to search my code to understand how 
     //the front end state is getting cleared.
 
     componentDidMount() {
-        // debugger
         let contentChange = this.contentChange;
         let formReceived = this.formReceived;
         this.props.fetchForm(this.props.formId).then(function () {
@@ -80,7 +75,7 @@ class FormEdit extends React.Component {
 
     componentWillUnmount() {
         this.props.clearFormErrors();
-        // this.props.clearOptionErrors();
+        this.props.clearOptionErrors();
         this.props.clearElementErrors();
     }
 
@@ -114,7 +109,7 @@ class FormEdit extends React.Component {
             <ul>
                 {this.props.errors.map(function (error, i) {
                     return (
-                        <li className="error" key={`error-${i}`}>
+                        <li className="error" key={i}>
                             {error}
                         </li>
                     );
@@ -125,23 +120,25 @@ class FormEdit extends React.Component {
 
     renderOptionEdits(elementId) {
         let localOptions = this.props.options;
-        // debugger
-
-        //Need to actually insert the optionEdit component in this method tomorrow.
         let localElement = this.props.elements[elementId];
-        
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localUpdateOption = this.props.updateOption;
         let localHistory = this.props.history;
         let localOptionErrors = this.props.optionErrors;
-        let localKey = 0;
         if (localElement && this.state.optionsLoaded && Object.keys(localOptions).length > 0) {
             return (
                 <div>
-                    {localElement.option_ids.map(function(id) {
+                    {localElement.option_ids.map(function(id, idx) {
                         return (
-                            <div>
-                            {localOptions[id].title}
+                            <div key={idx} className = "option-indent">
+                            <OptionEdit
+                                option = {localOptions[id]} 
+                                clearOptionErrors = {localClearOptionErrors}
+                                updateOption = {localUpdateOption}
+                                history = {localHistory}
+                                optionErrors = {localOptionErrors}
+                                errors = {localOptionErrors}
+                            />
                             </div>
                         )
                     })}
@@ -163,27 +160,13 @@ class FormEdit extends React.Component {
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localCreateOption = this.props.createOption;
         let localOptionErrors = this.props.optionErrors;
-        let localKey = localFormId;
-
         let localRenderOptionEdits = this.renderOptionEdits;
-
         if (this.state.formLoaded && localForm && this.state.elementsLoaded && Object.keys(localElements).length > 0) {
             return (
                 <div>
-                    {localForm.element_ids.map( function(id) {
-                        // id: bigint           
-                        // title: string           
-                        // element_id: integer          
-                        // body: string           
-                        // order: integer          
-                        // option_type: string
-                        localKey = localKey + 1;  
-                        console.log(localKey);
-                        //need a render method for the option edit components
-                        //need local options.
-
+                    {localForm.element_ids.map( function(id, idx) {
                         return (
-                            <div>
+                            <div key={idx} className = "element-indent">
                                 <ElementEdit
                                     key={id + Math.floor(Math.random() * 1000)}
                                     id = {id} 
@@ -197,14 +180,16 @@ class FormEdit extends React.Component {
                                     errors={localElementErrors}
                                     />
                                 {localRenderOptionEdits(id)}
-                                <OptionCreate
-                                    key = {localKey + Math.floor(Math.random() * 1000)}
-                                    elementId = {id}
-                                    clearOptionErrors={localClearOptionErrors}
-                                    createOption={localCreateOption}
-                                    history={localHistory}
-                                    errors={localOptionErrors}
-                                    />
+                                <div className = "element-indent">
+                                    <OptionCreate
+                                        key = {-1}
+                                        elementId = {id}
+                                        clearOptionErrors={localClearOptionErrors}
+                                        createOption={localCreateOption}
+                                        history={localHistory}
+                                        errors={localOptionErrors}
+                                        />
+                                </div>
                             </div>
                         )
                     })}
@@ -272,13 +257,15 @@ class FormEdit extends React.Component {
                 <button onClick={this.handleDelete}>Delete Form</button>
             </div>
             {this.renderElementEdits()}
-            <ElementCreate
-                key={this.props.formId + Math.floor(Math.random() * 1000)} 
-                formId={this.props.formId} 
-                clearElementErrors={this.props.clearElementErrors} 
-                createElement={this.props.createElement} 
-                history={this.props.history} 
-                errors={this.props.elementErrors}/>
+            <div className="element-indent">
+                <ElementCreate
+                    key={-1} 
+                    formId={this.props.formId} 
+                    clearElementErrors={this.props.clearElementErrors} 
+                    createElement={this.props.createElement} 
+                    history={this.props.history} 
+                    errors={this.props.elementErrors}/>
+            </div>
         </div>
         );
     }

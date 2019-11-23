@@ -553,6 +553,16 @@
    padding: 0;
 }
 
+/* indentations for form edit page */
+
+.element-indent {
+   padding-left: 3rem;
+}
+
+.option-indent {
+   padding-left: 3rem;
+}
+
 
 
 

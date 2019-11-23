@@ -197,7 +197,12 @@ I have a problem when I refresh the FormEdit page:
 
 I believe that this means that a form (with the name key) is not loaded when the method attempts to key into a form object.  How can I fix this?
 
-Maybe try a .then() for loading the form.
+//create a method to get the form data into component state that will be called 
+    //after the form is loaded (to fix the refresh bug). I think this is solved!
+
+    //I solved this problem using the apprach of setting the component state after the form is
+    //loaded.
+
 
 I am also having a phantom repeated clearElementErrors issue.
 
@@ -206,3 +211,8 @@ Violation: Maximum update depth exceeded. This can happen when a component repea
 This is happening after a massive number of CLEAR_ELEMENT_ERRORS actions being dispatched.
 
 There is a console log that appears each time with each CLEAR_ELEMENT_ERRORS... The problem appears to be in renderElementEdits.
+
+I fixed two issues, and this appeared to go away. First, I corrected a misnamed constant from "CLEAR_ELEMENT_ERRORS" to "CLEAR_OPTION_ERRORS".
+Second, I stopped clearing option errors when unmount.
+
+https://boards.greenhouse.io/embed/job_app?token=737677

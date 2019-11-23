@@ -13,8 +13,9 @@ class OptionEdit extends React.Component {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.state = {
-      title: "",
-      body: "",
+      id: this.props.option.id,
+      title: this.props.option.title,
+      body: this.props.option.body,
       order: 1,
       element_id: this.props.elementId,
       option_type: "Multiple Choice"
@@ -28,7 +29,7 @@ class OptionEdit extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.clearOptionErrors();
+    // this.props.clearOptionErrors();
   }
 
   handleSubmit(e) {
@@ -68,7 +69,7 @@ class OptionEdit extends React.Component {
           <br />
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />
           <br />
-          <input type="submit" value="Create!" />
+          <input type="submit" value="Update!" />
         </form>
       </div>
     )
