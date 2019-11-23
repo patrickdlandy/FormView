@@ -28,7 +28,7 @@ class ElementCreate extends React.Component {
     e.preventDefault();
     let myhistory = this.props.history;
     this.props.createElement({ element: this.state }).then(() => {
-      myhistory.push("/")
+      myhistory.push(`/`)
     });
   }
 
