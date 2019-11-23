@@ -78,3 +78,9 @@ export const updateOption = function(option) {
     )
   }
 }
+
+export const deleteOption = function(option) {
+  return function() {
+    return OptionApiUtil.deleteOption(option)
+  }
+}

@@ -20,3 +20,10 @@ export const updateOption = function(option) {
     data: option
   })
 }
+
+export const deleteOption =  function(option) {
+  return $.ajax({
+    method: 'DELETE',
+    url: `api/options/${option.id}`
+  })
+}

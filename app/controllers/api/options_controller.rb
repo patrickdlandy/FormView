@@ -32,6 +32,15 @@ class Api::OptionsController < ApplicationController
     end
   end
 
+  def destroy
+    @option = Option.find(params[:id])
+    if @option.destroy
+      render :show
+    else
+      render json: @option.errors.full_messages, status: 406
+    end
+  end
+
  private
 
     def option_params

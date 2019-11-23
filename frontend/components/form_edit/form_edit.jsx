@@ -123,6 +123,7 @@ class FormEdit extends React.Component {
         let localElement = this.props.elements[elementId];
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localUpdateOption = this.props.updateOption;
+        let localDeleteOption = this.props.deleteOption;
         let localHistory = this.props.history;
         let localOptionErrors = this.props.optionErrors;
         if (localElement && this.state.optionsLoaded && Object.keys(localOptions).length > 0) {
@@ -135,6 +136,7 @@ class FormEdit extends React.Component {
                                 option = {localOptions[id]} 
                                 clearOptionErrors = {localClearOptionErrors}
                                 updateOption = {localUpdateOption}
+                                deleteOption = {localDeleteOption}
                                 history = {localHistory}
                                 optionErrors = {localOptionErrors}
                                 errors = {localOptionErrors}

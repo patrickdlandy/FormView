@@ -12,6 +12,7 @@ class OptionEdit extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDelete = this.handleDelete.bind(this);
     this.state = {
       id: this.props.option.id,
       title: this.props.option.title,
@@ -36,6 +37,14 @@ class OptionEdit extends React.Component {
     e.preventDefault();
     let myhistory = this.props.history;
     this.props.updateOption({ option: this.state }).then(() => {
+      myhistory.push("/")
+    });
+  }
+
+  handleDelete(e) {
+    e.preventDefault();
+    let myhistory = this.props.history;
+    this.props.deleteOption(this.props.option).then(() => {
       myhistory.push("/")
     });
   }
@@ -70,6 +79,7 @@ class OptionEdit extends React.Component {
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />
           <br />
           <input type="submit" value="Update!" />
+          <button onClick={this.handleDelete}>Delete Option</button>
         </form>
       </div>
     )
