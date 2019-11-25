@@ -9,7 +9,15 @@ class Api::ElementsController < ApplicationController
             @elements.push(element)
           end
         end
+        puts params
+      elsif params[:id]
+        #need to check this.
+        @form = Form.find(params[:id])
+        @elements = @form.elements
+        puts @form
+        puts @elements
       else
+          puts params
           render json: ['Form elements restricted if signed out'], status: 401
       end
   end

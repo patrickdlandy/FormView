@@ -140,6 +140,7 @@ class FormShow extends React.Component {
     }
 
     render() {
+        let username = (this.props.currentUser ? this.props.currentUser.username : "responder")
         return(
             <div>
                 <nav className="main-nav-container">
@@ -157,7 +158,7 @@ class FormShow extends React.Component {
                     </ul> 
                     <ul className="username-link">
                         <li onClick={this.handleClick}>
-                            <h2>{this.props.currentUser.username + " ⌄"}</h2>
+                            <h2>{username + " ⌄"}</h2>
                         </li>
                         <ul className={this.state.menuDisplayed ? "dropdown" : "dropdown-hidden"}>
                             <li className="dropdown-item-background">
