@@ -257,13 +257,17 @@ class FormEdit extends React.Component {
                     <input type="text" className="name-box" value={this.state.form.name} onChange={this.update("name")}/>
                     <br/>
                     {this.renderErrors()}
-                    <label>Description!</label>
+                    <label>Description:</label>
                     <br/>
                     <textarea className="description-box" type="text" value={this.state.form.description} onChange={this.update("description")}/>
                     <br/>
-                    <input type="submit" value="Update!"/>
+                    <div className="form-builder-button-container">
+                        <input type="submit" value="Update!"/>
+                        <Link to={`/forms/${this.props.formId}`}> View Form </Link>
+                        <button onClick={this.handleDelete}>Delete Form</button>
+                    </div>
                 </form>
-                <button onClick={this.handleDelete}>Delete Form</button>
+                <br />
             </div>
             {this.renderElementEdits()}
             <div className="element-indent">

@@ -80,8 +80,10 @@ class OptionEdit extends React.Component {
           <br />
           <textarea className="description-box" type="text" value={this.state.body} onChange={this.update("body")} />
           <br />
-          <input type="submit" value="Update!" />
-          <button onClick={this.handleDelete}>Delete Option</button>
+          <div className="form-builder-button-container">
+            <input type="submit" value="Update!" />
+            <button onClick={this.handleDelete}>Delete Option</button>
+          </div>
         </form>
       </div>
     )

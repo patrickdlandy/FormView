@@ -256,3 +256,6 @@ Multiple Question Types (back burner—work additional types as you job search)
 Before I do anything else, I will add an edit button to the form show page leading to the form edit page.
 
 I will also redirect to the form show page when form elements and options are updated.
+
+DONE and DONE and deployed.
+

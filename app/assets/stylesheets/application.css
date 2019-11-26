@@ -454,6 +454,12 @@
    border: solid 1px #ffe79f;
 }
 
+.form-builder-button-container {
+   display: flex;
+   justify-content: space-between;
+   padding-right: 60px;
+}
+
 .description-box {
    width: 80%;
    height: 3rem;
