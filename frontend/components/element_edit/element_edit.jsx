@@ -29,16 +29,18 @@ class ElementEdit extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     let myhistory = this.props.history;
+    let id = this.props.formId;
     this.props.updateElement({ element: this.state }).then(() => {
-      myhistory.push("/")
+      myhistory.push(`/forms/${id}`);
     });
   }
 
   handleDelete(e) {
     e.preventDefault();
     let myhistory = this.props.history;
+    let id = this.props.formId;
     this.props.deleteElement(this.props.id).then(() => {
-      myhistory.push("/")
+      myhistory.push(`/forms/${id}`);
     });
   }
 

@@ -48,7 +48,9 @@ class FormEdit extends React.Component {
         let form = this.props.form;
         this.setState({
             form: {
+                id: this.props.form.id,
                 name: form.name,
+                user_id: this.props.currentUser.id,
                 description: form.description
             }
         })
@@ -91,16 +93,18 @@ class FormEdit extends React.Component {
     handleDelete(e) {
         e.preventDefault();
         let myhistory = this.props.history;
-        this.props.deleteForm(this.props.form.id).then(() => {
-            myhistory.push("/")
+        let id = this.props.form.id;
+        this.props.deleteForm(id).then(() => {
+            myhistory.push(`/`)
         });
     }
 
     handleSubmit(e) {
         e.preventDefault();
         let myhistory = this.props.history;
+        let id = this.props.form.id;
         this.props.updateForm({form: this.state.form}).then(() => {
-            myhistory.push(`/`)
+            myhistory.push(`/forms/${id}`)
         });
     }
 
@@ -121,6 +125,7 @@ class FormEdit extends React.Component {
     renderOptionEdits(elementId) {
         let localOptions = this.props.options;
         let localElement = this.props.elements[elementId];
+        let localFormId = this.props.formId;
         let localClearOptionErrors = this.props.clearOptionErrors;
         let localUpdateOption = this.props.updateOption;
         let localDeleteOption = this.props.deleteOption;
@@ -133,7 +138,8 @@ class FormEdit extends React.Component {
                         return (
                             <div key={idx} className = "option-indent">
                             <OptionEdit
-                                option = {localOptions[id]} 
+                                option = {localOptions[id]}
+                                formId = {localFormId} 
                                 clearOptionErrors = {localClearOptionErrors}
                                 updateOption = {localUpdateOption}
                                 deleteOption = {localDeleteOption}
@@ -186,6 +192,7 @@ class FormEdit extends React.Component {
                                     <OptionCreate
                                         key = {-1}
                                         elementId = {id}
+                                        formId = {localFormId}
                                         clearOptionErrors={localClearOptionErrors}
                                         createOption={localCreateOption}
                                         history={localHistory}

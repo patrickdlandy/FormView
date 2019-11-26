@@ -51,6 +51,7 @@ class FormShow extends React.Component {
                     <br/>
                     {this.renderElements(this.props.elements, this.props.options)}
                     <br/>
+                    <Link to={`/edit/${this.props.form.id}`}>Edit Form</Link>
                 </div>
             );
         }

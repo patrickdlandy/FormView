@@ -216,3 +216,43 @@ I fixed two issues, and this appeared to go away. First, I corrected a misnamed 
 Second, I stopped clearing option errors when unmount.
 
 https://boards.greenhouse.io/embed/job_app?token=737677
+
+OK, back to work after code challenge.  
+
+Collin had feedback on the full stack project (11/25):
+
+Adjustments on current progress:
+add “edit” button to form show page and “preview” or “view form” button to edit page
+after saving, redirect to the form show
+Display Results
+
+start with a table or list of stats
+check out react-recharts
+backend table for option-response-cookie
+component state
+
+add a name: question.id attribute to radio inputs
+handleRadioSelection should probably be a higher-order function that takes in the question id and returns and event handler
+
+const handleRadioSelection = (questionId, optionId) => {
+return event => {
+  this.setState({
+    /* use the inputs to do something*/
+  });
+};
+};
+
+
+submit
+
+Share Form
+We can use the show component but check for signedIn user
+Either create a new component based on the same component but try to use a new container with the same component first and some kind of props boolean
+either use a protected route and a public route with the same url pattern
+OR you can have a frontend route that uses /share/:formId
+Multiple Question Types (back burner—work additional types as you job search)
+
+
+Before I do anything else, I will add an edit button to the form show page leading to the form edit page.
+
+I will also redirect to the form show page when form elements and options are updated.
