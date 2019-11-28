@@ -259,3 +259,27 @@ I will also redirect to the form show page when form elements and options are up
 
 DONE and DONE and deployed.
 
+clear form errors on component state change?? Form data change?
+fix styling on form edit (layout)
+
+I really need to actually brainstorm about this:
+
+How should I store a response?
+
+If I send people to a public link, there needs to be a form page that is accessible to the public that will track responses.
+
+I don't want to have to make users sign in to take a survey, but it would be nice 
+to be able to identify each response somehow. What can I do with cookies?
+
+Maybe I can log response option_ids with timestamps to start with and include a column 
+for some future functionality (like IP address??)
+
+Ok. So I would have this response table that a single form would presist data to on submit.
+
+Any "selected option" in the component state of the survey would be persisted to this table on submit.  I'll just put a blank string in there for IP address for now.
+
+So the schema for the response table will simply have attributes for :id, :option_id (foreign key pointing to selected option), :identifier (string), and timestamps.  
+For now, the application will simply utilize the :option_id and timestamps.
+
+I will build this from the bottom up starting with the database table.
+

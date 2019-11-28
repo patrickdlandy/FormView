@@ -26,5 +26,12 @@ class Option < ApplicationRecord
         foreign_key: :element_id,
         class_name: :Element
     )
+
+    has_many(
+        :responses,
+        primary_key: :id,
+        foreign_key: :option_id,
+        class_name: :Response
+    )
     
 end
