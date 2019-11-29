@@ -2,6 +2,7 @@ import { connect } from 'react-redux';
 import { fetchForm, clearForms } from '../../actions/form_actions';
 import { fetchElements, clearElements } from '../../actions/element_actions';
 import { fetchOptions, clearOptions } from '../../actions/option_actions';
+import { createResponse, clearResponses } from '../../actions/response_actions';
 import FormShow from './form_show';
 
 export const mapStateToProps = function(state, ownProps) {
@@ -23,7 +24,9 @@ export const mapDispatchToProps = function(dispatch) {
         fetchElements: () => dispatch(fetchElements()),
         clearElements: () => dispatch(clearElements()),
         fetchOptions: () => dispatch(fetchOptions()),
-        clearOptions: () => dispatch(clearOptions())
+        clearOptions: () => dispatch(clearOptions()),
+        createResponse: (response) => dispatch(createResponse(response)),
+        clearResponses: () => dispatch(clearResponses())
     })
 }
 

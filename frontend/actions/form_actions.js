@@ -52,7 +52,7 @@ export const fetchForms = function() {
                 dispatch(receiveFormErrors(err.responseJSON))
             }
         );
-    }
+     }
 }
 
 export const fetchForm = function(id) {

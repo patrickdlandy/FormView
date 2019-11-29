@@ -1,8 +1,7 @@
 import * as ResponseApiUtil from '../util/response_api_util';
-import { RECEIVE_FORM } from './form_actions';
 
-export const RECEIVE_RESPONSES = "RECEIVE_FORMNS";
-export const RECEIVE_RESPONSE = "RECEIVE_FORM";
+export const RECEIVE_RESPONSES = "RECEIVE_RESPONSES";
+export const RECEIVE_RESPONSE = "RECEIVE_RESPONSE";
 export const CLEAR_RESPONSES = "CLEAR_RESPONSES";
 export const RECEIVE_RESPONSE_ERRORS = "RECEIVE_RESPONSE_ERRORS";
 export const CLEAR_RESPONSE_ERRORS = "CLEAR_RESPONSE_ERRORS";
@@ -15,8 +14,9 @@ export const receiveResponse = function(response) {
 }
 
 export const receiveResponses = function (responses) {
+  console.log('action');
   return ({
-    type: RECEIVE_RESPONSEs,
+    type: RECEIVE_RESPONSES,
     responses: responses
   })
 }
@@ -44,7 +44,7 @@ export const clearResponseErrors = function() {
 
 export const fetchResponses = function() {
   return function(dispatch) {
-    return ResponseApiUtil.fetchForms().then(
+    return ResponseApiUtil.fetchResponses().then(
       function(payload) {
         dispatch(receiveResponses(payload));
       },
