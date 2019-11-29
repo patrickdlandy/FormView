@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     resources :forms, only: [:create, :show, :index, :edit, :update, :destroy]
     resources :elements, only: [:create, :show, :index, :update, :destroy]
     resources :options, only: [:create, :show, :index, :update, :destroy]
+    resources :responses, only: [:create, :show, :index]
   end
 end
 
