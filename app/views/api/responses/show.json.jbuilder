@@ -1,0 +1,1 @@
+json.extract! @response, :id, :identifier, :option_id
