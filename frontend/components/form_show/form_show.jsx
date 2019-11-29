@@ -12,7 +12,8 @@ class FormShow extends React.Component {
         this.state = {
             menuDisplayed: false,
             elementsLoaded: false,
-            optionsLoaded: false
+            optionsLoaded: false,
+            responses: {}
         }
     }
 
@@ -61,7 +62,7 @@ class FormShow extends React.Component {
         const local_options = this.props.options;
         return (this.props.elements[element_id].option_ids.map(function (id, i) {
             return (
-                <div key={i} >
+                <div key={i} name={element_id}>
                     <h3>{local_options[id].title}</h3>
                 </div>
             );
@@ -106,7 +107,7 @@ class FormShow extends React.Component {
                         return(
                             <div key={id}>
                                 <span>
-                                    <input id="optionB" type="radio" className="radio-button" value="A" />
+                                    <input id="optionB" type="radio" className="radio-button" name={id1}/>
                                     <label htmlFor="optionB"> 
                                         {" " + local_options[id].title + ": " + local_options[id].body}
                                     </label>
