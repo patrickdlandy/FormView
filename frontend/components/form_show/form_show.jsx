@@ -13,6 +13,7 @@ class FormShow extends React.Component {
         this.responseChange = this.responseChange.bind(this);
         this.elementsToState = this.elementsToState.bind(this);
         this.getResponses = this.getResponses.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
         this.state = {
             menuDisplayed: false,
             elementsLoaded: false,
@@ -81,6 +82,7 @@ class FormShow extends React.Component {
                     {this.renderElements(this.props.elements, this.props.options)}
                     <br/>
                     <Link to={`/edit/${this.props.form.id}`}>Edit Form</Link>
+                    <button onClick={this.handleSubmit}>Submit</button>
                 </div>
             );
         }
@@ -176,25 +178,29 @@ class FormShow extends React.Component {
         });
     }
 
-    // updateSelection(questionId, optionId) {
-    //     this.setState(function() {
-    //         return({
-    //         responses: {
-    //             [questionId]: optionId
-    //         }});
-    //     }, function() {
-    //         console.log(this.state.responses);
-    //     });
-    //     console.log(questionId);
-    //     console.log(optionId);
-    // }
-
     handleRadioSelection(questionId, optionId) {
-        // const localUpdateSelection = this.updateSelection;
         const localResponseChange = this.responseChange;
         return function(e) {
             localResponseChange(questionId, e.target.value);
         }
+    }
+
+    handleSubmit(e) {
+        e.preventDefault;
+        const localGetResponses = this.getResponses;
+        const localElements = this.props.elements;
+        const localCreateResponse = this.props.createResponse;
+        Object.keys(this.state.responses).forEach(function(id) {
+            if (localGetResponses()[id] !== null && localElements[id].option_ids.length > 0) {
+                console.log(localGetResponses());
+                localCreateResponse({
+                    response: {
+                        option_id: parseInt(localGetResponses()[id], 10),
+                        identifier: ""
+                    }
+                });
+            }
+        });
     }
 
     render() {

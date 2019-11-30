@@ -29,7 +29,7 @@ class Api::ResponsesController < ApplicationController
 
     private
 
-    def form_params
+    def response_params
         params.require(:response).permit(:id, :option_id, :identifier)
     end
 

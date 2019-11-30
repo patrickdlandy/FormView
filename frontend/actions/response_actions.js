@@ -27,7 +27,7 @@ export const clearResponses = function() {
   })
 }
 
-export const receiveResponseErrors = function() {
+export const receiveResponseErrors = function(errors) {
   return({
     type: RECEIVE_RESPONSE_ERRORS,
     errors: errors
