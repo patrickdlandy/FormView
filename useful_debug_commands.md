@@ -283,3 +283,6 @@ For now, the application will simply utilize the :option_id and timestamps.
 
 I will build this from the bottom up starting with the database table.
 
+I am having trouble implementing the handleRadioSelection function. When I do it according to Collin's recommendation (nested function with setState) I run into context issues.  When I do it with a separate function, I run into a maximum depth error with repeated calls to setState in a render function.
+
+Maybe I could use an alternate strategy for selection?

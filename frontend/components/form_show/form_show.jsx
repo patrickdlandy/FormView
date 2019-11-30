@@ -9,6 +9,7 @@ class FormShow extends React.Component {
         this.renderElements = this.renderElements.bind(this);
         this.renderOptions = this.renderOptions.bind(this);
         this.contentChange = this.contentChange.bind(this);
+        this.handleRadioSelection = this.handleRadioSelection.bind(this);
         this.state = {
             menuDisplayed: false,
             elementsLoaded: false,
@@ -73,6 +74,7 @@ class FormShow extends React.Component {
         const local_elements = elements;
         const local_options = options;
         const local_form = this.props.form;
+        const localHandleRadioSelection = this.handleRadioSelection;
         if (this.props.form) {
             if (this.props.form.element_ids.length === 0) {
                 return (
@@ -82,20 +84,20 @@ class FormShow extends React.Component {
                         <div className="question-container">
                             <h3>Select from the choices below:</h3>
                             <div>
-                                <input id="optionB" type="radio" className="radio-button" value="A" />
-                                <label htmlFor="optionB"> Option A</label>
+                                <input name="optionB" type="radio" className="radio-button"/>
+                                <label> Option A</label>
                             </div>
                             <div>
-                                <input id="optionB" type="radio" className="radio-button" value="B" />
-                                <label htmlFor="optionB"> Option B</label>
+                                <input name="optionB" type="radio" className="radio-button" />
+                                <label> Option B</label>
                             </div>
                             <div>
-                                <input id="optionB" type="radio" className="radio-button" value="C" />
-                                <label htmlFor="optionB"> Option C</label>
+                                <input name="optionB" type="radio" className="radio-button" />
+                                <label> Option C</label>
                             </div>
                             <div>
-                                <input id="optionB" type="radio" className="radio-button" value="D" />
-                                <label htmlFor="optionB"> Option D</label>
+                                <input name="optionB" type="radio" className="radio-button" />
+                                <label> Option D</label>
                             </div>
                         </div>
                     </div>
@@ -107,8 +109,8 @@ class FormShow extends React.Component {
                         return(
                             <div key={id}>
                                 <span>
-                                    <input id="optionB" type="radio" className="radio-button" name={id1}/>
-                                    <label htmlFor="optionB"> 
+                                    <input type="radio" className="radio-button" name={id1} onChange={localHandleRadioSelection(id1, id)}/>
+                                    <label> 
                                         {" " + local_options[id].title + ": " + local_options[id].body}
                                     </label>
                                 </span>
@@ -130,8 +132,6 @@ class FormShow extends React.Component {
         }
     }
 
-   
-
     handleClick(e) {
         e.preventDefault();
         this.setState(function (state) {
@@ -139,6 +139,19 @@ class FormShow extends React.Component {
                 menuDisplayed: !state.menuDisplayed
             });
         });
+    }
+
+    updateSelection(questionId, optionId) {
+        this.setState({
+            responses: {
+                [questionId]: optionId
+            }
+        })
+        console.log(optionId);
+    }
+
+    handleRadioSelection(questionId, optionId) {
+        this.updateSelection(questionId, optionId);
     }
 
     render() {
