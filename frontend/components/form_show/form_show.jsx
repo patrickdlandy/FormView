@@ -30,9 +30,7 @@ class FormShow extends React.Component {
     }
 
     responseChange(elementId, optionId) {
-        // console.log(this.state.responses);
         this.props.clearResponseErrors();
-
         this.setState(function(prevState) {
             return Object.assign({}, prevState, { responses: {
                 ...prevState.responses,
@@ -46,12 +44,13 @@ class FormShow extends React.Component {
     elementsToState() {
         const localResponseChange = this.responseChange;
         const localForm = this.props.form;
-        console.log(localForm.element_ids);
+        // console.log(localForm.element_ids);
+        // console.log(localForm.element_ids.includes(79));
         Object.keys(this.props.elements).forEach(function(ele) {
-            console.log(ele);
-            console.log(localForm.element_ids.includes(ele));
-            if (localForm.element_ids.includes(ele)) {
-            localResponseChange(ele, null);
+            // console.log(ele);
+            // console.log(localForm.element_ids.includes(parseInt(ele, 10)));
+            if (localForm.element_ids.includes(parseInt(ele, 10))) {
+                localResponseChange(ele, null);
             }
         });
         // console.log(this.state.responses);
@@ -215,14 +214,10 @@ class FormShow extends React.Component {
         const localHandleIncompleteSubmit = this.handleIncompleteSubmit;
         const myhistory = this.props.history;
         this.props.clearResponseErrors();
-        debugger
-        console.log(localGetResponses());
-        debugger
+        // console.log(localGetResponses());
         if (Object.values(localGetResponses()).includes(null)) {
-            debugger
             localHandleIncompleteSubmit();
         } else { 
-            debugger
             Object.keys(localGetResponses()).forEach(function(id) {
                 if (localGetResponses()[id] !== null && localElements[id].option_ids.length > 0) {
                     console.log(localGetResponses());
