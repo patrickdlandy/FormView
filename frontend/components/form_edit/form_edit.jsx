@@ -79,6 +79,9 @@ class FormEdit extends React.Component {
         this.props.clearFormErrors();
         this.props.clearOptionErrors();
         this.props.clearElementErrors();
+        this.props.clearForms();
+        this.props.clearElements();
+        this.props.clearOptions();
     }
 
     handleClick(e) {

@@ -45,8 +45,14 @@ class FormShow extends React.Component {
 
     elementsToState() {
         const localResponseChange = this.responseChange;
+        const localForm = this.props.form;
+        console.log(localForm.element_ids);
         Object.keys(this.props.elements).forEach(function(ele) {
+            console.log(ele);
+            console.log(localForm.element_ids.includes(ele));
+            if (localForm.element_ids.includes(ele)) {
             localResponseChange(ele, null);
+            }
         });
         // console.log(this.state.responses);
     }
@@ -207,11 +213,16 @@ class FormShow extends React.Component {
         const localElements = this.props.elements;
         const localCreateResponse = this.props.createResponse;
         const localHandleIncompleteSubmit = this.handleIncompleteSubmit;
+        const myhistory = this.props.history;
         this.props.clearResponseErrors();
+        debugger
         console.log(localGetResponses());
+        debugger
         if (Object.values(localGetResponses()).includes(null)) {
+            debugger
             localHandleIncompleteSubmit();
         } else { 
+            debugger
             Object.keys(localGetResponses()).forEach(function(id) {
                 if (localGetResponses()[id] !== null && localElements[id].option_ids.length > 0) {
                     console.log(localGetResponses());
@@ -223,6 +234,7 @@ class FormShow extends React.Component {
                     });
                 }
             });
+            myhistory.push('/');
         }
     }
 
