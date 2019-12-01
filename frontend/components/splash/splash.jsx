@@ -54,9 +54,11 @@ class Splash extends React.Component {
                                     {form.name}
                                 </div>
                                 <div>
-                                    <Link to={`/forms/${form.id}`}>View</Link>
+                                    <Link to={`/forms/${form.id}`}>View Form</Link>
                                     <label> | </label>
-                                    <Link to={`/edit/${form.id}`}>Edit</Link>
+                                    <Link to={`/edit/${form.id}`}>Edit Form</Link>
+                                    <label> | </label>
+                                    <Link to={`/responses/${form.id}`}> View Results</Link>
                                 </div>
                             </li>
                         )
