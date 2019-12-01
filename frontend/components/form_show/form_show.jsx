@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 
 class FormShow extends React.Component {
     constructor(props) {
@@ -14,6 +14,7 @@ class FormShow extends React.Component {
         this.elementsToState = this.elementsToState.bind(this);
         this.getResponses = this.getResponses.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleIncompleteSubmit = this.handleIncompleteSubmit.bind(this);
         this.state = {
             menuDisplayed: false,
             elementsLoaded: false,
@@ -30,6 +31,8 @@ class FormShow extends React.Component {
 
     responseChange(elementId, optionId) {
         // console.log(this.state.responses);
+        this.props.clearResponseErrors();
+
         this.setState(function(prevState) {
             return Object.assign({}, prevState, { responses: {
                 ...prevState.responses,
@@ -68,6 +71,7 @@ class FormShow extends React.Component {
     componentWillUnmount() {
         this.props.clearElements();
         this.props.clearOptions();
+        this.props.clearResponseErrors();
     }
 
     renderForm() {
@@ -80,8 +84,10 @@ class FormShow extends React.Component {
                     <br/>
                     <br/>
                     {this.renderElements(this.props.elements, this.props.options)}
+                    {this.renderErrors()}
                     <br/>
                     <Link to={`/edit/${this.props.form.id}`}>Edit Form</Link>
+                    <br/>
                     <button onClick={this.handleSubmit}>Submit</button>
                 </div>
             );
@@ -134,6 +140,11 @@ class FormShow extends React.Component {
                     </div>
                 );
             }
+            //I need to deal with these situations now.
+            //1. Checking to see if every element has an option selected and showing an error if not
+            //2. Creating and clearing errors
+            //3. (also need to put forms back on a protected route and plan a separate form taking mechanism).
+            //4. Also need to rexamine error clearing (something isn't clearing errors correctly).
             if (Object.keys(local_elements).length > 0 && Object.keys(local_options).length > 0) {
                 let element_arr = local_form.element_ids.map(function (id1) {
                     let local_option_arr = local_elements[id1].option_ids.map(function(id) {
@@ -163,7 +174,6 @@ class FormShow extends React.Component {
                         </div>
                     );
                 });
-                // console.log(element_arr);
                 return element_arr;
             }
         }
@@ -180,9 +190,15 @@ class FormShow extends React.Component {
 
     handleRadioSelection(questionId, optionId) {
         const localResponseChange = this.responseChange;
+        // this.props.clearResponseErrors();
         return function(e) {
             localResponseChange(questionId, e.target.value);
         }
+    }
+
+    handleIncompleteSubmit() {
+        this.props.receiveResponseErrors(['All questions require a selected option.'])
+        // console.log('INCOMPLETE');
     }
 
     handleSubmit(e) {
@@ -190,17 +206,38 @@ class FormShow extends React.Component {
         const localGetResponses = this.getResponses;
         const localElements = this.props.elements;
         const localCreateResponse = this.props.createResponse;
-        Object.keys(this.state.responses).forEach(function(id) {
-            if (localGetResponses()[id] !== null && localElements[id].option_ids.length > 0) {
-                console.log(localGetResponses());
-                localCreateResponse({
-                    response: {
-                        option_id: parseInt(localGetResponses()[id], 10),
-                        identifier: ""
-                    }
-                });
-            }
-        });
+        const localHandleIncompleteSubmit = this.handleIncompleteSubmit;
+        this.props.clearResponseErrors();
+        console.log(localGetResponses());
+        if (Object.values(localGetResponses()).includes(null)) {
+            localHandleIncompleteSubmit();
+        } else { 
+            Object.keys(localGetResponses()).forEach(function(id) {
+                if (localGetResponses()[id] !== null && localElements[id].option_ids.length > 0) {
+                    console.log(localGetResponses());
+                    localCreateResponse({
+                        response: {
+                            option_id: parseInt(localGetResponses()[id], 10),
+                            identifier: ""
+                        }
+                    });
+                }
+            });
+        }
+    }
+
+    renderErrors() {
+        return (
+            <ul>
+                {this.props.errors.map(function (error, i) {
+                    return (
+                        <li className="error" key={i}>
+                            {error}
+                        </li>
+                    );
+                })}
+            </ul>
+        );
     }
 
     render() {
