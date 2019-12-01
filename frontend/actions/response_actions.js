@@ -49,7 +49,7 @@ export const fetchResponses = function() {
         dispatch(receiveResponses(payload));
       },
       function(err) {
-        dispatch(receiveFormErrors(err.responseJSON))
+        dispatch(receiveResponseErrors(err.responseJSON))
       }
     )
   }
