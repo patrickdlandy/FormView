@@ -8,6 +8,8 @@ export const mapStateToProps = function(state, ownProps) {
   const formId = parseInt(ownProps.match.params.formId);
   return({
     currentUser: state.entities.users[state.session.id],
+    responses: state.entities.responses,
+    options: state.entities.options
     formId: formId
   })
 }

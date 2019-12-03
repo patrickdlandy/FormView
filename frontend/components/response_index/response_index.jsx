@@ -56,6 +56,21 @@ class ResponseIndex extends React.Component {
   }
 
   renderResponses() {
+    if (this.state.formLoaded && this.state.elementsLoaded && this.state.optionsLoaded && this.state.responsesLoaded){
+      const localResponses = this.props.responses;
+      const localOptions = this.props.options;
+      //next step is to get the response_ids into an array in jbuilder.
+      const responseEntries = Object.keys(this.props.responses).map(function(responseId, idx) {
+        return(
+          <div key={idx}>
+            Response ID: {responseId} Option ID: {localResponses[responseId].option_id}
+          </div>
+        )
+      })
+      return(
+        <div>{responseEntries}</div>
+      )
+    }
     //iterate through the responses one by one and add to a list of html elements
     //if they belong to the current form
   }
@@ -99,6 +114,7 @@ class ResponseIndex extends React.Component {
         <main className="bottom-container">
           <div>
             {this.props.formId}
+            {this.renderResponses()}
           </div>
         </main>
       </div>
