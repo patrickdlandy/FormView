@@ -9,7 +9,7 @@ export const mapStateToProps = function(state, ownProps) {
   return({
     currentUser: state.entities.users[state.session.id],
     responses: state.entities.responses,
-    options: state.entities.options
+    options: state.entities.options,
     formId: formId
   })
 }
