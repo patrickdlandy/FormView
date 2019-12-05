@@ -57,22 +57,64 @@ class ResponseIndex extends React.Component {
 
   renderResponses() {
     if (this.state.formLoaded && this.state.elementsLoaded && this.state.optionsLoaded && this.state.responsesLoaded){
+      const localForm = this.props.form;
       const localResponses = this.props.responses;
       const localOptions = this.props.options;
-      //next step is to get the response_ids into an array in jbuilder.
-      const responseEntries = Object.keys(this.props.responses).map(function(responseId, idx) {
-        return(
+      const localElements = this.props.elements;
+      const formEntries = [];
+      const responseStats = {
+          optionTotals: {}
+      };
+      this.props.form.element_ids.forEach(function(elementId) {
+        localElements[elementId].option_ids.forEach(function(optionId) {
+          localOptions[optionId].response_ids.forEach(function(responseId) {
+            responseStats["optionTotals"][elementId] = (responseStats["optionTotals"][elementId] || {});
+            responseStats["optionTotals"][elementId][optionId] = (responseStats["optionTotals"][elementId][optionId] + 1) || 0;
+            console.log(responseStats);
+            formEntries.push({
+              responseId: responseId,
+              formTitle: localForm.name,
+              timestamp: localResponses[responseId].created_at,
+              elementLabel: localElements[elementId].title,
+              optionLabel: localOptions[optionId].title,
+            })
+          })
+        })
+      })
+      const entryMap = formEntries.map(function(resp, idx) {
+        return (
           <div key={idx}>
-            Response ID: {responseId} Option ID: {localResponses[responseId].option_id}
+            Response ID: {resp["responseId"]} Timestamp: {resp["timestamp"]} Question: {resp["elementLabel"]} Option: {resp["optionLabel"]}
+          </div>
+        )
+      })
+      const formTotals = [];
+      Object.keys(responseStats["optionTotals"]).forEach(function(elementId, idx) {
+        localElements[elementId].option_ids.forEach(function(optionId){
+          formTotals.push({
+            elementLabel: localElements[elementId].title,
+            optionLabel: localOptions[optionId].title,
+            responseTotal: responseStats["optionTotals"][elementId][optionId]
+          })
+        })
+      });
+      const statsMap = formTotals.map(function(total, idx) {
+        return (
+          <div key={idx}>
+            Question: {total.elementLabel} Option: {total.optionLabel} Total Responses: {total.responseTotal}
           </div>
         )
       })
       return(
-        <div>{responseEntries}</div>
+        <div>
+          Form Title: {this.props.form.name}
+          <br/>
+          {statsMap}
+          <br/>
+          {entryMap}
+        </div>
       )
     }
-    //iterate through the responses one by one and add to a list of html elements
-    //if they belong to the current form
   }
 
   render() {
@@ -113,7 +155,8 @@ class ResponseIndex extends React.Component {
         </nav>
         <main className="bottom-container">
           <div>
-            {this.props.formId}
+            Form ID: {this.props.formId} 
+            <br/>
             {this.renderResponses()}
           </div>
         </main>
