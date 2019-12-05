@@ -84,7 +84,7 @@ class ResponseIndex extends React.Component {
       const entryMap = formEntries.map(function(resp, idx) {
         return (
           <div key={idx}>
-            Response ID: {resp["responseId"]} Timestamp: {resp["timestamp"]} Question: {resp["elementLabel"]} Option: {resp["optionLabel"]}
+            Response ID: {resp["responseId"]} | Timestamp: {resp["timestamp"]} | Question: {resp["elementLabel"]} | Option: {resp["optionLabel"]}
           </div>
         )
       })
@@ -101,7 +101,7 @@ class ResponseIndex extends React.Component {
       const statsMap = formTotals.map(function(total, idx) {
         return (
           <div key={idx}>
-            Question: {total.elementLabel} Option: {total.optionLabel} Total Responses: {total.responseTotal}
+            Question: {total.elementLabel} | Option: {total.optionLabel} | Total Responses: {total.responseTotal}
           </div>
         )
       })
@@ -157,7 +157,9 @@ class ResponseIndex extends React.Component {
           <div>
             Form ID: {this.props.formId} 
             <br/>
-            {this.renderResponses()}
+            <div className="form-index-header">
+              {this.renderResponses()}
+            </div>
           </div>
         </main>
       </div>
