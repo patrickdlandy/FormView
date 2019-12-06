@@ -13,6 +13,7 @@ import SplashContainer from "./splash/splash_container";
 import FormShowContainer from "./form_show/form_show_container";
 import FormCreateContainer from "./form_create/form_create_container";
 import FormEditContainer from "./form_edit/form_edit_container";
+import FormShareContainer from "./form_share/form_share_container";
 import ResponseIndex from "./response_index/response_index_container";
 const App = () => (
   <div>
@@ -24,6 +25,7 @@ const App = () => (
       <ProtectedRoute path="/new" component={FormCreateContainer} />
       <ProtectedRoute path="/edit/:formId" component={FormEditContainer} />
       <ProtectedRoute path="/responses/:formId" component={ResponseIndex} />
+      <Route exact path="/share/:formId" component={FormShareContainer} />
     </Switch>
   </div>
 );

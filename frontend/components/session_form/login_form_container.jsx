@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import React from 'react';
 import LoginForm from './login_form';
-import { login, clearErrors } from '../../actions/session_actions'
+import { login, clearErrors } from '../../actions/session_actions';
 
 const mapStateToProps = function(state, ownProps) {
     return({
@@ -10,8 +10,7 @@ const mapStateToProps = function(state, ownProps) {
     });
 }
 
-const mapDispatchToProps = function(dispatch, ownProps) {
-    // debugger
+const mapDispatchToProps = function(dispatch) {
     return ({
         processForm: (user) => dispatch(login(user)),
         clearErrors: () => dispatch(clearErrors())
