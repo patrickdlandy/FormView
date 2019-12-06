@@ -286,3 +286,17 @@ I will build this from the bottom up starting with the database table.
 I am having trouble implementing the handleRadioSelection function. When I do it according to Collin's recommendation (nested function with setState) I run into context issues.  When I do it with a separate function, I run into a maximum depth error with repeated calls to setState in a render function.
 
 Maybe I could use an alternate strategy for selection?
+
+UPDATE 12/5: 
+
+Form data display is working and needs to be styled (maybe with a sortable table??)
+
+Now I need to develop basic functionality for the form share feature.
+
+It needs to be similar to the form show, but I am having issues with the controllers depending on a logged in user.
+
+I think there is a way to make a form share component that will only fetch individual forms.  Checking controllers now...The forms controller has a show method that does not depend on a logged in user.
+
+A good scope to shoot for is to make a component container for a component with an unprotected route that will display the form title and description to anyone with the link.
+
+I will start by making a new component with the same nav bar as the login form and a mdtp with the fetchForms action.

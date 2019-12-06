@@ -70,13 +70,12 @@ class ResponseIndex extends React.Component {
           localOptions[optionId].response_ids.forEach(function(responseId) {
             responseStats["optionTotals"][elementId] = (responseStats["optionTotals"][elementId] || {});
             responseStats["optionTotals"][elementId][optionId] = ((responseStats["optionTotals"][elementId][optionId] + 1) || 1);
-            console.log(responseStats);
             formEntries.push({
               responseId: responseId,
               formTitle: localForm.name,
               timestamp: localResponses[responseId].created_at,
               elementLabel: localElements[elementId].title,
-              optionLabel: localOptions[optionId].title,
+              optionLabel: localOptions[optionId].title
             })
           })
         })
