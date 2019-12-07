@@ -22,6 +22,10 @@ class Api::ElementsController < ApplicationController
       end
   end
 
+  def show
+      @element = Element.find(params[:id])
+  end
+
  def create
     @element = Element.new(element_params)
     if @element.save
