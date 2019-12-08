@@ -26,7 +26,7 @@ class FormShow extends React.Component {
     contentChange(key) {
         this.setState({
                [key]: true
-            });
+        });
     }
 
     responseChange(elementId, optionId) {

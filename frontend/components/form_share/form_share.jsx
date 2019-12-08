@@ -5,32 +5,53 @@ class FormShare extends React.Component {
   constructor(props) {
     super(props);
     this.fetchElements = this.fetchElements.bind(this);
+    this.fetchOptions = this.fetchOptions.bind(this);
+    this.contentChange = this.contentChange.bind(this);
     this.state = {
       submitted: false,
-      elementIds: []
+      formLoaded: false,
+      elementsLoaded: false,
+      optionsLoaded: false,
     }
   }
-  
-  // update(field) {
-  //   return e => this.setState({
-  //     [field]: e.currentTarget.value
-  //   })
-  // }
+
+  contentChange(key) {
+    this.setState({
+      [key]: true
+    });
+  }
 
   fetchElements() {
     const localElementIds = this.props.form.element_ids;
     const localFetchElement = this.props.fetchElement;
     localElementIds.forEach(function(id) {
-      console.log(id);
       localFetchElement(id);
     });
   }
 
+  fetchOptions(option_ids) {
+    const localFetchOption = this.props.fetchOptions;
+    option_ids.forEach(function(id) {
+      console.log(id);
+      localFetchOption(id);
+    })
+  }
+
   componentDidMount() {
-    const localfetchElements = this.fetchElements;
+    const localContentChange = this.contentChange;
+    const localFetchElements = this.fetchElements;
     this.props.fetchForm(this.props.formId).then( function() {
-      localfetchElements();
+      console.log("Form Fetched!");
+      localContentChange("formLoaded");
+      localFetchElements();
+    }).then(function () {
+      console.log('Elements Fetched!');
     });
+  }
+
+  componentDidUpdate() {
+    //need to deal with fetching options here once elements are loaded
+    console.log('update');
   }
   
   renderErrors() {

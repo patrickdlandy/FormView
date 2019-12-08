@@ -14,6 +14,10 @@ class Api::OptionsController < ApplicationController
     end
   end
 
+  def show
+    @option = Option.find(params[:id])
+  end
+
   def create
     @option = Option.new(option_params)
     if @option.save
