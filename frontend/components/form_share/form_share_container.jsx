@@ -3,7 +3,7 @@ import React from 'react';
 import FormShare from './form_share';
 import { fetchForm } from '../../actions/form_actions';
 import { fetchElement } from '../../actions/element_actions';
-import { fetchOptions } from '../../actions/option_actions';
+import { fetchOption } from '../../actions/option_actions';
 
 const mapStateToProps =  function(state, ownProps) {
   const formId = parseInt(ownProps.match.params.formId);

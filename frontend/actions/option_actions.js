@@ -40,6 +40,19 @@ export const clearOptionErrors = function(errors) {
 }
 //THUNKS
 
+export const fetchOption = function (id) {
+  return function (dispatch) {
+    return OptionApiUtil.fetchOption(id).then(
+      function (payload) {
+        dispatch(receiveOption(payload));
+      },
+      function (err) {
+        dispatch(receiveOptionErrors(err.responseJSON));
+      }
+    );
+  }
+}
+
 export const fetchOptions = function() {
   return function(dispatch) {
     return OptionApiUtil.fetchOptions().then(

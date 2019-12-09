@@ -12,6 +12,8 @@ class FormShare extends React.Component {
       formLoaded: false,
       elementsLoaded: false,
       optionsLoaded: false,
+      element_ids: false,
+      option_ids: false
     }
   }
 
@@ -21,20 +23,36 @@ class FormShare extends React.Component {
     });
   }
 
+
   fetchElements() {
     const localElementIds = this.props.form.element_ids;
     const localFetchElement = this.props.fetchElement;
-    localElementIds.forEach(function(id) {
-      localFetchElement(id);
+    const localContentChange = this.contentChange;
+    const localFetchOptions = this.fetchOptions;
+    localElementIds.forEach(function(id, idx) {
+      console.log(idx);
+      //all promises need to resolve before localFetchOptions() is called.
+      //how can I set this up? Local State?
+      localFetchElement(id).then(() => {
+        console.log(localElementIds);
+        console.log(idx);
+        console.log(localElementIds.length);
+        //how can I fetch the options for this element only?
+        //maybe i can write a method that accepts an element id
+        //and fetches options based on the option ids in local state.
+        localFetchOptions(id);
+      });
     });
   }
 
-  fetchOptions(option_ids) {
-    const localFetchOption = this.props.fetchOptions;
-    option_ids.forEach(function(id) {
-      console.log(id);
-      localFetchOption(id);
+  fetchOptions(element_id) {
+    //this method fetches the options associated with an element in local state
+    const localFetchOption = this.props.fetchOption;
+    const localElement = this.props.elements[element_id];
+    localElement.option_ids.forEach(function(option_id, idx) {
+      localFetchOption(option_id);
     })
+   
   }
 
   componentDidMount() {
@@ -44,14 +62,12 @@ class FormShare extends React.Component {
       console.log("Form Fetched!");
       localContentChange("formLoaded");
       localFetchElements();
-    }).then(function () {
-      console.log('Elements Fetched!');
     });
   }
 
   componentDidUpdate() {
     //need to deal with fetching options here once elements are loaded
-    console.log('update');
+    // console.log('update');
   }
   
   renderErrors() {
