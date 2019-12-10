@@ -16,7 +16,7 @@ export const receiveOptions = function(options) {
 export const receiveOption = function (option) {
   return ({
     type: RECEIVE_OPTION,
-    options: option
+    option: option
   })
 }
 
