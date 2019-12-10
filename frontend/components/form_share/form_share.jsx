@@ -39,8 +39,6 @@ class FormShare extends React.Component {
           [elementId]: optionId
         }
       })
-    }, function () {
-      console.log(this.state.responses);
     });
   }
 

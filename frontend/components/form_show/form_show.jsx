@@ -93,7 +93,6 @@ class FormShow extends React.Component {
                     <br/>
                     <Link to={`/edit/${this.props.form.id}`}>Edit Form</Link>
                     <br/>
-                    <button onClick={this.handleSubmit}>Submit</button>
                 </div>
             );
         }
