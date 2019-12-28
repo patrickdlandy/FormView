@@ -57,9 +57,9 @@ class ResponseIndex extends React.Component {
     });
   }
 
-  sortableTable(data, columns, defSort)  {
+  sortableTable(title, data, columns, defSort)  {
     return (<DataTable
-      title="Movie List"
+      title={title}
       columns={columns}
       data={data}
       defaultSortField={defSort}
@@ -78,18 +78,35 @@ class ResponseIndex extends React.Component {
       };
       const indexColumns = [
         {
-          name: 'Question Label',
+          name: 'Question',
           selector: 'elementLabel',
           sortable: true,
         },
         {
-          name: 'Option Label',
+          name: 'Option',
           selector: 'optionLabel',
           sortable: true,
         },
         {
           name: 'Timestamp',
           selector: 'timestamp',
+          sortable: true,
+        },
+      ];
+      const summaryColumns = [
+        {
+          name: 'Question',
+          selector: 'elementLabel',
+          sortable: true,
+        },
+        {
+          name: 'Option',
+          selector: 'optionLabel',
+          sortable: true,
+        },
+        {
+          name: 'Total Responses',
+          selector: 'responseTotal',
           sortable: true,
         },
       ];
@@ -134,13 +151,13 @@ class ResponseIndex extends React.Component {
       })
       return(
         <div>
-          Form Title: {this.props.form.name}
           <br/>
-          {statsMap}
+          <h2 className="general-sub-header">
+            Form Title: {this.props.form.name}
+          </h2>
+          {this.sortableTable("Survey Response Summary", formTotals, summaryColumns, "elementLabel")}
           <br/>
-          {entryMap}
-          <br/>
-          {this.sortableTable(formEntries, indexColumns, "elementLabel")}
+          {this.sortableTable("Survey Response List", formEntries, indexColumns, "elementLabel")}
         </div>
       )
     }
@@ -184,11 +201,7 @@ class ResponseIndex extends React.Component {
         </nav>
         <main className="bottom-container">
           <div>
-            Form ID: {this.props.formId} 
-            <br/>
-            <div className="form-index-header">
               {this.renderResponses()}
-            </div>
           </div>
         </main>
       </div>
