@@ -98,7 +98,7 @@ class FormEdit extends React.Component {
         let myhistory = this.props.history;
         let id = this.props.form.id;
         this.props.deleteForm(id).then(() => {
-            myhistory.push(`/`)
+            myhistory.push(`/`);
         });
     }
 
@@ -107,7 +107,8 @@ class FormEdit extends React.Component {
         let myhistory = this.props.history;
         let id = this.props.form.id;
         this.props.updateForm({form: this.state.form}).then(() => {
-            myhistory.push(`/forms/${id}`)
+            myhistory.push(`/`);
+            myhistory.push(`/edit/${id}`);
         });
     }
 

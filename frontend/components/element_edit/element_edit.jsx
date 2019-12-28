@@ -31,7 +31,8 @@ class ElementEdit extends React.Component {
     let myhistory = this.props.history;
     let id = this.props.formId;
     this.props.updateElement({ element: this.state }).then(() => {
-      myhistory.push(`/forms/${id}`);
+      myhistory.push(`/`);
+      myhistory.push(`/edit/${id}`);
     });
   }
 
@@ -40,7 +41,8 @@ class ElementEdit extends React.Component {
     let myhistory = this.props.history;
     let id = this.props.formId;
     this.props.deleteElement(this.props.id).then(() => {
-      myhistory.push(`/forms/${id}`);
+      myhistory.push(`/`);
+      myhistory.push(`/edit/${id}`);
     });
   }
 

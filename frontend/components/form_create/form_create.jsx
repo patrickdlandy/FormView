@@ -37,7 +37,7 @@ class FormCreate extends React.Component {
         e.preventDefault();
         let myhistory = this.props.history;
         this.props.createForm({form: this.state}).then(() => {
-            myhistory.push("/")
+            myhistory.push(`/`);
         });
     }
 
