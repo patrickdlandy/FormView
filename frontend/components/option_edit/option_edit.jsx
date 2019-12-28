@@ -38,7 +38,7 @@ class OptionEdit extends React.Component {
     let myhistory = this.props.history;
     let id = this.props.formId;
     this.props.updateOption({ option: this.state }).then(() => {
-      myhistory.push(`/`);
+      myhistory.push(`/placeholder`);
       myhistory.push(`/edit/${id}`);
     });
   }
@@ -48,7 +48,7 @@ class OptionEdit extends React.Component {
     let myhistory = this.props.history;
     let id = this.props.formId;
     this.props.deleteOption(this.props.option).then(() => {
-      myhistory.push(`/`);
+      myhistory.push(`/placeholder`);
       myhistory.push(`/edit/${id}`);
     });
   }

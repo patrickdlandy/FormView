@@ -38,7 +38,7 @@ class OptionCreate extends React.Component {
     let myhistory = this.props.history;
     let id = this.props.formId;
     this.props.createOption({ option: this.state }).then(() => {
-      myhistory.push(`/`);
+      myhistory.push(`/placeholder`);
       myhistory.push(`/edit/${id}`);
     });
   }

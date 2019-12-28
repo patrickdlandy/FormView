@@ -107,7 +107,7 @@ class FormEdit extends React.Component {
         let myhistory = this.props.history;
         let id = this.props.form.id;
         this.props.updateForm({form: this.state.form}).then(() => {
-            myhistory.push(`/`);
+            myhistory.push(`/placeholder`);
             myhistory.push(`/edit/${id}`);
         });
     }

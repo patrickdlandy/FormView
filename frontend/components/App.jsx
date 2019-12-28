@@ -15,6 +15,7 @@ import FormCreateContainer from "./form_create/form_create_container";
 import FormEditContainer from "./form_edit/form_edit_container";
 import FormShareContainer from "./form_share/form_share_container";
 import ResponseIndex from "./response_index/response_index_container";
+import Placeholder from "./placeholder/placeholder";
 const App = () => (
   <div>
     <Switch>
@@ -25,6 +26,7 @@ const App = () => (
       <ProtectedRoute path="/new" component={FormCreateContainer} />
       <ProtectedRoute path="/edit/:formId" component={FormEditContainer} />
       <ProtectedRoute path="/responses/:formId" component={ResponseIndex} />
+      <ProtectedRoute path="/placeholder" component={Placeholder} />
       <Route exact path="/share/:formId" component={FormShareContainer} />
     </Switch>
   </div>
