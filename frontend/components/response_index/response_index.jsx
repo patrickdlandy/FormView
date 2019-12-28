@@ -2,12 +2,14 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
+import DataTable from 'react-data-table-component';
 
 class ResponseIndex extends React.Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
     this.contentChange = this.contentChange.bind(this);
+    this.sortableTable = this.sortableTable.bind(this);
     this.state = {
       menuDisplayed: false,
       responsesLoaded: false,
@@ -55,6 +57,15 @@ class ResponseIndex extends React.Component {
     });
   }
 
+  sortableTable(data, columns, defSort)  {
+    return (<DataTable
+      title="Movie List"
+      columns={columns}
+      data={data}
+      defaultSortField={defSort}
+    />)
+  }
+
   renderResponses() {
     if (this.state.formLoaded && this.state.elementsLoaded && this.state.optionsLoaded && this.state.responsesLoaded){
       const localForm = this.props.form;
@@ -65,6 +76,23 @@ class ResponseIndex extends React.Component {
       const responseStats = {
           optionTotals: {}
       };
+      const indexColumns = [
+        {
+          name: 'Question Label',
+          selector: 'elementLabel',
+          sortable: true,
+        },
+        {
+          name: 'Option Label',
+          selector: 'optionLabel',
+          sortable: true,
+        },
+        {
+          name: 'Timestamp',
+          selector: 'timestamp',
+          sortable: true,
+        },
+      ];
       this.props.form.element_ids.forEach(function(elementId) {
         localElements[elementId].option_ids.forEach(function(optionId) {
           localOptions[optionId].response_ids.forEach(function(responseId) {
@@ -111,6 +139,8 @@ class ResponseIndex extends React.Component {
           {statsMap}
           <br/>
           {entryMap}
+          <br/>
+          {this.sortableTable(formEntries, indexColumns, "elementLabel")}
         </div>
       )
     }
