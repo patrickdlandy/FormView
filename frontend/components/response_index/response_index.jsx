@@ -154,14 +154,17 @@ class ResponseIndex extends React.Component {
         // let numOptions = Object.keys(localElements[elementId].option_ids).length;
         let tally = 0;
         localElements[elementId].option_ids.forEach(function (optionId) {
-          tally += responseStats["optionTotals"][elementId][optionId];
+          if (responseStats["optionTotals"][elementId][optionId]) {
+            tally += responseStats["optionTotals"][elementId][optionId];
+          }
         });
+        console.log(tally);
         localElements[elementId].option_ids.forEach(function(optionId){
           formTotals.push({
             elementLabel: localElements[elementId].title,
             optionLabel: localOptions[optionId].title,
             responseTotal: responseStats["optionTotals"][elementId][optionId],
-            fractionOfTotal: (Math.floor(responseStats["optionTotals"][elementId][optionId]/tally*1000)/10).toString() + "%"
+            fractionOfTotal: !responseStats["optionTotals"][elementId][optionId] ? "0%" : (Math.floor(responseStats["optionTotals"][elementId][optionId]/tally*1000)/10).toString() + "%"
           })
         })
       });
