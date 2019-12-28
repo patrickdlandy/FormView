@@ -83,9 +83,19 @@ class ResponseIndex extends React.Component {
           sortable: true,
         },
         {
+          name: 'Question Body',
+          selector: 'elementBody',
+          sortable: false,
+        },
+        {
           name: 'Option',
           selector: 'optionLabel',
           sortable: true,
+        },
+        {
+          name: 'Option Body',
+          selector: 'optionBody',
+          sortable: false,
         },
         {
           name: 'Timestamp',
@@ -109,6 +119,11 @@ class ResponseIndex extends React.Component {
           selector: 'responseTotal',
           sortable: true,
         },
+        {
+          name: 'Response Percentage for this Question',
+          selector: 'fractionOfTotal',
+          sortable: true,
+        }
       ];
       this.props.form.element_ids.forEach(function(elementId) {
         localElements[elementId].option_ids.forEach(function(optionId) {
@@ -120,35 +135,43 @@ class ResponseIndex extends React.Component {
               formTitle: localForm.name,
               timestamp: localResponses[responseId].created_at,
               elementLabel: localElements[elementId].title,
-              optionLabel: localOptions[optionId].title
+              elementBody: localElements[elementId].body,
+              optionLabel: localOptions[optionId].title,
+              optionBody: localOptions[optionId].body
             })
           })
         })
       })
-      const entryMap = formEntries.map(function(resp, idx) {
-        return (
-          <div key={idx}>
-            Response ID: {resp["responseId"]} | Timestamp: {resp["timestamp"]} | Question: {resp["elementLabel"]} | Option: {resp["optionLabel"]}
-          </div>
-        )
-      })
+      // const entryMap = formEntries.map(function(resp, idx) {
+      //   return (
+      //     <div key={idx}>
+      //       Response ID: {resp["responseId"]} | Timestamp: {resp["timestamp"]} | Question: {resp["elementLabel"]} | Option: {resp["optionLabel"]}
+      //     </div>
+      //   )
+      // })
       const formTotals = [];
       Object.keys(responseStats["optionTotals"]).forEach(function(elementId, idx) {
+        // let numOptions = Object.keys(localElements[elementId].option_ids).length;
+        let tally = 0;
+        localElements[elementId].option_ids.forEach(function (optionId) {
+          tally += responseStats["optionTotals"][elementId][optionId];
+        });
         localElements[elementId].option_ids.forEach(function(optionId){
           formTotals.push({
             elementLabel: localElements[elementId].title,
             optionLabel: localOptions[optionId].title,
-            responseTotal: responseStats["optionTotals"][elementId][optionId]
+            responseTotal: responseStats["optionTotals"][elementId][optionId],
+            fractionOfTotal: (Math.floor(responseStats["optionTotals"][elementId][optionId]/tally*1000)/10).toString() + "%"
           })
         })
       });
-      const statsMap = formTotals.map(function(total, idx) {
-        return (
-          <div key={idx}>
-            Question: {total.elementLabel} | Option: {total.optionLabel} | Total Responses: {total.responseTotal}
-          </div>
-        )
-      })
+      // const statsMap = formTotals.map(function(total, idx) {
+      //   return (
+      //     <div key={idx}>
+      //       Question: {total.elementLabel} | Option: {total.optionLabel} | Total Responses: {total.responseTotal}
+      //     </div>
+      //   )
+      // })
       return(
         <div>
           <br/>
