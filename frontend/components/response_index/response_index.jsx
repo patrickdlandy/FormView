@@ -110,9 +110,19 @@ class ResponseIndex extends React.Component {
           sortable: true,
         },
         {
+          name: 'Question Body',
+          selector: 'elementBody',
+          sortable: false,
+        },
+        {
           name: 'Option',
           selector: 'optionLabel',
           sortable: true,
+        },
+        {
+          name: 'Option Body',
+          selector: 'optionBody',
+          sortable: false,
         },
         {
           name: 'Total Responses',
@@ -162,7 +172,9 @@ class ResponseIndex extends React.Component {
         localElements[elementId].option_ids.forEach(function(optionId){
           formTotals.push({
             elementLabel: localElements[elementId].title,
+            elementBody: localElements[elementId].body,
             optionLabel: localOptions[optionId].title,
+            optionBody: localOptions[optionId].body,
             responseTotal: responseStats["optionTotals"][elementId][optionId],
             fractionOfTotal: !responseStats["optionTotals"][elementId][optionId] ? "0%" : (Math.floor(responseStats["optionTotals"][elementId][optionId]/tally*1000)/10).toString() + "%"
           })
