@@ -86,6 +86,7 @@ class ResponseIndex extends React.Component {
           name: 'Question Body',
           selector: 'elementBody',
           sortable: false,
+          grow: 2,
         },
         {
           name: 'Option',
@@ -108,31 +109,37 @@ class ResponseIndex extends React.Component {
           name: 'Question',
           selector: 'elementLabel',
           sortable: true,
+          grow: 1,
         },
         {
           name: 'Question Body',
           selector: 'elementBody',
           sortable: false,
+          grow: 3,
         },
         {
           name: 'Option',
           selector: 'optionLabel',
           sortable: true,
+          grow: 1,
         },
         {
           name: 'Option Body',
           selector: 'optionBody',
           sortable: false,
+          grow: 1,
         },
         {
           name: 'Total Responses',
           selector: 'responseTotal',
           sortable: true,
+          grow: 1,
         },
         {
           name: 'Response Percentage for this Question',
           selector: 'fractionOfTotal',
           sortable: true,
+          grow: 1,
         }
       ];
       this.props.form.element_ids.forEach(function(elementId) {
