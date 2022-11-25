@@ -4,11 +4,20 @@ Patrick Landy
 
 FormView is a single-page web application that uses PostgreSQL, Ruby on Rails, and React/Redux. It mimics the appearance and functionality of Wufoo by SurveyMonkey (https://www.wufoo.com/).
 
-The application allows users to sign up, log in and log out of the site with user authentication and password digest/session management. Password digests generated using BCrypt and session tokens are stored in the database. It also demonstrates full CRUD (Create, Read, Update, Destroy) functionality for survey forms and subcomponents.
+The application allows users to sign up, log in and log out of the site with user authentication and password digest/session management. Password digests generated using BCrypt and session tokens are stored in the database. It also demonstrates full CRUD (Create, Read, Update, Destroy) functionality for survey forms and subcomponents. The application allows users to create forms with multiple choice questions, share the forms with others, and view a data table of submissions.
 
-Additional planned features for FormView include form sharing, form data display, and different question types.
+FormView was deployed to a free Heroku tier from November 2019 - November 2022. It was taken down when Heroku stopped offering free hosting. Here are screenshots taken while hosted on Heroku:
 
-FormView has been deployed to Heroku here: https://formview.herokuapp.com/
+![](./screenshots/fv_01_home.png)
+![](./screenshots/fv_02_splash_01.png)
+![](./screenshots/fv_03_splash_footer.png)
+![](./screenshots/fv_04_signup.png)
+![](./screenshots/fv_05_login.png)
+![](./screenshots/fv_06_Form_Manager.png)
+![](./screenshots/fv_07_shared_form.png)
+![](./screenshots/fv_08_survey_response_summary.png)
+![](./screenshots/fv_09_form_editor.png)
+
 
 Splash page glyptodon graphic credits: Rachel Margolis
 
@@ -29,7 +38,7 @@ Splash page glyptodon graphic credits: Rachel Margolis
         * HashRouter for front end routing
 * CSS Styling for JSX components
 
-# Key Feature Overview:
+# Selected Key Feature Overview:
 
 ## Splash Page (front end route: #/)
 
